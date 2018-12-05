@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mundi-xu.github.io">
-  <title>一种神奇的rsa加密算法 | Mundi</title>
+  <title>一种神奇的rsa加密算法 | Mundi&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新的算法并没有透露 ‘n’，只给定了两个大整数：(p*q)^(p+q) 和 (p*q)^(p-q)，其中 ^ 是按位异或运算。  123456789101112131415#!/usr/bin/env python3import sympyp = sympy.randprime(2 ** 1023, 2 ** 1024)q = sympy.randprime(2 ** 1023, 2 ** 102">
+  <meta name="description" content="新的算法并没有透露 n，只给定了两个大整数：(p*q)^(p+q) 和 (p*q)^(p-q)，其中 ^ 是按位异或运算。  123456789101112131415#!/usr/bin/env python3import sympyp = sympy.randprime(2 ** 1023, 2 ** 1024)q = sympy.randprime(2 ** 1023, 2 ** 1024)">
 <meta name="keywords" content="rsa,python3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一种神奇的rsa加密算法">
 <meta property="og:url" content="https://mundi-xu.github.io/2018/11/29/一种神奇的rsa加密算法/index.html">
-<meta property="og:site_name" content="Mundi">
-<meta property="og:description" content="新的算法并没有透露 ‘n’，只给定了两个大整数：(p*q)^(p+q) 和 (p*q)^(p-q)，其中 ^ 是按位异或运算。  123456789101112131415#!/usr/bin/env python3import sympyp = sympy.randprime(2 ** 1023, 2 ** 1024)q = sympy.randprime(2 ** 1023, 2 ** 102">
+<meta property="og:site_name" content="Mundi&#39;s Blog">
+<meta property="og:description" content="新的算法并没有透露 n，只给定了两个大整数：(p*q)^(p+q) 和 (p*q)^(p-q)，其中 ^ 是按位异或运算。  123456789101112131415#!/usr/bin/env python3import sympyp = sympy.randprime(2 ** 1023, 2 ** 1024)q = sympy.randprime(2 ** 1023, 2 ** 1024)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-01T03:55:01.844Z">
+<meta property="og:updated_time" content="2018-12-05T14:22:20.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一种神奇的rsa加密算法">
-<meta name="twitter:description" content="新的算法并没有透露 ‘n’，只给定了两个大整数：(p*q)^(p+q) 和 (p*q)^(p-q)，其中 ^ 是按位异或运算。  123456789101112131415#!/usr/bin/env python3import sympyp = sympy.randprime(2 ** 1023, 2 ** 1024)q = sympy.randprime(2 ** 1023, 2 ** 102">
+<meta name="twitter:description" content="新的算法并没有透露 n，只给定了两个大整数：(p*q)^(p+q) 和 (p*q)^(p-q)，其中 ^ 是按位异或运算。  123456789101112131415#!/usr/bin/env python3import sympyp = sympy.randprime(2 ** 1023, 2 ** 1024)q = sympy.randprime(2 ** 1023, 2 ** 1024)">
   
-    <link rel="alternative" href="/atom.xml" title="Mundi" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Mundi&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -74,8 +74,6 @@
     			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -169,7 +167,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>新的算法并没有透露 ‘n’，只给定了两个大整数：<code>(p*q)^(p+q)</code> 和 <code>(p*q)^(p-q)</code>，其中 <code>^</code> 是按位异或运算。</strong></p>
+        <p><strong>新的算法并没有透露 <code>n</code>，只给定了两个大整数：<code>(p*q)^(p+q)</code> 和 <code>(p*q)^(p-q)</code>，其中 <code>^</code> 是按位异或运算。</strong></p>
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sympy</span><br><span class="line"></span><br><span class="line">p = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line">q = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line"></span><br><span class="line">a = (p * q) ^ (p + q)</span><br><span class="line">b = (p * q) ^ (p - q)</span><br><span class="line"></span><br><span class="line">flag = open(&apos;flag.txt&apos;, &apos;rb&apos;).read()</span><br><span class="line">m = int.from_bytes(flag, &apos;big&apos;)</span><br><span class="line"></span><br><span class="line">print(a, b, pow(m, 65537, p * q))</span><br></pre></td></tr></table></figure>
       
@@ -303,6 +301,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://mundi-xu.github.io/2018/11/29/一种神奇的rsa加密算法/",
+  owner: 'Mundi-Xu',
+  repo: 'blog-s-comments',
+  oauth: {
+    client_id: '1331118797b631adeeb5',
+    client_secret: 'e92554fbe789419737f28e321741cea1c086fcab',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -357,8 +371,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
-      
-      
     
     
 
@@ -366,15 +378,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -466,17 +476,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <a href="http://isa.xiaolab.net/afctf/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Afctf</a>
             </li>
           
+            <li class="search-li">
+              <a href="http://115.157.200.135/acm/index.jsp" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CG Online Judge</a>
+            </li>
+          
         </ul>
   		
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一条失去梦想的咸鱼&lt;br /&gt;</div>
-  	  	
-    	</section>
     
   </div>
   
@@ -548,5 +556,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":false},"log":false});</script></body>
 </html>
