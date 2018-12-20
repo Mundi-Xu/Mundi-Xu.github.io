@@ -75,7 +75,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
+					<a class="weibo" target="_blank" href="http://weibo.com/mundi/" title="weibo"><i class="icon-weibo"></i></a>
+		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/30432756/" title="bilibili"><i class="icon-bilibili"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:sola_mundi@outlook" title="mail"><i class="icon-mail"></i></a>
 		        
 					<a class="facebook" target="_blank" href="https://www.facebook.com/mundi.xu.1" title="facebook"><i class="icon-facebook"></i></a>
 		        
@@ -114,7 +118,11 @@
 			<nav class="header-nav">
 				<div class="social">
 					
+						<a class="weibo" target="_blank" href="http://weibo.com/mundi/" title="weibo"><i class="icon-weibo"></i></a>
+			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/30432756/" title="bilibili"><i class="icon-bilibili"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:sola_mundi@outlook" title="mail"><i class="icon-mail"></i></a>
 			        
 						<a class="facebook" target="_blank" href="https://www.facebook.com/mundi.xu.1" title="facebook"><i class="icon-facebook"></i></a>
 			        
@@ -164,7 +172,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="不管你用了什么方式"><a href="#不管你用了什么方式" class="headerlink" title="不管你用了什么方式"></a>不管你用了什么方式</h3><h2 id="首先恭喜你找到了这里"><a href="#首先恭喜你找到了这里" class="headerlink" title="首先恭喜你找到了这里"></a>首先恭喜你找到了这里</h2><h3 id="然而"><a href="#然而" class="headerlink" title="然而"></a>然而</h3><h3 id="我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝"><a href="#我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝" class="headerlink" title="我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝"></a>我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝</h3><h2 id="先来试试这个吧"><a href="#先来试试这个吧" class="headerlink" title="先来试试这个吧"></a>先来试试这个吧</h2><h2 id="lofqvtowg"><a href="#lofqvtowg" class="headerlink" title="lofqvtowg"></a>lofqvtowg</h2><h3 id="或者直接社工我也是可以的哦"><a href="#或者直接社工我也是可以的哦" class="headerlink" title="或者直接社工我也是可以的哦~"></a>或者直接社工我也是可以的哦~</h3>
+        <h3 id="不管你用了什么方式"><a href="#不管你用了什么方式" class="headerlink" title="不管你用了什么方式"></a>不管你用了什么方式</h3><h2 id="首先恭喜你找到了这里"><a href="#首先恭喜你找到了这里" class="headerlink" title="首先恭喜你找到了这里"></a>首先恭喜你找到了这里</h2><h3 id="然而"><a href="#然而" class="headerlink" title="然而"></a>然而</h3><h3 id="我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝"><a href="#我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝" class="headerlink" title="我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝"></a>我当然不会这么容易就把flag给你的啊哈哈哈哈哈哈哈嗝</h3><h2 id="先来试试这个吧"><a href="#先来试试这个吧" class="headerlink" title="先来试试这个吧"></a>先来试试这个吧</h2><h2 id="lofqvtowg"><a href="#lofqvtowg" class="headerlink" title="lofqvtowg"></a>lofqvtowg</h2><h3 id="或者直接社工我也是可以的哦"><a href="#或者直接社工我也是可以的哦" class="headerlink" title="或者直接社工我也是可以的哦~"></a>或者直接社工我也是可以的哦~</h3><hr>
+<p><strong>2018年12月20日更新</strong></p>
+<hr>
+<h2 id="部分writeup已更新在上一篇博客"><a href="#部分writeup已更新在上一篇博客" class="headerlink" title="部分writeup已更新在上一篇博客"></a>部分writeup已更新在上一篇博客</h2>
       
 
       
@@ -244,6 +255,17 @@
         <p><strong>新的算法并没有透露 <code>n</code>，只给定了两个大整数：<code>(p*q)^(p+q)</code> 和 <code>(p*q)^(p-q)</code>，其中 <code>^</code> 是按位异或运算。</strong></p>
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sympy</span><br><span class="line"></span><br><span class="line">p = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line">q = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line"></span><br><span class="line">a = (p * q) ^ (p + q)</span><br><span class="line">b = (p * q) ^ (p - q)</span><br><span class="line"></span><br><span class="line">flag = open(&apos;flag.txt&apos;, &apos;rb&apos;).read()</span><br><span class="line">m = int.from_bytes(flag, &apos;big&apos;)</span><br><span class="line"></span><br><span class="line">print(a, b, pow(m, 65537, p * q))</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>2018年12月20日更新</strong></p>
+<hr>
+<p>我们定义 f1(x, y) = (x <em> y) ^ (x + y) 和 f2(x, y) = (x </em> y) ^ (x - y)，我们发现这两个函数都有一个共同的性质，就是函数值的最低 n 个二进制位只和 x、y 的最低 n 个二进制位有关。也就是说，我们可以用 a 和 b 的最低 n 位来判断 p 和 q 的最低 n 位是否可能正确。如果它们的最低 n 位满足 f1 和 f2 函数，那么它们就是 p 和 q 低位的候选答案；如果不满足，它们就根本不可能是真正 p 和 q 的低位。所以我们可以从一个二进制位（n=1）开始，每次增加一位。每增加一位时，我们把原来满足条件的 p 和 q 低位的每种可能情况分别在前面加上 0 或 1，这样每种情况就变成了 4 种新的情况，然后对所有新的情况用 f1 和 f2 函数提供的约束条件进行过滤，只保留满足条件的情况。当跑到 1024 位的时候，就只会剩下真正满足条件的 p 和 q 了。然后，我们根据 RSA 的原理，在 mod (p-1)<em>(q-1) 的意义下对 e 求逆元，得到私钥 d，计算 pow(c, d, p </em> q) 即可得到 flag 的大整数表示。</p>
+<hr>
+<p><strong>求解脚本如下</strong></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import gmpy2</span><br><span class="line"></span><br><span class="line">a, b, c = [int(s) for s in open(&apos;output.txt&apos;).read().split()]</span><br><span class="line">#已将加密内容保存到 output.txt 文件中</span><br><span class="line"></span><br><span class="line">f1 = lambda p, q: (p * q) ^ (p + q)</span><br><span class="line">f2 = lambda p, q: (p * q) ^ (p - q)</span><br><span class="line"></span><br><span class="line">candidates = &#123;(0, 0)&#125;</span><br><span class="line"></span><br><span class="line">for m in range(1025):</span><br><span class="line">    print(m, len(candidates))</span><br><span class="line">    candidates_ = set()</span><br><span class="line">    mask = (2 &lt;&lt; m) - 1</span><br><span class="line">    for x, y in candidates:</span><br><span class="line">        if f1(x, y) == a and f2(x, y) == b:</span><br><span class="line">            p, q = x, y</span><br><span class="line">            d = gmpy2.invert(65537, (p - 1) * (q - 1))</span><br><span class="line">            m = pow(c, d, p * q)</span><br><span class="line">            print(bytes.fromhex(hex(m)[2:]))</span><br><span class="line">            exit()</span><br><span class="line">        for bx in range(2):</span><br><span class="line">            for by in range(2):</span><br><span class="line">                xx = x + (bx &lt;&lt; m)</span><br><span class="line">                yy = y + (by &lt;&lt; m)</span><br><span class="line">                if f1(xx, yy) &amp; mask != a &amp; mask:</span><br><span class="line">                    continue</span><br><span class="line">                if f2(xx, yy) &amp; mask != b &amp; mask:</span><br><span class="line">                    continue</span><br><span class="line">                candidates_.add((xx, yy))</span><br><span class="line">candidates = candidates_</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>不知道有几个人做出来了呢（:坏笑:）</strong></p>
+
       
 
       
@@ -261,6 +283,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python3</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">afctf</a>
         		</li>
       		
 		</ul>
