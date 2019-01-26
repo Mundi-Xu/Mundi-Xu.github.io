@@ -46,10 +46,10 @@
 			<img src="/img/headicon.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">mundi-xu</a></h1>
+		  <h1 class="header-author"><a href="/">寒雨</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">Life without code is like dying.</p>
+		<p class="header-subtitle">How much truth of heart in one’s life is told in a joke?</p>
 		
 
 		<nav class="header-menu">
@@ -70,6 +70,8 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">aboutme</a>
+    			
             
 		</nav>
 		<nav class="header-nav">
@@ -82,8 +84,6 @@
 					<a class="mail" target="_blank" href="mailto:sola_mundi@outlook" title="mail"><i class="icon-mail"></i></a>
 		        
 					<a class="facebook" target="_blank" href="https://www.facebook.com/mundi.xu.1" title="facebook"><i class="icon-facebook"></i></a>
-		        
-					<a class="google" target="_blank" href="https://sites.google.com/view/mundi-xu/" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -104,10 +104,10 @@
 				<img src="/img/headicon.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">mundi-xu</h1>
+			  <h1 class="header-author js-header-author">寒雨</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Life without code is like dying.<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>How much truth of heart in one’s life is told in a joke?<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -125,8 +125,6 @@
 						<a class="mail" target="_blank" href="mailto:sola_mundi@outlook" title="mail"><i class="icon-mail"></i></a>
 			        
 						<a class="facebook" target="_blank" href="https://www.facebook.com/mundi.xu.1" title="facebook"><i class="icon-facebook"></i></a>
-			        
-						<a class="google" target="_blank" href="https://sites.google.com/view/mundi-xu/" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -202,7 +200,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 mundi-xu.All Rights Reserved.
+    		&copy; 2019 寒雨.All Rights Reserved.
     	</div>
       	<div class="footer-right">
       		<a href="mailto:sola_mundi@outlook" target="_blank">Mail:</a> sola_mundi@outlook.com
@@ -247,6 +245,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
     
 
@@ -254,13 +254,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">aboutme</a></li>
       
         
     </ul>
@@ -361,6 +363,12 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">曾遇红颜惊艳时光辜负岁月 &lt;br /&gt;   到头来   &lt;br /&gt;  一声叹   一生憾</div>
+  	  	
+    	</section>
     
   </div>
   
