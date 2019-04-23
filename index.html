@@ -172,7 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一次，因为游戏，失眠两天呢……<br>果然，还是羡慕那个有着墨小菊，被人关心着的邱诚啊……<br>可能，再也不会有二周目了……<br>也是第一次，明明不肯错过所有结局的我，放弃了全成就，比起文芷，墨小菊才是让我更心痛的人吧……<br>仿佛看到了以后和小菊结婚后到墨叔家吃饭,墨叔拼命给我灌酒,一边笑一边给我灌酒,说养了20多年的白菜还是让你这头猪给拱了,然后莫小菊一边小拳拳锤倒墨叔,一边说我才没嫁给一头猪呢,还有我才不是什么白菜呢!的画面……<br>我和她，还是挺像的啊……</p>
+        <p>第一次，因为游戏，失眠两天呢……<br>果然，还是羡慕那个有着墨小菊，被人关心着的邱诚啊……<br>可能，再也不会有二周目了……<br>也是第一次，明明不肯错过所有结局的我，放弃了全成就，比起文芷，墨小菊才是让我更心痛的人吧……<br>仿佛看到了以后和小菊结婚后到墨叔家吃饭,墨叔拼命给我灌酒,一边笑一边给我灌酒,说养了20多年的白菜还是让你这头猪给拱了,然后莫小菊一边小拳拳锤倒墨叔,一边说我才没嫁给一头猪呢,还有我才不是什么白菜呢!的画面……<br>曾经的女孩，终于长大了啊……</p>
 <p>PS. 为什么CL那么贵啊，我都能买一个打人侠2（HITMAN 2）了啊喂……</p>
 
       
@@ -405,7 +405,7 @@
       
         <hr>
 <p><strong>新的算法并没有透露 <code>n</code>，只给定了两个大整数：<code>(p*q)^(p+q)</code> 和 <code>(p*q)^(p-q)</code>，其中 <code>^</code> 是按位异或运算。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sympy</span><br><span class="line"></span><br><span class="line">p = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line">q = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line"></span><br><span class="line">a = (p * q) ^ (p + q)</span><br><span class="line">b = (p * q) ^ (p - q)</span><br><span class="line"></span><br><span class="line">flag = open(&apos;flag.txt&apos;, &apos;rb&apos;).read()</span><br><span class="line">m = int.from_bytes(flag, &apos;big&apos;)</span><br><span class="line"></span><br><span class="line">print(a, b, pow(m, 65537, p * q))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sympy</span><br><span class="line"></span><br><span class="line">p = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line">q = sympy.randprime(2 ** 1023, 2 ** 1024)</span><br><span class="line"></span><br><span class="line">a = (p * q) ^ (p + q)</span><br><span class="line">b = (p * q) ^ (p - q)</span><br><span class="line"></span><br><span class="line">flag = open(&apos;flag.txt&apos;, &apos;rb&apos;).read()</span><br><span class="line">m = int.from_bytes(flag, &apos;big&apos;)</span><br><span class="line"></span><br><span class="line">print(a, b, pow(m, 65537, p * q))</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2018/11/29/一种神奇的rsa加密算法/#more">more >></a>
         
@@ -421,11 +421,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">afctf</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">afctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python3</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -645,15 +645,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">python3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">afctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">flag</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">python3</a>
               </li>
              
               <li class="article-tag-list-item">
