@@ -80,7 +80,7 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #4d4d4d;background: url('/img/biubiubiu.gif') no-repeat ;"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -285,11 +285,11 @@
   
 	
 	<span id="busuanzi_container_site_pv" style="display:none">
-		Total visits to this site: <span id="busuanzi_value_site_pv"></span>	
+		Total visits : <span id="busuanzi_value_site_pv"></span>	
 	        <span class="post-meta-divider" >|</span>
 	</span>
   	<span id="busuanzi_container_site_uv" style='display:none'>
-  		Visitors to this site: <span id="busuanzi_value_site_uv"></span>
+  		Visitors : <span id="busuanzi_value_site_uv"></span>
   	</span>
   
 </footer>
@@ -307,7 +307,7 @@
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -408,6 +408,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">something useful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rsa</a>
               </li>
              
@@ -420,11 +424,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">something useful</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性代数</a>
+                <a href="javascript:void(0)" class="js-tag color5">linear algebra</a>
               </li>
             
             <div class="clearfix"></div>
@@ -453,7 +453,7 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="/" target="_blank" class="search-title" >
+              <a href="http://isa.xiaolab.net/" target="_blank" class="search-title" >
                 
                   <i class="icon-link icon"></i>
                 
@@ -462,7 +462,7 @@
             </li>
           
             <li class="search-li">
-              <a href="/" target="_blank" class="search-title" >
+              <a href="https://weibo.com/xiaolab" target="_blank" class="search-title" >
                 
                   <i class="icon-link icon"></i>
                 
@@ -471,16 +471,7 @@
             </li>
           
             <li class="search-li">
-              <a href="/" target="_blank" class="search-title" >
-                
-                  <i class="icon-link icon"></i>
-                
-                攻防世界
-              </a>
-            </li>
-          
-            <li class="search-li">
-              <a href="/" target="_blank" class="search-title" >
+              <a href="https://wall.is1802.com" target="_blank" class="search-title" >
                 
                   <i class="icon-link icon"></i>
                 
@@ -583,6 +574,16 @@
 
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
+  
+  <script type="text/javascript" src="/lib/snow.js"></script>
+  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
+  <script>
+    snow.down();
+    $(window).resize(function() {
+      $("canvas").css("z-index","500").remove();
+      snow.down();
+    });
+  </script>
   
 </body>
 
