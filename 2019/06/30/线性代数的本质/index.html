@@ -143,7 +143,7 @@
 		        
 					<a class="bilibili" href="https://space.bilibili.com/30432756/" title="bilibili" target="_blank"><i class="icon-bilibili"></i></a>
 		        
-					<a class="mail" href="mailto:mundi.xu@gmail" title="NULL" target="_blank"><i class="icon-mail"></i></a>
+					<a class="mail" href="mailto:mundi.xu@gmail" title="mail" target="_blank"><i class="icon-mail"></i></a>
 		        
 					<a class="twitter" href="https://twitter.com/mundi_xu" title="twitter" target="_blank"><i class="icon-twitter"></i></a>
 		        
@@ -188,7 +188,7 @@
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/30432756/" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:mundi.xu@gmail" title="NULL"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:mundi.xu@gmail" title="mail"><i class="icon-mail"></i></a>
 			        
 						<a class="twitter" target="_blank" href="https://twitter.com/mundi_xu" title="twitter"><i class="icon-twitter"></i></a>
 			        
@@ -783,30 +783,7 @@
           </ul>
         </div>
         <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia-plus根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            3、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
+
           <li class="search-li" q-repeat="items" q-show="isShow">
             <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
             <p class="search-time">
