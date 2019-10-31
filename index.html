@@ -83,7 +83,7 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;background: url('/img/biubiubiu.gif') no-repeat ;"></div>
+<div class="overlay" style="background: #4d4d4d;"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -198,6 +198,99 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-stl-list实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/01/stl-list实现/">stl-list实现（数据结构实验一）</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/01/stl-list实现/" class="archive-article-date">
+        <time datetime="2019-10-31T18:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="stl-list-介绍"><a href="#stl-list-介绍" class="headerlink" title="stl_list 介绍"></a>stl_list 介绍</h1><p>今天我们来总结一下stl_List, 与单链表比较而言，stl_list无非就是链表结构不一样，至于其中的增删改查的细节实现本质是一样的，都是处理指针偏移。<strong>相比于vector，stl_List在插入和删除的时候可以达到O(1)的时间复杂度</strong>。</p>
+<p>stl_list是一个<strong>双向循环链表</strong>，相对单链表来说查找效率高，无论是插入时的前插和后插，还是从后往前查找某个元素等。既然查找效率高了，自然添加，删除和修改元素时效率也就更高。唯一一个可以称为不足的就是每个节点需要耗费4字节指针来保存前一个节点的地址，因此如果遇到对内存要求比较苛刻的场景，而且一些操作单链表即可满足，那么可以考虑使用标准库中的forward_list（单链表）。</p>
+    
+    
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/01/stl-list实现/">Know More >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-学习通自动播放模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -724,6 +817,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">something useful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
