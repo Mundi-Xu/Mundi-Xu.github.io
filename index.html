@@ -230,7 +230,7 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="stl-list-介绍"><a href="#stl-list-介绍" class="headerlink" title="stl_list 介绍"></a>stl_list 介绍</h1><p>今天我们来总结一下stl_List, 与单链表比较而言，stl_list无非就是链表结构不一样，至于其中的增删改查的细节实现本质是一样的，都是处理指针偏移。<strong>相比于vector，stl_List在插入和删除的时候可以达到O(1)的时间复杂度</strong>。</p>
-<p>stl_list是一个<strong>双向循环链表</strong>，相对单链表来说查找效率高，无论是插入时的前插和后插，还是从后往前查找某个元素等。既然查找效率高了，自然添加，删除和修改元素时效率也就更高。唯一一个可以称为不足的就是每个节点需要耗费4字节指针来保存前一个节点的地址，因此如果遇到对内存要求比较苛刻的场景，而且一些操作单链表即可满足，那么可以考虑使用标准库中的forward_list（单链表）。</p>
+<p>stl_list是一个<strong>双向循环链表</strong>，相对单链表来说查找效率高，无论是插入时的前插和后插，还是从后往前查找某个元素等。既然查找效率高了，自然添加，删除和修改元素时效率也就更高。唯一一个可以称为不足的就是每个节点需要耗费4字节指针来保存前一个节点的地址，因此如果遇到对内存要求比较苛刻的场景，而且一些操作单链表即可满足，那么可以考虑使用标准库中的<strong>forward_list</strong>（单链表）。</p>
     
     
 
@@ -263,7 +263,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/01/stl-list实现/">Know More >></a>
+      <a class="article-more-a" href="/2019/11/01/stl-list实现/">Read More >></a>
     </p>
     
 
@@ -356,7 +356,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/11/学习通自动播放模式/">Know More >></a>
+      <a class="article-more-a" href="/2019/10/11/学习通自动播放模式/">Read More >></a>
     </p>
     
 
@@ -447,7 +447,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/06/30/线性代数的本质/">Know More >></a>
+      <a class="article-more-a" href="/2019/06/30/线性代数的本质/">Read More >></a>
     </p>
     
 
@@ -547,7 +547,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2018/11/29/一种神奇的rsa加密算法/">Know More >></a>
+      <a class="article-more-a" href="/2018/11/29/一种神奇的rsa加密算法/">Read More >></a>
     </p>
     
 
@@ -626,7 +626,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2018/10/25/hello-world/">Know More >></a>
+      <a class="article-more-a" href="/2018/10/25/hello-world/">Read More >></a>
     </p>
     
 
@@ -875,11 +875,11 @@
             </li>
           
             <li class="search-li">
-              <a href="https://wall.is1802.com" target="_blank" class="search-title" >
+              <a href="https://is1802.com" target="_blank" class="search-title" >
                 
                   <i class="icon-link icon"></i>
                 
-                IS1802-LoveWall
+                IS1802
               </a>
             </li>
           
@@ -978,16 +978,6 @@
 
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
-  
-  <script type="text/javascript" src="/lib/snow.js"></script>
-  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
-  <script>
-    snow.down();
-    $(window).resize(function() {
-      $("canvas").css("z-index","500").remove();
-      snow.down();
-    });
-  </script>
   
 </body>
 
