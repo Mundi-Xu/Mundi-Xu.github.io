@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mundi-xu.github.io">
   <title>Mundi&#39;s Blog</title>
-  <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     
@@ -740,10 +739,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      document.title = "(つェ⊂) " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "(*´∇｀*) " + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
