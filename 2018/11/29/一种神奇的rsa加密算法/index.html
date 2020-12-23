@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github.min.css" />
     
   
 
@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":false,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -86,7 +86,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                Home
               </a>
             </li>
           
@@ -98,7 +98,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                Archives
               </a>
             </li>
           
@@ -110,11 +110,16 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                Tags
               </a>
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -127,7 +132,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/banner.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -144,7 +149,7 @@
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
       <time datetime="2018-11-29 15:21" pubdate>
-        2018年11月29日 下午
+        November 29, 2018 pm
       </time>
     </span>
   
@@ -155,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      633 字
+      609 字
     </span>
   
 
@@ -165,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -187,11 +192,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -199,7 +204,7 @@
             
               <p class="note note-info">
                 
-                  Last update：24 分钟前
+                  Last update：an hour ago
                 
               </p>
             
@@ -208,13 +213,13 @@
 <p><strong>新的算法并没有透露 <code>n</code>，只给定了两个大整数：<code>(p*q)^(p+q)</code> 和 <code>(p*q)^(p-q)</code>，其中 <code>^</code> 是按位异或运算。</strong></p>
 <a id="more"></a>
 
-<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python3">import sympy<br><br>p &#x3D; sympy.randprime(2 ** 1023, 2 ** 1024)<br>q &#x3D; sympy.randprime(2 ** 1023, 2 ** 1024)<br><br>a &#x3D; (p * q) ^ (p + q)<br>b &#x3D; (p * q) ^ (p - q)<br><br>flag &#x3D; open(&#39;flag.txt&#39;, &#39;rb&#39;).read()<br>m &#x3D; int.from_bytes(flag, &#39;big&#39;)<br><br>print(a, b, pow(m, 65537, p * q))<br><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sympy<br><br>p = sympy.randprime(<span class="hljs-number">2</span> ** <span class="hljs-number">1023</span>, <span class="hljs-number">2</span> ** <span class="hljs-number">1024</span>)<br>q = sympy.randprime(<span class="hljs-number">2</span> ** <span class="hljs-number">1023</span>, <span class="hljs-number">2</span> ** <span class="hljs-number">1024</span>)<br><br>a = (p * q) ^ (p + q)<br>b = (p * q) ^ (p - q)<br><br>flag = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;flag.txt&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>).read()<br>m = <span class="hljs-built_in">int</span>.from_bytes(flag, <span class="hljs-string">&#x27;big&#x27;</span>)<br><br>print(a, b, <span class="hljs-built_in">pow</span>(m, <span class="hljs-number">65537</span>, p * q))<br><br></code></pre></div></td></tr></table></figure>
 
 
 <hr>
 <h2 id="2018年12月20日更新"><a href="#2018年12月20日更新" class="headerlink" title="2018年12月20日更新"></a>2018年12月20日更新</h2><p>我们定义 $ f_1(x,y) = (x \ast y)^{(x+y)} 和 f_2(x,y) = (x \ast y)^{(x-y)} $ ，我们发现这两个函数都有一个共同的性质，就是函数值的最低 n 个二进制位只和 x、y 的最低 n 个二进制位有关。也就是说，我们可以用 a 和 b 的最低 n 位来判断 p 和 q 的最低 n 位是否可能正确。如果它们的最低 n 位满足 $ f_1 $和 $f_2$ 函数，那么它们就是 p 和 q 低位的候选答案；如果不满足，它们就根本不可能是真正 p 和 q 的低位。所以我们可以从一个二进制位（n=1）开始，每次增加一位。每增加一位时，我们把原来满足条件的 p 和 q 低位的每种可能情况分别在前面加上 0 或 1，这样每种情况就变成了 4 种新的情况，然后对所有新的情况用 $ f_1 $ 和 $ f_2 $ 函数提供的约束条件进行过滤，只保留满足条件的情况。当跑到 1024 位的时候，就只会剩下真正满足条件的 p 和 q 了。然后，我们根据 RSA 的原理，在 mod (p-1)*(q-1) 的意义下对 e 求逆元，得到私钥 d，计算 pow(c, d, p*q)即可得到 flag 的大整数表示。</p>
 <p><strong>求解脚本如下</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python3">import gmpy2<br><br>a, b, c &#x3D; [int(s) for s in open(&#39;output.txt&#39;).read().split()]<br>#假设已将加密内容保存到 output.txt 文件中<br><br>f1 &#x3D; lambda p, q: (p * q) ^ (p + q)<br>f2 &#x3D; lambda p, q: (p * q) ^ (p - q)<br><br>candidates &#x3D; &#123;(0, 0)&#125;<br><br>for m in range(1025):<br>    print(m, len(candidates))<br>    candidates_ &#x3D; set()<br>    mask &#x3D; (2 &lt;&lt; m) - 1<br>    for x, y in candidates:<br>        if f1(x, y) &#x3D;&#x3D; a and f2(x, y) &#x3D;&#x3D; b:<br>            p, q &#x3D; x, y<br>            d &#x3D; gmpy2.invert(65537, (p - 1) * (q - 1))<br>            m &#x3D; pow(c, d, p * q)<br>            print(bytes.fromhex(hex(m)[2:]))<br>            exit()<br>        for bx in range(2):<br>            for by in range(2):<br>                xx &#x3D; x + (bx &lt;&lt; m)<br>                yy &#x3D; y + (by &lt;&lt; m)<br>                if f1(xx, yy) &amp; mask !&#x3D; a &amp; mask:<br>                    continue<br>                if f2(xx, yy) &amp; mask !&#x3D; b &amp; mask:<br>                    continue<br>                candidates_.add((xx, yy))<br>candidates &#x3D; candidates_<br><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><br>a, b, c = [<span class="hljs-built_in">int</span>(s) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.txt&#x27;</span>).read().split()]<br><span class="hljs-comment">#假设已将加密内容保存到 output.txt 文件中</span><br><br>f1 = <span class="hljs-keyword">lambda</span> p, q: (p * q) ^ (p + q)<br>f2 = <span class="hljs-keyword">lambda</span> p, q: (p * q) ^ (p - q)<br><br>candidates = &#123;(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)&#125;<br><br><span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1025</span>):<br>    print(m, <span class="hljs-built_in">len</span>(candidates))<br>    candidates_ = <span class="hljs-built_in">set</span>()<br>    mask = (<span class="hljs-number">2</span> &lt;&lt; m) - <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> candidates:<br>        <span class="hljs-keyword">if</span> f1(x, y) == a <span class="hljs-keyword">and</span> f2(x, y) == b:<br>            p, q = x, y<br>            d = gmpy2.invert(<span class="hljs-number">65537</span>, (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>))<br>            m = <span class="hljs-built_in">pow</span>(c, d, p * q)<br>            print(<span class="hljs-built_in">bytes</span>.fromhex(<span class="hljs-built_in">hex</span>(m)[<span class="hljs-number">2</span>:]))<br>            exit()<br>        <span class="hljs-keyword">for</span> bx <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>            <span class="hljs-keyword">for</span> by <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>                xx = x + (bx &lt;&lt; m)<br>                yy = y + (by &lt;&lt; m)<br>                <span class="hljs-keyword">if</span> f1(xx, yy) &amp; mask != a &amp; mask:<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">if</span> f2(xx, yy) &amp; mask != b &amp; mask:<br>                    <span class="hljs-keyword">continue</span><br>                candidates_.add((xx, yy))<br>candidates = candidates_<br><br></code></pre></div></td></tr></table></figure>
 <p><strong>有几个人做出来了呢（坏笑:）</strong></p>
 
             </div>
@@ -230,6 +235,8 @@
                     
                       <a class="hover-with-bg" href="/tags/crypto/">crypto</a>
                     
+                      <a class="hover-with-bg" href="/tags/rsa/">rsa</a>
+                    
                   </div>
                 
               </div>
@@ -237,14 +244,14 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
                       <a href="/2019/06/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">线性代数的本质（更新中）</span>
-                        <span class="visible-mobile">上一篇</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -253,7 +260,7 @@
                     
                       <a href="/2018/10/25/hello-world/">
                         <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -283,13 +290,35 @@
     
 
     
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
 
     
   </main>
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="mailto:mundi.xu@gmail.com"target="_blank">Mail: mundi.xu@gmail.com</a> 
+     <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>Contact me</span></a> <i class="iconfont icon-love"></i> <span>mundi.xu@gmail.com</span> 
   </div>
   
   <div class="statistics">
@@ -330,9 +359,6 @@
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })
@@ -387,6 +413,18 @@
   </script>
 
 
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 
