@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":false,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -115,6 +115,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -160,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      609 字
+      612 字
     </span>
   
 
@@ -204,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  Last update：an hour ago
+                  Last update：4 hours ago
                 
               </p>
             
@@ -221,6 +233,7 @@
 <p><strong>求解脚本如下</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><br>a, b, c = [<span class="hljs-built_in">int</span>(s) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.txt&#x27;</span>).read().split()]<br><span class="hljs-comment">#假设已将加密内容保存到 output.txt 文件中</span><br><br>f1 = <span class="hljs-keyword">lambda</span> p, q: (p * q) ^ (p + q)<br>f2 = <span class="hljs-keyword">lambda</span> p, q: (p * q) ^ (p - q)<br><br>candidates = &#123;(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)&#125;<br><br><span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1025</span>):<br>    print(m, <span class="hljs-built_in">len</span>(candidates))<br>    candidates_ = <span class="hljs-built_in">set</span>()<br>    mask = (<span class="hljs-number">2</span> &lt;&lt; m) - <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> candidates:<br>        <span class="hljs-keyword">if</span> f1(x, y) == a <span class="hljs-keyword">and</span> f2(x, y) == b:<br>            p, q = x, y<br>            d = gmpy2.invert(<span class="hljs-number">65537</span>, (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>))<br>            m = <span class="hljs-built_in">pow</span>(c, d, p * q)<br>            print(<span class="hljs-built_in">bytes</span>.fromhex(<span class="hljs-built_in">hex</span>(m)[<span class="hljs-number">2</span>:]))<br>            exit()<br>        <span class="hljs-keyword">for</span> bx <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>            <span class="hljs-keyword">for</span> by <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>                xx = x + (bx &lt;&lt; m)<br>                yy = y + (by &lt;&lt; m)<br>                <span class="hljs-keyword">if</span> f1(xx, yy) &amp; mask != a &amp; mask:<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">if</span> f2(xx, yy) &amp; mask != b &amp; mask:<br>                    <span class="hljs-keyword">continue</span><br>                candidates_.add((xx, yy))<br>candidates = candidates_<br><br></code></pre></div></td></tr></table></figure>
 <p><strong>有几个人做出来了呢（坏笑:）</strong></p>
+<p>[^1]hackergame2018-RSA_of_Z</p>
 
             </div>
             <hr>
@@ -241,7 +254,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> </p>
               
               
                 <div class="post-prevnext">
@@ -318,7 +331,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>Contact me</span></a> <i class="iconfont icon-love"></i> <span>mundi.xu@gmail.com</span> 
+     <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>Contact me</span></a> <i class="iconfont icon-love"></i> <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>mundi.xu@gmail.com</span></a> 
   </div>
   
   <div class="statistics">
@@ -389,6 +402,8 @@
   <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
