@@ -228,7 +228,7 @@
             
               <p class="note note-info">
                 
-                  Last update：a day ago
+                  Last update：5 minutes ago
                 
               </p>
             
@@ -357,14 +357,12 @@
 <h5 id="query"><a href="#query" class="headerlink" title="query"></a>query</h5><p>Query chiancode设计了<code>search_keywords</code>，<code>get_num</code>，<code>get_logs</code>，<code>get_delete_info</code>四种方法供grafana查询。<code>search_keywords</code>用于查询有哪些关键字，返回<code>[]string</code>；<code>get_num</code>用于查询该任务在区块链中存了多少条日志，返回<code>[]byte(int64)</code>;  <code>get_logs</code>返回每条日志的要查询的关键字段，返回<code>map[string][]interface&#123;&#125;</code>,即<code>map[关键字名称][content1,content2,...]</code>；<code>get_delete_info</code>查询历史delete操作信息，包括删除操作的时间，所删除的日志数。</p>
 <h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><p>用于对chaincode中所设定的时间以前的日志数据进行删除。触发<code>delete chaincode</code>，首先对所有日志按时间顺序进行遍历，并删除所有规定时间前的数据，最后记录本次删除操作的时间和删除日志数。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/blockchain_working_icon.png" srcset="/img/loading.gif" alt="区块链工作图示"></p>
-<p>最终日志在链上储存如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/On-chain_log_storage_icon.png" srcset="/img/loading.gif" alt="链上日志储存图示"></p>
 <h4 id="定期清理日志"><a href="#定期清理日志" class="headerlink" title="定期清理日志"></a>定期清理日志</h4><p>为降低存储成本，我们考虑对区块链中存储的日志区块进行定期截断。当前考虑对区块链中半年前（时间可自定义，但是固定在chiancode中的，部署之后不可修改）的日志区块进行删除。我们在<code>init</code>,<code>invoke</code>,<code>query chaincode</code>的基础上添加<code>delete chaincode</code>，用于执行区块删除操作。在peer节点启动时开启一个线程去每天触发一次delete交易，这样该delete交易通过pbft共识到达所有peer节点后，执行delete chaincode去清理半年前的日志区块。</p>
 <p>为不破坏区块链结构，我们保留一个半年前的区块，作为被截断后的区块链的创世区块，使得截断后的区块链能够通过hash校验，保证安全性。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/Truncated_schematic.png" srcset="/img/loading.gif" alt="日志区块链截断示意图"></p>
-<h4 id="可视化分析模块"><a href="#可视化分析模块" class="headerlink" title="可视化分析模块"></a>可视化分析模块</h4><p>Grafana作为最火热的开源数据可视化工具，最大的特点就是支持多种数据源以及丰富的插件库。SimpleJson是Grafana开源社区提供的数据源，它本身并不依赖某种特定的后端存储，只需要后端能实现Grafana报表的几个查询接口就行。SimpleJson是Grafana众多数据源插件中的一种，但它又不像其他插件配置好数据库信息就能用，开发者需要自己实现一部分数据源插件的功能来使SimpleJson插件能够使用。</p>
+<h3 id="可视化分析模块"><a href="#可视化分析模块" class="headerlink" title="可视化分析模块"></a>可视化分析模块</h3><p>Grafana作为最火热的开源数据可视化工具，最大的特点就是支持多种数据源以及丰富的插件库。SimpleJson是Grafana开源社区提供的数据源，它本身并不依赖某种特定的后端存储，只需要后端能实现Grafana报表的几个查询接口就行。SimpleJson是Grafana众多数据源插件中的一种，但它又不像其他插件配置好数据库信息就能用，开发者需要自己实现一部分数据源插件的功能来使SimpleJson插件能够使用。</p>
 <p>我们基于SimpleJson编写grafana datasource插件，使grafana 可以通过 fabric的 http api 调用 query chaincode 读取储存在区块链中的日志数据。</p>
-<h2 id="系统分析"><a href="#系统分析" class="headerlink" title="系统分析"></a>系统分析</h2><p>本项目通过以区块链存储技术为支撑，设计并实现了一套为企业和个人用户存储日志的安全系统。相比于市面上已有的产品，具有较高的安全性，能有效防止日志遭到篡改或删除。同时提供了查询与可视化功能，方便用户针对日志进行分析，能及时有效了解服务器运行状况。</p>
+<h1 id="系统分析"><a href="#系统分析" class="headerlink" title="系统分析"></a>系统分析</h1><p>本项目通过以区块链存储技术为支撑，设计并实现了一套为企业和个人用户存储日志的安全系统。相比于市面上已有的产品，具有较高的安全性，能有效防止日志遭到篡改或删除。同时提供了查询与可视化功能，方便用户针对日志进行分析，能及时有效了解服务器运行状况。</p>
 <p>本项目的安全性分析如下：  </p>
 <ol>
 <li><p>以区块链为依托提高数据安全性</p>
