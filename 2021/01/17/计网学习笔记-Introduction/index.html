@@ -1,0 +1,870 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="寒雨">
+  <meta name="keywords" content="">
+  <title>计网学习笔记-Introduction - Mundi&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/stackoverflow-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mundi's Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/banner.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="计网学习笔记-Introduction">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-17 12:47" pubdate>
+        January 17, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      48
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计网学习笔记-Introduction</h1>
+            
+              <p class="note note-info">
+                
+                  Last update：a minute ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Computer-Networks-and-the-Internet"><a href="#Computer-Networks-and-the-Internet" class="headerlink" title="Computer Networks and the Internet"></a><strong>Computer Networks and the Internet</strong></h1><blockquote>
+<p>本文所有资料均来自 <em>Computer Networking: A Top-Down Approach</em> <em>(8th ed.)</em> <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="http://gaia.cs.umass.edu/kurose_ross/index.html
+">[1]</span></a></sup>  J.F. Kurose, K.W. Ross</p>
+<p>You can find all the course materials related to this section <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/videos/1/"><strong>here</strong></a> .</p>
+</blockquote>
+<h2 id="Overview-roadmap"><a href="#Overview-roadmap" class="headerlink" title="Overview/roadmap"></a>Overview/roadmap</h2><ul>
+<li><p>What <em>is</em> the Internet? What <em>is</em> a protocol?</p>
+</li>
+<li><p><strong>Network edge</strong>: hosts, access network, physical media</p>
+</li>
+<li><p><strong>Network core</strong>: packet/circuit switching, internet structure</p>
+</li>
+<li><p><strong>Performance</strong>: loss, delay, throughput</p>
+</li>
+<li><p>Protocol layers, service models</p>
+</li>
+<li><p>Security</p>
+</li>
+<li><p>History</p>
+</li>
+</ul>
+<h2 id="Chapter-goal"><a href="#Chapter-goal" class="headerlink" title="Chapter goal"></a>Chapter goal</h2><ul>
+<li><p>Get “feel,” “big picture,” introduction to terminology</p>
+<ul>
+<li>more depth, detail <em>later</em> in course</li>
+</ul>
+</li>
+</ul>
+<p>在本章中，我们将概述所有章节并留待后续文章进行详细解释，同时我们需要知道下述问题：</p>
+<ul>
+<li>什么是计算机网络？</li>
+<li>当我们谈论计算机网络时会想到什么？</li>
+<li>是什么构成了计算机网络？</li>
+<li>为什么会存在计算机网络？</li>
+<li>什么是互联网？协议是什么？构成互联网的主要元素是什么？</li>
+<li>我们在计算机网络中遇到什么问题，我们如何解决这些问题？</li>
+</ul>
+<p>我们将首先介绍计算机网络的基本概念。</p>
+<h1 id="1-1-What-is-the-Internet"><a href="#1-1-What-is-the-Internet" class="headerlink" title="1.1 What is the Internet?"></a>1.1 What is <strong>the Internet</strong>?</h1><blockquote>
+<p>Overview. What <em>is</em> the Internet? What <em>is</em> a protocol?</p>
+</blockquote>
+<p align="center">
+    <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iDbyYGrswtg">
+        <img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/the-internet.gif" srcset="/img/loading.gif" alt="the-internet"/> 
+    </a>
+</p>
+
+
+<p>它是网络中的网络。 <strong>“network of networks”</strong></p>
+<p>There are several ways to answer this question. First, we can describe the basic hardware and software components that make up the Internet. Secondly, we can define the internet as a network infrastructure that provides services to distributed applications. </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/nuts-and-bolts-view.png" srcset="/img/loading.gif" alt="nuts-and-bolts-view"></p>
+<p>Let’s start with the basic building blocks of the internet.</p>
+<h2 id="Basic-building-blocks-of-the-Internet"><a href="#Basic-building-blocks-of-the-Internet" class="headerlink" title="Basic building blocks of the Internet"></a>Basic building blocks of the Internet</h2><blockquote>
+<p>The internet: a “nuts and bolts” view</p>
+</blockquote>
+<p><strong>Internet:</strong> “ <strong>network of networks”</strong> (Again, this is really important.)</p>
+<ul>
+<li>They connect to each other with ISPs<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.whoismyisp.org/articles/what-is-an-isp
+">[2]</span></a></sup>.</li>
+</ul>
+<blockquote>
+<p><strong>What is ISP?</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>ISP</strong> is an acronym that stands for <em>Internet Service Provider</em> . Internet Service Provider is a company that provides Internet access to organizations and home users.<br>In short, an ISP usually gives you Internet access for a fee. Without an ISP, you cannot shop online, access Facebook or read this page. Certain telecommunications, networking and routing equipment is required to connect to the Internet. ISPs allow users to establish an Internet connection by allowing users to access networks containing the necessary equipment.</p>
+</blockquote>
+<blockquote>
+<p><strong>Can I connect to the Internet without an ISP?</strong></p>
+</blockquote>
+<blockquote>
+<p>No, every end device needs an ISP to access the Internet. We will talk about this in more detail in <strong>1.2 Network Devices</strong> section.</p>
+</blockquote>
+<p><strong>Protocols</strong> are everywhere.</p>
+<ul>
+<li>It controls the sending and receiving of messages.</li>
+<li>Nedir bu protokoller; HTTP (Web), streaming video, Skype, TCP, IP, WiFi, 4G, Ethernet.</li>
+</ul>
+<p>Internet <strong>standards;</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.lifewire.com/what-is-internet-request-for-comments-rfc-4092366">RFC: Request for comments</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force">IETF: Internet engineering task force</a>(According to Xiao seniors —— disciple of the author of this book, they voted by the loudness of the hen, which I still can’t believe.)</li>
+</ul>
+<p>Why are these standards?</p>
+<p>Working in line with the middle paths determined when working with communities by speaking a common language. kg, meters, etc.</p>
+<h2 id="Internet-services-overview"><a href="#Internet-services-overview" class="headerlink" title="Internet services overview"></a>Internet services overview</h2><blockquote>
+<p>The Internet: a “services” view</p>
+</blockquote>
+<p><strong>Internet:</strong> It is the <strong>infrastructure</strong> that serves the application.</p>
+<p>Web, streaming video, multimedia teleconferencing, email, games, e-commerce, social media, inter-connected appliances, …</p>
+<h2 id="What-is-the-protocol"><a href="#What-is-the-protocol" class="headerlink" title="What is the protocol?"></a>What is the protocol?</h2><h3 id="a-Human-protocols"><a href="#a-Human-protocols" class="headerlink" title="a) Human protocols:"></a>a) Human protocols:</h3><p>If we start from a protocol that we apply in daily life without realizing it; <strong><code>Asking time protocol</code>!</strong></p>
+<ul>
+<li><code>A:</code> Hello</li>
+<li><strong>B:</strong> <strong><em>Hello</em></strong></li>
+<li><code>A:</code> What time is it?</li>
+<li><strong>B:</strong> <strong><em>It’s 17:21</em></strong></li>
+<li><code>A:</code> Thank you</li>
+</ul>
+<p>This is an example of a normal double talk (dialog).</p>
+<p>If the other party does not receive your greetings, the conversation will end, in case the other party does not speak English(Maybe you should try Chinese at this time?); If it is a language you do not know, the communication will end, or if it is a language you know, the conversation will continue with that language.</p>
+<p>In other words, according to the answers given by person B, our communication will develop in another direction.</p>
+<p>You can see the communication default used in this human communication.</p>
+<h3 id="b-Network-protocols"><a href="#b-Network-protocols" class="headerlink" title="b) Network protocols:"></a>b) Network protocols:</h3><blockquote>
+<p>The only difference compared to the above example is that people are replaced by computers.</p>
+</blockquote>
+<p>All communication activities on the Internet are managed by protocols.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/humans-and-computer-protocols.png" srcset="/img/loading.gif" alt="humans-and-computer-protocols"></p>
+<blockquote>
+<p>A <strong>protocol</strong> defines the <strong>format</strong> and the <strong>order</strong> of messages exchanged between two or more communicating entities, as well as the <strong>actions taken</strong> on the transmission and/or receipt of a message or other event.</p>
+</blockquote>
+<h1 id="1-2-Network-devices"><a href="#1-2-Network-devices" class="headerlink" title="1.2 Network devices"></a>1.2 Network devices</h1><blockquote>
+<p>The Network Edge</p>
+</blockquote>
+<p>Let’s take a closer look at the Internet structure ..</p>
+<h2 id="a-Network-Edge-Edge-device"><a href="#a-Network-Edge-Edge-device" class="headerlink" title="a. Network Edge (Edge device)"></a>a. Network Edge (Edge device)</h2><p>We can consider any device that connects to the Internet as a <strong>network edge</strong>. What are these; computers, servers, mobile devices, cars, fridges ….</p>
+<ul>
+<li><p>hosts: clients and servers</p>
+</li>
+<li><p>servers often in data centers</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Network-edge.png" srcset="/img/loading.gif" alt="network edge"></p>
+<h2 id="b-Access-networks-Intermediate-devices-physical-media"><a href="#b-Access-networks-Intermediate-devices-physical-media" class="headerlink" title="b. Access networks (Intermediate devices), physical media"></a>b. Access networks (Intermediate devices), physical media</h2><p>They are intermediate devices that connect the units carrying these packages. These can be wired or wireless.</p>
+<ul>
+<li>wired, wireless communication links </li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/access-networks.png" srcset="/img/loading.gif" alt="access networks"></p>
+<h2 id="c-Network-Core-ISP"><a href="#c-Network-Core-ISP" class="headerlink" title="c. Network Core ISP"></a>c. Network Core ISP</h2><p>The units that logically or physically combine these above mentioned units are also called ISP.</p>
+<ul>
+<li>Interconnected routers</li>
+<li>Network of networks</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/the-network-core.png" srcset="/img/loading.gif" alt="the network core"></p>
+<h2 id="Q-How-to-connect-end-systems-to-edge-router"><a href="#Q-How-to-connect-end-systems-to-edge-router" class="headerlink" title="Q: How to connect end systems to edge router?"></a>Q: How to connect end systems to edge router?</h2><ul>
+<li>In the first <strong><em>home scenario</em></strong> that comes to mind, the device you use is connected to an access point. Access point connects to ISP. The ISP may also be connecting to the server. <strong>“residential access net”</strong></li>
+<li>Or you may be connecting through a <strong>public network</strong> at a <strong><em>coffee shop</em></strong>. <strong>“institutional access networks (school, company)”</strong></li>
+<li>Apart from these, you can connect <strong><em>directly</em></strong> with the phone’s <strong>4G / 5G</strong> or <strong>wifi</strong>. <strong>“mobile access networks (WiFi, 4G/5G)”</strong></li>
+</ul>
+<h2 id="Access-networks-cable-based-access"><a href="#Access-networks-cable-based-access" class="headerlink" title="Access networks: cable-based access"></a>Access networks: cable-based access</h2><p>The first problem we encounter while accessing networks is to be able to send the data of many devices connected to the network without corruption.</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/cable-based-access.png" srcset="/img/loading.gif" alt="cable-based-access" style="zoom: 80%;" />
+
+<p>We can use two different approaches to achieve this. These are <strong>FDM</strong> (Frequency Division Multiplexing) and <strong>TDM</strong>.</p>
+<h3 id="FDM-Frequency-Division-Multiplexing"><a href="#FDM-Frequency-Division-Multiplexing" class="headerlink" title="FDM (Frequency Division Multiplexing)"></a>FDM (Frequency Division Multiplexing)</h3><blockquote>
+<p>frequency-dependent partitioning</p>
+</blockquote>
+<p>In this approach, we carry the data in a single cable at different frenx intervals. <strong>Pink Floyd</strong> ‘s <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HW-lXjOyUWo&list=PL3PhWT10BW3Urh8ZXXpuU9h526ChwgWKy&index=1"><strong>the dark side of the moon</strong></a> colors stored in different frequency ranges within the album cover -Light prizması- in white light is a good example.</p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/pink-floyd.png" srcset="/img/loading.gif" alt="pink-floyd" style="zoom: 25%;" /> </p>
+
+<h3 id="TDM-Time-Division-Multiplexing"><a href="#TDM-Time-Division-Multiplexing" class="headerlink" title="TDM (Time Division Multiplexing)"></a>TDM (Time Division Multiplexing)</h3><blockquote>
+<p>time partitioning</p>
+</blockquote>
+<p>In this approach, the data is sent in a sequence, not divided into frequency ranges.</p>
+<p>First the data of <strong>device A</strong> is sent, then data of <strong>device B,</strong> and then <strong>device C</strong> …</p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/TDM-and-FDM-example.png" srcset="/img/loading.gif" alt="TDM-and-FDM-example" style="zoom:80%;" /></p>
+
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/TDM-and-FDM-example-2.png" srcset="/img/loading.gif" alt="TDM-and-FDM-example-2" style="zoom:80%;" /></p>
+
+<blockquote>
+<p><strong>What is Topology?</strong></p>
+</blockquote>
+<blockquote>
+<p>Topology deals with the properties of surfaces and shapes, but not lengths and angles. What he cares about is the properties of shapes that do not change when they are transformed into another shape. In topology, shapes can be pulled from all sides. Simply put, it is possible to continuously transform topological objects into another object without tearing, cutting or tearing them, just by bending and bending them.</p>
+</blockquote>
+<blockquote>
+<p>For example, computer networks (networks) are based on both physical and logical topology. All terminals on the network are interconnected. The mapping of these interconnections is the physical topology, while the data flow determines the logical topology of the network. In other words, the physical topology specifies the physical design of the network, while the logical topology specifies how the data is processed in the network independently.</p>
+</blockquote>
+<blockquote>
+<p><strong>[<a target="_blank" rel="noopener" href="https://mail.ecomputernotes.com/computernetworkingnotes/computer-network/what-is-lan-topologies-explain-each-topology">Network topologies]</a> -</strong> <em>Bus, star etc …</em></p>
+</blockquote>
+<p>There are certain devices that are used to prevent confusion of data sent from these different places.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/shared-access-network.png" srcset="/img/loading.gif" alt="shared access network"></p>
+<p>The houses shown in the example use a shared network and access the Internet in this way. <strong>(shared access network)</strong></p>
+<ul>
+<li>HFC: hybrid fiber coax<ul>
+<li>asymmetric: up to 40 Mbps – 1.2 Gbs downstream transmission rate, 30-100 Mbps upstream transmission rate</li>
+</ul>
+</li>
+<li>network of cable, fiber attaches homes to ISP router<ul>
+<li>homes <strong>share access network</strong> to cable headend </li>
+</ul>
+</li>
+</ul>
+<h2 id="Access-networks-digital-subscriber-line-DSL"><a href="#Access-networks-digital-subscriber-line-DSL" class="headerlink" title="Access networks: digital subscriber line (DSL)"></a>Access networks: digital subscriber line (DSL)</h2><p>According to the previous example, we have a <strong>subscriber line</strong> and, contrary to the previous example, we can think that everyone has their own network, not a single network in the neighborhood. Of course, technically, these home networks, which will be connected to the common cable in the neighborhood at the end of the day, are described as special services that ISPs provide to their customers.</p>
+<blockquote>
+<p>While there is a <strong>shared</strong> network in the previous example, there is a cable <strong>assigned</strong> to the houses in the DSL example.</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/dsl.png" srcset="/img/loading.gif" alt="digital subscriber line "></p>
+<ul>
+<li>use <strong>existing</strong> telephone line to central office DSLAM<ul>
+<li>data over DSL phone line goes to Internet</li>
+<li>voice over DSL phone line goes to telephone net</li>
+</ul>
+</li>
+<li>24-52 Mbps dedicated downstream transmission rate </li>
+<li>3.5-16 Mbps dedicated upstream transmission rate</li>
+</ul>
+<h2 id="Access-networks-home-networks"><a href="#Access-networks-home-networks" class="headerlink" title="Access networks: home networks"></a>Access networks: home networks</h2><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/home-networks.png" srcset="/img/loading.gif" alt="Access networks: home networks" style="zoom:80%;" />
+
+<h2 id="Wireless-access-networks"><a href="#Wireless-access-networks" class="headerlink" title="Wireless access networks"></a>Wireless access networks</h2><p>Shared <em>wireless</em> access network connects end system to router</p>
+<ul>
+<li>via base station aka “access point”</li>
+</ul>
+<h3 id="Wireless-local-area-networks-WLANs"><a href="#Wireless-local-area-networks-WLANs" class="headerlink" title="Wireless local area networks (WLANs)"></a>Wireless local area networks (WLANs)</h3><ul>
+<li>typically within or around building (~100 ft)</li>
+<li>802.11b/g/n (WiFi): 11, 54, 450 Mbps transmission rate</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/wlans.png" srcset="/img/loading.gif" alt="WLANs"></p>
+<h3 id="Wide-area-cellular-access-networks"><a href="#Wide-area-cellular-access-networks" class="headerlink" title="Wide-area cellular access networks"></a>Wide-area cellular access networks</h3><ul>
+<li>provided by mobile, cellular network operator (10’s km)</li>
+<li>10’s Mbps </li>
+<li>4G cellular networks (5G coming)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/cellular.png" srcset="/img/loading.gif" alt="cellular"></p>
+<h2 id="Access-networks-enterprise-networks"><a href="#Access-networks-enterprise-networks" class="headerlink" title="Access networks: enterprise networks"></a>Access networks: enterprise networks</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/enterprise-networks.png" srcset="/img/loading.gif" alt="enterprise networks"></p>
+<ul>
+<li>companies, universities, etc.</li>
+<li>mix of wired, wireless link technologies, connecting a mix of switches and routers (we’ll cover differences shortly)<ul>
+<li>Ethernet: wired access at 100Mbps, 1Gbps, 10Gbps </li>
+<li>WiFi: wireless access points at 11, 54, 450 Mbps </li>
+</ul>
+</li>
+</ul>
+<h2 id="Access-networks-data-center-networks"><a href="#Access-networks-data-center-networks" class="headerlink" title="Access networks: data center networks"></a>Access networks: data center networks</h2><ul>
+<li>high-bandwidth links (10s to 100s Gbps) connect hundreds to thousands of servers together, and to Internet</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Computing-Center.png" srcset="/img/loading.gif" alt="Courtesy: Massachusetts Green High Performance Computing Center "></p>
+<h2 id="Host-sends-packets-of-data"><a href="#Host-sends-packets-of-data" class="headerlink" title="Host: sends packets of data"></a>Host: sends <em>packets</em> of data</h2><p>host sending function:</p>
+<ul>
+<li>takes application message</li>
+<li>breaks into smaller chunks, known as <strong>packets</strong>, of length <strong>L</strong> bits</li>
+<li>transmits packet into access network at <strong>transmission rate R</strong><ul>
+<li>link transmission rate, aka link <strong>capacity, aka link bandwidth</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Host.png" srcset="/img/loading.gif" alt="Host"></p>
+<p>We talked about how data was sent from a host. This time, we’re going to tackle an engineering problem.<strong>Data Delay</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/packets.png" srcset="/img/loading.gif" alt="packet-delay"></p>
+<h2 id="Data-delay"><a href="#Data-delay" class="headerlink" title="Data delay"></a>Data delay</h2><p>Data lag is the most common problem we will face in data transfer. Our connection may slow down (lag) while playing games, packets may be delayed while watching live broadcast …</p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/delay-packge.png" srcset="/img/loading.gif" alt="delay-packge" style="zoom: 33%;" /></p>
+
+<p>Or, if data comes from different sources, we need to list it at its destination. We need to adjust these delays for service quality.</p>
+<p><strong><em>So why are these delays caused?</em></strong></p>
+<p>Simply put, you have L bits of data to transmit, but you can only transmit R bits of data per second.</p>
+<p>$$\text {packet transmission delay} = \frac{L \text { (bits)}}{R \text { (bits/sec)}} $$</p>
+<p><strong>L</strong> = package size</p>
+<p><strong>R</strong> = link transmission rate</p>
+<h2 id="Links-Physical-media"><a href="#Links-Physical-media" class="headerlink" title="Links: Physical media"></a>Links: Physical media</h2><p>Followed by the person who installed the broadband watch a few more times to understand.</p>
+<ul>
+<li><strong>bit</strong>: propagates between transmitter/receiver pairs</li>
+<li><strong>physical link</strong>: what lies between transmitter &amp; receiver</li>
+<li><strong>guided media</strong>: <ul>
+<li>signals propagate in solid media: copper, fiber, coax</li>
+</ul>
+</li>
+<li><strong>unguided media</strong>: <ul>
+<li>signals propagate freely, e.g., radio</li>
+</ul>
+</li>
+</ul>
+<h3 id="Twisted-pair-TP"><a href="#Twisted-pair-TP" class="headerlink" title="Twisted pair (TP)"></a>Twisted pair (TP)</h3><p>Two insulated copper wires</p>
+<ul>
+<li><strong>Category 5</strong>: 100 Mbps, 1 Gbps Ethernet</li>
+<li><strong>Category 6</strong>: 10Gbps Ethernet</li>
+</ul>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Twisted-pair.png" srcset="/img/loading.gif" alt="Twisted-pair" style="zoom: 67%;" /></p>
+
+<h3 id="Coaxial-cable"><a href="#Coaxial-cable" class="headerlink" title="Coaxial cable:"></a>Coaxial cable:</h3><ul>
+<li>two concentric copper conductors</li>
+<li>bidirectional</li>
+<li>broadband:<ul>
+<li>multiple frequency channels on cable</li>
+<li>100’s Mbps per channel</li>
+</ul>
+</li>
+</ul>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Coaxial-cable.png" srcset="/img/loading.gif" alt="Coaxial-cable" style="zoom: 33%;" /></p>
+
+<h2 id="Fiber-optic-cable"><a href="#Fiber-optic-cable" class="headerlink" title="Fiber optic cable"></a>Fiber optic cable</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0MwMkBET_5I"><em>How do fiber optic cables work?</em></a></p>
+<ul>
+<li>glass fiber carrying light pulses, each pulse a bit</li>
+<li>high-speed operation:<ul>
+<li>high-speed point-to-point transmission (10’s-100’s Gbps)</li>
+</ul>
+</li>
+<li>low error rate: <ul>
+<li>repeaters spaced far apart </li>
+<li>immune to electromagnetic noise</li>
+</ul>
+</li>
+</ul>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Fiber-optic-cable.png" srcset="/img/loading.gif" alt="Fiber-optic-cable" style="zoom: 33%;" /></p>
+
+<h3 id="Wireless-radio"><a href="#Wireless-radio" class="headerlink" title="Wireless radio"></a>Wireless radio</h3><ul>
+<li>signal carried in various “bands” in electromagnetic spectrum</li>
+<li>no physical “wire”</li>
+<li>broadcast, “half-duplex” (sender to receiver)</li>
+<li>propagation environment effects:<ul>
+<li>reflection</li>
+<li>obstruction by objects</li>
+<li>Interference/noise</li>
+</ul>
+</li>
+</ul>
+<h3 id="Radio-link-types"><a href="#Radio-link-types" class="headerlink" title="Radio link types:"></a>Radio link types:</h3><ul>
+<li><strong>Wireless LAN</strong> (WiFi)<ul>
+<li>10-100’s Mbps; 10’s of meters</li>
+</ul>
+</li>
+<li><strong>wide-area</strong> (e.g., 4G cellular)<ul>
+<li>10’s Mbps over ~10 Km </li>
+</ul>
+</li>
+<li><strong>Bluetooth</strong>: cable replacement<ul>
+<li><strong>short distances, limited rates</strong></li>
+</ul>
+</li>
+<li><strong>terrestrial  microwave</strong><ul>
+<li>point-to-point; 45 Mbps channels</li>
+</ul>
+</li>
+<li><strong>satellite</strong><ul>
+<li>up to 45 Mbps per channel</li>
+<li>270 msec end-end delay</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>第一次用英文做笔记，有语法错误的话见谅，毕竟只是一个低分飘过六级的小废物罢了。。。</p>
+<p>Ps. 求第八版的PDF啊！不是中文searchable的也行啊！现在只能第七版的和slides混着看。。。。</p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/index.html">http://gaia.cs.umass.edu/kurose_ross/index.html</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.whoismyisp.org/articles/what-is-an-isp">https://www.whoismyisp.org/articles/what-is-an-isp</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Computer-Networking/">Computer Networking</a>
+                    
+                      <a class="hover-with-bg" href="/tags/A-Top-Down-Approach/">A Top-Down Approach</a>
+                    
+                      <a class="hover-with-bg" href="/tags/notes/">notes</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/">
+                        <span class="hidden-mobile">WSL2下AFL的安装与测试</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '1331118797b631adeeb5',
+          clientSecret: '367f791b0ab3489c94cc96bf4096b64f442b6ce3',
+          repo: 'gitment-blog',
+          owner: 'Mundi-Xu',
+          admin: ["Mundi-Xu"],
+          id: '669ac3f6b2c8539c2b1ee87e6a90e1ca',
+          language: 'en',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>Contact me</span></a> <i class="iconfont icon-love"></i> <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>mundi.xu@gmail.com</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
