@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.7k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      48
+      65
        分钟
     </span>
   
@@ -228,7 +228,7 @@
             
               <p class="note note-info">
                 
-                  Last update：4 days ago
+                  Last update：2 minutes ago
                 
               </p>
             
@@ -559,8 +559,105 @@
 </ul>
 </li>
 </ul>
+<h1 id="1-3-Foundation-of-the-network"><a href="#1-3-Foundation-of-the-network" class="headerlink" title="1.3 Foundation of the network"></a>1.3 Foundation of the network</h1><blockquote>
+<p>The Network Core</p>
+</blockquote>
+<p>Network of interconnected routers.</p>
+<p>There are devices that we call <strong>routers</strong> and <strong>switches</strong> that support end devices . These devices carry out an event called packet switch. They pick up the package from one place, key it and forward it to another location.</p>
+<p>We have two basic functions in Network Core: <strong>Forwarding</strong> and <strong>Routing.</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/key_network_core.png" srcset="/img/loading.gif" alt="Two key network-core functions"></p>
+<h2 id="Forwarding"><a href="#Forwarding" class="headerlink" title="Forwarding"></a><strong>Forwarding</strong></h2><p><strong>Forwarding</strong> the package never occurs without a transfer destination of a packet can be explained as the transmission source point. Also known as <strong>switching</strong> .(<strong>Local action</strong>)</p>
+<blockquote>
+<p>move arriving packets from router’s input link to appropriate router output link</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Forwarding.png" srcset="/img/loading.gif" alt="Forwarding"></p>
+<h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a><strong>Routing</strong></h2><p><strong>Routing</strong> , on the other hand, takes a package from the source point and transports it to the destination point, while this package changes hands between other carriers.(<strong>Global action</strong>) Determine the direction.</p>
+<blockquote>
+<p>determine source-destination paths taken by packets</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Routing.png" srcset="/img/loading.gif" alt="Routing"></p>
+<h2 id="Packet-switching-store-and-forward"><a href="#Packet-switching-store-and-forward" class="headerlink" title="Packet-switching: store-and-forward"></a>Packet-switching: store-and-forward</h2><p><strong>Why are packages stored? (Delays in packet transmission)</strong></p>
+<ul>
+<li>It may be unknown where the package will go.</li>
+<li>Other packages may be expected.</li>
+<li>There are packages that have to be sent before.</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/store-and-forward.png" srcset="/img/loading.gif" alt="Packet-switching: store-and-forward"></p>
+<h2 id="Packet-switching-queueing"><a href="#Packet-switching-queueing" class="headerlink" title="Packet-switching: queueing"></a>Packet-switching: queueing</h2><p>Occurs when demand exceeds the queue service capacity.</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/tea-queueing.jpg" srcset="/img/loading.gif" alt="茶颜的队列" style="zoom: 67%;" />
+
+<p>Should the <strong>packet loss</strong> be considered first in the packet forwarding queue? Here comes the problem.</p>
+<ul>
+<li>What should be done in case of package loss?</li>
+<li>How do we make the tail efficient?</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/queueing.png" srcset="/img/loading.gif" alt="Packet-switching: queueing"></p>
+<p><strong>Packet queuing and loss:</strong> if arrival rate (in bps) to link exceeds transmission rate (bps) of link for some period of time:</p>
+<ul>
+<li>packets will queue, waiting to be transmitted on output link </li>
+<li>packets can be dropped (lost) if memory (buffer) in router fills up</li>
+</ul>
+<h2 id="Alternative-to-packet-switching-Circuit-Switching"><a href="#Alternative-to-packet-switching-Circuit-Switching" class="headerlink" title="Alternative to packet switching: Circuit Switching"></a>Alternative to packet switching: Circuit Switching</h2><p>It is a channel only available to you between you and the target.We can compare this to military phone lines. Only interconnected phones to communicate between two fronts.</p>
+<blockquote>
+<p><strong>We can think of circuit switching as creating a direct channel between two end devices.</strong></p>
+<p><strong>The biggest difference between circuit switching and packet switching is that circuit users can’t share bandwidth.</strong></p>
+</blockquote>
+<p>end-end resources allocated to, reserved for “call” between source and destination</p>
+<ul>
+<li>in diagram, each link has four circuits. <ul>
+<li>call gets 2nd circuit in top link and 1st circuit in right link.</li>
+</ul>
+</li>
+<li>dedicated resources: no sharing<ul>
+<li>circuit-like (guaranteed) performance</li>
+</ul>
+</li>
+<li>circuit segment idle if not used by call (<strong>no sharing</strong>)</li>
+<li>commonly used in traditional telephone networks</li>
+</ul>
+<h3 id="Packet-switching-vs-Circuit-switching"><a href="#Packet-switching-vs-Circuit-switching" class="headerlink" title="Packet switching vs Circuit switching"></a>Packet switching vs Circuit switching</h3><h3 id="Packet-Switching"><a href="#Packet-Switching" class="headerlink" title="Packet Switching"></a>Packet Switching</h3><ul>
+<li>Shared channel usage. (More intensive use!)</li>
+<li>It can serve more users. Used more widely</li>
+<li>It can serve approximately 35 users at a bandwidth of 1 Gbps.</li>
+</ul>
+<h3 id="Circut-Switching"><a href="#Circut-Switching" class="headerlink" title="Circut Switching"></a>Circut Switching</h3><ul>
+<li>Dedicated channel usage</li>
+<li>It is a less preferred method because it is more costly.</li>
+<li>It can serve up to 10 users at a bandwidth of 1 Gbps.</li>
+</ul>
+<p>Packet Switching requires a lot of management and planning, as well as overcoming packet loss problems caused by queue overflows in excessive packet transfer.We will examine problems such as transmission problems and congestion studies during the period and look at how to solve these problems.</p>
+<h2 id="Internet-structure-a-“network-of-networks”"><a href="#Internet-structure-a-“network-of-networks”" class="headerlink" title="Internet structure: a “network of networks”"></a>Internet structure: a “network of networks”</h2><p><strong><em>Question:</em> given millions of access ISPs, how to connect them together?</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network1.png" srcset="/img/loading.gif" alt="network1" style="zoom:67%;" />
+
+<p>Trying to connect all ISPs together is not a connection that can scale: O($N^2$) connections. So how do we go about it?</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network2.png" srcset="/img/loading.gif" alt="network2" style="zoom:67%;" />
+
+<p>Instead of connecting these many ISPs to one, we can connect to a global ISP and obtain a scalable connection.</p>
+<p><em>Customer</em> <em>and</em> <em>provider</em> <em>ISPs have economic agreement.</em></p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network3.png" srcset="/img/loading.gif" alt="network3" style="zoom:67%;" />
+
+<p>Of course, since this universal ISP business would be a reasonable business type, there will be other Universal ISPs providing this service.</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network4.png" srcset="/img/loading.gif" alt="network4" style="zoom:67%;" />
+
+<p>We use intercontinental high-speed routers that we call IXP (Internet eXchange Point) when connecting these universal ISPs.</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network5.png" srcset="/img/loading.gif" alt="network5" style="zoom:67%;" />
+
+<p>Although not as large as Universal ISPs, there are also Regional ISPs that work with the same logic.</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network6.png" srcset="/img/loading.gif" alt="network6" style="zoom:67%;" />
+
+<p>Also content provider networks. They can use their private networks - like Google, Microsoft - to bring services and content closer to end users. In this way, they get rid of the density in ISPs.</p>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network7.png" srcset="/img/loading.gif" alt="network7" style="zoom:67%;" />
+
+<p>At “center”: small # of well-connected large networks</p>
+<ul>
+<li>“tier-1” commercial ISPs (e.g., Level 3, Sprint, AT&amp;T, NTT), national &amp; international coverage</li>
+<li>content provider networks (e.g., Google, Facebook): private network that connects its data centers to Internet, often bypassing tier-1, regional ISPs</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network8.png" srcset="/img/loading.gif" alt="network8" style="zoom:67%;" />
+
+
 <hr>
-<p>第一次用英文做笔记，有语法错误的话见谅，毕竟只是一个低分飘过六级的小废物罢了。。。</p>
+<p>第一次用英文做笔记，有语法错误的话见谅（其实很大部分是课件上的内容），毕竟只是一个低分飘过六级的小废物罢了。。。</p>
 <p>Ps. 求第八版的PDF啊！不是中文searchable的也行啊！现在只能第七版的和slides混着看。。。。</p>
 <hr>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/index.html">http://gaia.cs.umass.edu/kurose_ross/index.html</a>
