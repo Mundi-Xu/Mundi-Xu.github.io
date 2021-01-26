@@ -228,7 +228,7 @@
             
               <p class="note note-info">
                 
-                  Last update：a minute ago
+                  Last update：5 minutes ago
                 
               </p>
             
@@ -683,50 +683,48 @@
 <li><em>La/R</em> -&gt; 1: avg. queueing delay large</li>
 <li><em>La/R</em> &gt; 1: more “work” arriving is more than can be serviced - average delay infinite!</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/La-R.png" srcset="/img/loading.gif" alt="Dependence of average queuing delay on traffic intensity"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/queueing-delay.png" srcset="/img/loading.gif"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/La-R.png" srcset="/img/loading.gif" alt="Dependence of average queuing delay on traffic intensity" style="zoom:80%;" /></p>
+
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/queueing-delay.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+
 <h2 id="“Real”-Internet-delays-and-routes"><a href="#“Real”-Internet-delays-and-routes" class="headerlink" title="“Real” Internet delays and routes"></a>“Real” Internet delays and routes</h2><ul>
 <li><p>what do “real” Internet delay &amp; loss look like? </p>
 </li>
 <li><p><strong>traceroute</strong> program: provides delay measurement from source to router along end-end Internet path towards destination. For all <em>i</em>:</p>
 <ul>
-<li><p>sends three packets that will reach router i on path towards destination (with time-to-live field value of i)</p>
+<li>sends three packets that will reach router i on path towards destination (with time-to-live field value of i)</li>
+<li>router i will return packets to sender</li>
+<li>sender measures time interval between transmission and reply</li>
+</ul>
 </li>
-<li><p>router i will return packets to sender</p>
-</li>
-<li><p>sender measures time interval between transmission and reply</p>
+</ul>
 <blockquote>
 <p>tracert in Windows</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/traceroute.png" srcset="/img/loading.gif"></p>
 <p>We can draw some conclusions from these outputs:</p>
-</li>
-<li><p>We can determine the distance to the delay times. We can see the increasing delay, especially in continental jumps.</p>
-</li>
-<li><p>When we start to get three stars, we can understand that our package will get an answer.</p>
+<ul>
+<li>We can determine the distance to the delay times. We can see the increasing delay, especially in continental jumps.</li>
+<li>When we start to get three stars, we can understand that our package will get an answer.</li>
+</ul>
 <p>For more information <a target="_blank" rel="noopener" href="http://www.traceroute.org/">www.traceroute.org</a></p>
 <h2 id="Packet-loss"><a href="#Packet-loss" class="headerlink" title="Packet loss"></a>Packet loss</h2><p>When the queue with limited capacity (we call it buffer) is full, the incoming packets will be lost.</p>
-</li>
-<li><p>queue (aka buffer) preceding link in buffer has finite capacity</p>
-</li>
-<li><p>packet arriving to full queue dropped (aka lost)</p>
-</li>
-<li><p>lost packet may be retransmitted by previous node, by source end system, or not at all</p>
-</li>
-</ul>
-</li>
+<ul>
+<li>queue (aka buffer) preceding link in buffer has finite capacity</li>
+<li>packet arriving to full queue dropped (aka lost)</li>
+<li>lost packet may be retransmitted by previous node, by source end system, or not at all</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Packet-loss.png" srcset="/img/loading.gif"></p>
 <p>You can access this animation that simulates packet loss <a target="_blank" rel="noopener" href="https://media.pearsoncmg.com/aw/ecs_kurose_compnetwork_7/cw/content/interactiveanimations/queuing-loss-applet/index.html"><strong>here</strong></a> .</p>
-<h2 id="Throughput-and-bandwith-lt-span-class-”hint–top-hint–rounded”-aria-label-”https-www-differencebetween-com-difference-between-throughput-and-vs-bandwidth"><a href="#Throughput-and-bandwith-lt-span-class-”hint–top-hint–rounded”-aria-label-”https-www-differencebetween-com-difference-between-throughput-and-vs-bandwidth" class="headerlink" title="Throughput and bandwith&lt;span class=”hint–top hint–rounded” aria-label=”https://www.differencebetween.com/difference-between-throughput-and-vs-bandwidth/"></a>Throughput and bandwith<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote">&lt;span class=”hint–top hint–rounded” aria-label=”https://www.differencebetween.com/difference-between-throughput-and-vs-bandwidth/</h2><p>“&gt;[3]</span></a></sup></p>
-<p>To explain the bandwidth on a highway example; The number of vehicles the highway can carry per unit time <strong><code>bandwidth</code></strong>. When measuring the Badwith according to their size; We use units such as kilobits per second (kbps), megabits bits per second (Mbps), and gigabits per second (Gbps).</p>
+<h2 id="Throughput-and-bandwith"><a href="#Throughput-and-bandwith" class="headerlink" title="Throughput and bandwith"></a>Throughput and bandwith</h2><p>To explain the bandwidth on a highway example; The number of vehicles the highway can carry per unit time is called a <strong>bandwidth</strong>. When measuring the Badwith according to their size; We use units such as kilobits per second (kbps), megabits bits per second (Mbps), and gigabits per second (Gbps).<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.differencebetween.com/difference-between-throughput-and-vs-bandwidth/
+">[3]</span></a></sup></p>
 <p>Let’s say you get a 100Mbps internet connection from your ISP. An internet connection at this speed is very satisfactory in today’s standards for a single use. But even if other individuals living at home or your next-door neighbor or even people in the coffee shop downstairs are not strong enough, will you be able to get the same appointment from this internet connection when you access your 100Mbps internet and start to access the internet from here? Or will you still be able to see 100Mbps connection speed when you do an internet speed test?</p>
 <p><strong>Of course no.</strong> In such a scenario, your internet speed, which was 100Mbps at first, may decrease to 10Mbps or even lower as the number of users increases.</p>
 <blockquote>
 <p><em>So why? How does my internet connection, which is 100Mbps, fall below this? Wasn’t my speed 100Mbps?</em> <sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="Speed vs Bandwidth Explained - Arvig
 ">[4]</span></a></sup></p>
 </blockquote>
-<p>As I said at the beginning, this bandwidth will be enough for you in a single connection. In other words, you will enjoy the highway at a speed of 100 km / h from the middle lane or the lane of your choice on a 5-lane highway. But when other cars start to hit this road, the lanes will start to fill up slowly and you will begin to compromise the comfortable driving experience you had in the first place. Especially if there is an accident, then you ate the quince! Traffic will come to the key point, so your internet speed will drop to 1Mbps. Predict how an internet-speed crash experience will occur when 5 people connected to your network start downloading movies from torrent at the same time.</p>
+<p>As I said at the beginning, this bandwidth will be enough for you in a single connection. In other words, you will enjoy the highway at a speed of 100 km/h from the middle lane or the lane of your choice on a 5-lane highway. But when other cars start to hit this road, the lanes will start to fill up slowly and you will begin to compromise the comfortable driving experience you had in the first place. Especially if there is an accident, then you ate the quince! Traffic will come to the key point, so your internet speed will drop to 1Mbps. Predict how an internet-speed crash experience will occur when 5 people connected to your network start downloading movies from torrent at the same time.</p>
 <p>So the internet you buy as 100Mbps(<strong>bandwidth</strong>) is only a value that may vary in one connection range.</p>
 <p>Well, is there an internet connection value that I can see the same value regardless of what it does?</p>
 <p>Yes, we call thorugput the internet connection value showing the same value unchanged. If we go through the Throughtput highway example, the number of vehicles supported can be expressed in instant time. This is why anyone who will pass in instant time on the highway will pass at the same speed, even if there is a flood that will pass at the same speed, even if it is an earthquake, 1000 cars will pass at the same speed. This speed will be somehow achieved.</p>
