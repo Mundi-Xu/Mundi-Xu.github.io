@@ -228,7 +228,7 @@
             
               <p class="note note-info">
                 
-                  Last update：3 minutes ago
+                  Last update：2 minutes ago
                 
               </p>
             
@@ -238,28 +238,18 @@
 ">[1]</span></a></sup>  J.F. Kurose, K.W. Ross</p>
 <p>You can find all the course materials related to this section <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/videos/1/"><strong>here</strong></a> .</p>
 </blockquote>
-<h2 id="Overview-roadmap"><a href="#Overview-roadmap" class="headerlink" title="Overview/roadmap"></a>Overview/roadmap</h2><ul>
-<li><p>What <em>is</em> the Internet? What <em>is</em> a protocol?</p>
-</li>
-<li><p><strong>Network edge</strong>: hosts, access network, physical media</p>
-</li>
-<li><p><strong>Network core</strong>: packet/circuit switching, internet structure</p>
-</li>
-<li><p><strong>Performance</strong>: loss, delay, throughput</p>
-</li>
-<li><p>Protocol layers, service models</p>
-</li>
-<li><p>Security</p>
-</li>
-<li><p>History</p>
-</li>
-</ul>
-<h2 id="Chapter-goal"><a href="#Chapter-goal" class="headerlink" title="Chapter goal"></a>Chapter goal</h2><ul>
-<li><p>Get “feel,” “big picture,” introduction to terminology</p>
+<h2 id="Overview-roadmap"><a href="#Overview-roadmap" class="headerlink" title="Overview/roadmap"></a>Overview/roadmap</h2><ol>
+<li>What <em>is</em> the Internet? What <em>is</em> a protocol?</li>
+<li><strong>Network edge</strong>: hosts, access network, physical media</li>
+<li><strong>Network core</strong>: packet/circuit switching, internet structure</li>
+<li><strong>Performance</strong>: loss, delay, throughput</li>
+<li>Protocol layers, service models</li>
+<li>Security</li>
+<li>History</li>
+</ol>
+<h2 id="Chapter-goal"><a href="#Chapter-goal" class="headerlink" title="Chapter goal"></a>Chapter goal</h2><p>Get “feel,” “big picture,” introduction to terminology</p>
 <ul>
 <li>more depth, detail <em>later</em> in course</li>
-</ul>
-</li>
 </ul>
 <p>在本章中，我们将概述所有章节并留待后续文章进行详细解释，同时我们需要知道下述问题：</p>
 <ul>
@@ -955,8 +945,8 @@
 <li><strong>SSH</strong> SSH stands for Secure Shell. It is a terminal emulations software similar to Telnet. The reason SSH is more preferred is because of its ability to maintain the encrypted connection. It sets up a secure session over a TCP/IP connection.</li>
 <li><strong>NTP</strong> NTP stands for Network Time Protocol. It is used to synchronize the clocks on our computer to one standard time source. It is very useful in situations like bank transactions. Assume the following situation without the presence of NTP. Suppose you carry out a transaction, where your computer reads the time at 2:30 PM while the server records it at 2:28 PM. The server can crash very badly if it’s out of sync.</li>
 </ol>
-<h2 id="Layered-Internet-protocol-stack"><a href="#Layered-Internet-protocol-stack" class="headerlink" title="Layered Internet protocol stack"></a>Layered Internet protocol stack</h2><blockquote>
-<p><strong>Hybrid model</strong></p>
+<h2 id="Hybrid-model"><a href="#Hybrid-model" class="headerlink" title="Hybrid model"></a><strong>Hybrid model</strong></h2><blockquote>
+<p>Layered Internet protocol stack</p>
 </blockquote>
 <p>In the real world, we use a mix of both the OSI model and the TCP/IP model, called the Hybrid model. In the Hybrid model, the Application layer is a combination of layer 7, layer 6 and layer 5 of OSI model (similar to TCP/IP model). The remaining layers (layer 1, 2, 3 and 4) are the same as the OSI model.</p>
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Hybrid-model.jpg" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
@@ -981,7 +971,7 @@
 <h2 id="Services-Layering-and-Encapsulation"><a href="#Services-Layering-and-Encapsulation" class="headerlink" title="Services, Layering and Encapsulation"></a>Services, Layering and Encapsulation</h2><p>Watch the <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/videos/1/5/1.5_video_slides_posted.pptx">courseware</a> and <a target="_blank" rel="noopener" href="https://youtu.be/IZ_PnVXtMeY">instructional videos</a> for more details.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Encapsulation-end-end-view.png" srcset="/img/loading.gif"></p>
 <hr>
-<p>第一次用英文做笔记，有语法错误的话见谅（其实很大部分是课件上的内容），毕竟只是一个低分飘过六级的小废物罢了。。。</p>
+<p>第一次用英文做笔记，有语法错误的话见谅，毕竟只是一个低分飘过六级的小废物罢了。。。</p>
 <p>Ps. 求第八版的PDF啊！不是中文searchable的也行啊！现在只能第七版的和slides混着看。。。。</p>
 <hr>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/index.html">http://gaia.cs.umass.edu/kurose_ross/index.html</a>
