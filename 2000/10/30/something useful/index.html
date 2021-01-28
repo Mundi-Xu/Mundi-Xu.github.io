@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="寒雨">
+  <meta name="keywords" content="">
+  <title>something useful - Mundi&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/stackoverflow-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mundi's Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/banner.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="something useful">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2000-10-30 00:05" pubdate>
+        October 30, 2000 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      62
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">something useful</h1>
+            
+              <p class="note note-info">
+                
+                  Last update：a minute ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="npm使用国内镜像加速的几种方法"><a href="#npm使用国内镜像加速的几种方法" class="headerlink" title="npm使用国内镜像加速的几种方法"></a>npm使用国内镜像加速的几种方法</h1><h2 id="一、修改成淘宝镜像源"><a href="#一、修改成淘宝镜像源" class="headerlink" title="一、修改成淘宝镜像源"></a><strong>一、修改成淘宝镜像源</strong></h2><ol>
+<li><p>命令<br><code>npm config set registry https://registry.npm.taobao.org</code></p>
+</li>
+<li><p>验证命令<br><code>npm config get registry</code></p>
+</li>
+</ol>
+<p>如果返回<code>https://registry.npm.taobao.org</code>，说明镜像配置成功。</p>
+<h2 id="二、修改成华为云镜像源"><a href="#二、修改成华为云镜像源" class="headerlink" title="二、修改成华为云镜像源"></a><strong>二、修改成华为云镜像源</strong></h2><p><code>npm config set registry https://mirrors.huaweicloud.com/repository/npm/</code></p>
+<h2 id="三、通过使用淘宝cnpm安装"><a href="#三、通过使用淘宝cnpm安装" class="headerlink" title="三、通过使用淘宝cnpm安装"></a><strong>三、通过使用淘宝cnpm安装</strong></h2><p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<h1 id="CentOS7安装Docker并配置镜像加速同时搭建网盘"><a href="#CentOS7安装Docker并配置镜像加速同时搭建网盘" class="headerlink" title="CentOS7安装Docker并配置镜像加速同时搭建网盘"></a>CentOS7安装Docker并配置镜像加速同时搭建网盘</h1><h2 id="一、如果存在旧版本需要卸载"><a href="#一、如果存在旧版本需要卸载" class="headerlink" title="一、如果存在旧版本需要卸载"></a>一、如果存在旧版本需要卸载</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo yum remove docker \<br>                  docker-client \<br>                  docker-client-latest \<br>                  docker-common \<br>                  docker-latest \<br>                  docker-latest-logrotate \<br>                  docker-logrotate \<br>                  docker-engine<br></code></pre></div></td></tr></table></figure>
+<h2 id="二、使用存储库安装，配置yum库地址"><a href="#二、使用存储库安装，配置yum库地址" class="headerlink" title="二、使用存储库安装，配置yum库地址"></a>二、使用存储库安装，配置yum库地址</h2><p>docker官网比较慢这里使用阿里云仓库加速</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo yum install -y yum-utils<br><br>sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<br></code></pre></div></td></tr></table></figure>
+<h2 id="三、安装最新版本的Docker-Engine和容器，或安装特定版本"><a href="#三、安装最新版本的Docker-Engine和容器，或安装特定版本" class="headerlink" title="三、安装最新版本的Docker Engine和容器，或安装特定版本"></a>三、安装<em>最新版本</em>的Docker Engine和容器，或安装特定版本</h2><p>最新版：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo yum install -y docker-ce docker-ce-cli containerd.io<br></code></pre></div></td></tr></table></figure>
+<p>安装指定版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 列出可选择的版本列表</span><br>yum list docker-ce --showduplicates | sort -r<br><br><span class="hljs-meta">#</span><span class="bash"> 安装指定的版本&lt;VERSION_STRING&gt;：版本号。如docker-ce-19.03.12</span><br>sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io<br></code></pre></div></td></tr></table></figure>
+<h2 id="四、启动docker并配置开启自启"><a href="#四、启动docker并配置开启自启" class="headerlink" title="四、启动docker并配置开启自启"></a>四、启动docker并配置开启自启</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 启动docker</span><br>sudo systemctl start docker<br><br><span class="hljs-meta">#</span><span class="bash"> 设置开机自启</span><br>sudo systemctl enable docker<br></code></pre></div></td></tr></table></figure>
+<h2 id="五、将用户加入docker组"><a href="#五、将用户加入docker组" class="headerlink" title="五、将用户加入docker组"></a>五、将用户加入docker组</h2><p>非root用户使用docker，可以将用户加入docker组，避免每次执行都需要加上sudo语句。</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 将your-user改为你的用户名称</span><br>sudo usermod -aG docker your-user<br></code></pre></div></td></tr></table></figure>
+<p>注：执行后需要注销退出重新登录生效。</p>
+<h2 id="六、查看是否安装成功"><a href="#六、查看是否安装成功" class="headerlink" title="六、查看是否安装成功"></a>六、查看是否安装成功</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker version<br>Client: Docker Engine - Community<br> Version:           19.03.12<br> API version:       1.40<br> Go version:        go1.13.10<br> Git commit:        48a66213fe<br> Built:             Mon Jun 22 15:46:54 2020<br> OS/Arch:           linux/amd64<br> Experimental:      false<br><br>Server: Docker Engine - Community<br> Engine:<br>  Version:          19.03.12<br>  API version:      1.40 (minimum version 1.12)<br>  Go version:       go1.13.10<br>  Git commit:       48a66213fe<br>  Built:            Mon Jun 22 15:45:28 2020<br>  OS/Arch:          linux/amd64<br>  Experimental:     false<br> containerd:<br>  Version:          1.2.13<br>  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429<br> runc:<br>  Version:          1.0.0-rc10<br>  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd<br> docker-init:<br>  Version:          0.18.0<br>  GitCommit:        fec3683<br></code></pre></div></td></tr></table></figure>
+<h2 id="七、配置阿里云镜像下载加速"><a href="#七、配置阿里云镜像下载加速" class="headerlink" title="七、配置阿里云镜像下载加速"></a>七、配置阿里云镜像下载加速</h2><p>进入阿里云官网找到容器镜像服务，找到镜像加速器，按操作文档执行即可。可体验丝滑般的镜像下载速度。</p>
+<h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run --name=db -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=filerun -e MYSQL_USER=filerun -e MYSQL_PASSWORD=filerun -dP mysql<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装离线下载服务："><a href="#安装离线下载服务：" class="headerlink" title="安装离线下载服务："></a>安装离线下载服务：</h2><p>会自动安装 Aria2、AriaNG和Filerun非常的省心：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run --name=pan --link=db  -ti -p 8081:80 -p 6800:6800 jaegerdocker/pan<br></code></pre></div></td></tr></table></figure>
+<h2 id="体验一波FileRun"><a href="#体验一波FileRun" class="headerlink" title="体验一波FileRun"></a>体验一波FileRun</h2><p>打开 <code>http://39.107.108.89:8081</code>，出现登录窗口就OK了，用户名和密码都是：<code>superuser</code> </p>
+<p>然后再修改一下默认密码，之后就可以看到一个类似云盘的界面了，我们可以自行上传我们的文件，在线预览 视频、PDF、图片、Office 文档也是小意思。这样我们就可以将我们的下载或者上传的资源很方便的分享给我们的朋友了，当然还可以开一个新的账号给小伙伴们使用。榨干你云服务器的所有价值，～</p>
+<h2 id="体验一波离线下载"><a href="#体验一波离线下载" class="headerlink" title="体验一波离线下载"></a>体验一波离线下载</h2><p>重头戏来了，我们的离线下载，进入<code>http://39.107.108.89:8081/dweb</code></p>
+<p>完全一个网页版迅雷嘛，支持下载BT、HTTP、FTP、磁力、电驴等等，对于冷门资源睡觉前添加下载，一觉醒来就可以慢速下载回来了～～如果是一些中国网络下载慢的资源，可能一瞬间就可以下载完毕，我们就可以全速下载回来了！</p>
+<h1 id="Linux-查看端口占用情况"><a href="#Linux-查看端口占用情况" class="headerlink" title="Linux 查看端口占用情况"></a>Linux 查看端口占用情况</h1><p>Linux 查看端口占用情况可以使用 <strong>lsof</strong> 和 <strong>netstat</strong> 命令。</p>
+<hr>
+<h2 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h2><p>lsof(list open files)是一个列出当前系统打开文件的工具。</p>
+<p>lsof 查看端口占用语法格式：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">lsof -<span class="hljs-attr">i:</span>端口号<br></code></pre></div></td></tr></table></figure>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>查看服务器 8000 端口的占用情况：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-comment"># lsof -i:8000</span><br><span class="hljs-attribute">COMMAND</span>   PID USER   FD   TYPE   DEVICE SIZE/<span class="hljs-literal">OFF</span> NODE NAME<br><span class="hljs-attribute">nodejs</span>  <span class="hljs-number">26993</span> root   <span class="hljs-number">10</span>u  IPv<span class="hljs-number">4</span> <span class="hljs-number">37999514</span>      <span class="hljs-number">0</span>t<span class="hljs-number">0</span>  TCP *:<span class="hljs-number">8000</span> (LISTEN)<br></code></pre></div></td></tr></table></figure>
+<p>可以看到 8000 端口已经被轻 nodejs 服务占用。</p>
+<p>lsof -i 需要 root 用户的权限来执行，如下图：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/09/lsof.png" srcset="/img/loading.gif" alt="img"></p>
+<p>更多 lsof 的命令如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">lsof</span> -i:<span class="hljs-number">8080</span>：查看<span class="hljs-number">8080</span>端口占用<br><span class="hljs-attribute">lsof</span> abc.txt：显示开启文件abc.txt的进程<br><span class="hljs-attribute">lsof</span> -c abc：显示abc进程现在打开的文件<br><span class="hljs-attribute">lsof</span> -c -p <span class="hljs-number">1234</span>：列出进程号为<span class="hljs-number">1234</span>的进程所打开的文件<br><span class="hljs-attribute">lsof</span> -g gid：显示归属gid的进程情况<br><span class="hljs-attribute">lsof</span> +d /usr/local/：显示目录下被进程开启的文件<br><span class="hljs-attribute">lsof</span> +D /usr/local/：同上，但是会搜索目录下的目录，时间较长<br><span class="hljs-attribute">lsof</span> -d <span class="hljs-number">4</span>：显示使用fd为<span class="hljs-number">4</span>的进程<br><span class="hljs-attribute">lsof</span> -i -U：显示所有打开的端口和UNIX domain文件<br></code></pre></div></td></tr></table></figure>
+<h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><p><strong>netstat -tunlp</strong> 用于显示 tcp，udp 的端口和进程等相关情况。</p>
+<p>netstat 查看端口占用语法格式：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c">netstat -tunlp <span class="hljs-string">| grep 端口号</span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>-t (tcp) 仅显示tcp相关选项</li>
+<li>-u (udp)仅显示udp相关选项</li>
+<li>-n 拒绝显示别名，能显示数字的全部转化为数字</li>
+<li>-l 仅列出在Listen(监听)的服务状态</li>
+<li>-p 显示建立相关链接的程序名</li>
+</ul>
+<p>例如查看 8000 端口的情况，使用以下命令：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-comment"># netstat -tunlp | grep 8000</span><br><span class="hljs-attribute">tcp</span>        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">0.0.0.0:8000</span>            <span class="hljs-number">0.0.0.0</span>:*               LISTEN      <span class="hljs-number">26993</span>/nodejs   <br></code></pre></div></td></tr></table></figure>
+<p>更多命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">netstat -ntlp   <span class="hljs-regexp">//</span>查看当前所有tcp端口<br>netstat -ntulp | grep <span class="hljs-number">80</span>   <span class="hljs-regexp">//</span>查看所有<span class="hljs-number">80</span>端口使用情况<br>netstat -ntulp | grep <span class="hljs-number">3306</span>   <span class="hljs-regexp">//</span>查看所有<span class="hljs-number">3306</span>端口使用情况<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>在查到端口占用的进程后，如果你要杀掉对应的进程可以使用 kill 命令：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">kill</span> -<span class="hljs-number">9</span> PID<br></code></pre></div></td></tr></table></figure>
+<p>如上实例，我们看到 8000 端口对应的 PID 为 26993，使用以下命令杀死进程：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">kill</span> -<span class="hljs-number">9</span> <span class="hljs-number">26993</span><br></code></pre></div></td></tr></table></figure>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="查看Docker占用资源"><a href="#查看Docker占用资源" class="headerlink" title="查看Docker占用资源"></a>查看Docker占用资源</h2><p>在容器的使用过程中，如果能及时的掌握容器使用的系统资源，无论对开发还是运维工作都是非常有益的。幸运的是 docker 自己就提供了这样的命令：docker stats。</p>
+<h3 id="默认输出"><a href="#默认输出" class="headerlink" title="默认输出"></a>默认输出</h3><p>docker stats 命令用来显示容器使用的系统资源。不带任何选项执行 docker stats 命令：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker stats</span><br></code></pre></div></td></tr></table></figure>
+
+<p>默认情况下，stats 命令会每隔 1 秒钟刷新一次输出的内容直到你按下 ctrl + c。下面是输出的主要内容：<br>[<strong>CONTAINER</strong>]：以短格式显示容器的 ID。<br>[<strong>CPU %</strong>]：CPU 的使用情况。<br>[<strong>MEM USAGE / LIMIT</strong>]：当前使用的内存和最大可以使用的内存。<br>[<strong>MEM %</strong>]：以百分比的形式显示内存使用情况。<br>[<strong>NET I/O</strong>]：网络 I/O 数据。<br>[<strong>BLOCK I/O</strong>]：磁盘 I/O 数据。<br>[<strong>PIDS</strong>]：PID 号。</p>
+<h3 id="只返回当前的状态"><a href="#只返回当前的状态" class="headerlink" title="只返回当前的状态"></a>只返回当前的状态</h3><p>如果不想持续的监控容器使用资源的情况，可以通过 –no-stream 选项只输出当前的状态：</p>
+<figure class="highlight gams"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gams"><span class="hljs-symbol">$</span> docker stats --<span class="hljs-keyword">no</span>-stream<br></code></pre></div></td></tr></table></figure>
+<p>这样输出的结果就不会变化了，看起来省劲不少。</p>
+<h3 id="只输出指定的容器"><a href="#只输出指定的容器" class="headerlink" title="只输出指定的容器"></a>只输出指定的容器</h3><p>如果我们只想查看个别容器的资源使用情况，可以为 docker stats 命令显式的指定目标容器的名称或者是 ID：</p>
+<figure class="highlight gams"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gams"><span class="hljs-symbol">$</span> docker stats --<span class="hljs-keyword">no</span>-stream registry <span class="hljs-number">1493</span><br></code></pre></div></td></tr></table></figure>
+
+<p>当有很多的容器在运行时，这样的结果看起来会清爽一些。这里的 registry 和 1493 分别是容器的名称和容器的 ID。注意，多个容器的名称或者是 ID 之间需要用空格进行分割。</p>
+<p>细心的同学可能已经发现了，第一列不再显示默认的容器 ID，而是显示了我们传入的容器名称和 ID。基于此，我们可以通过简单的方式使用容器的名称替代默认输出中的容器 ID：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">$ docker stats <span class="hljs-constructor">$(<span class="hljs-params">docker</span> <span class="hljs-params">ps</span> --<span class="hljs-params">format</span>=&#123;&#123;.Names&#125;&#125;)</span><br></code></pre></div></td></tr></table></figure>
+<p>用容器的名称替代 ID 后输出的结果是不是友好一些？</p>
+<h3 id="格式化输出的结果"><a href="#格式化输出的结果" class="headerlink" title="格式化输出的结果"></a>格式化输出的结果</h3><p>我们在前面搞了点小手段把输出中的容器 ID 替换成了名称。其实 docker stats 命令支持我们通过 –format 选项自定义输出的内容和格式：</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs handlebars"><span class="xml">$ docker stats --format &quot;table </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">.Name</span>&#125;&#125;</span><span class="xml">\t</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">.CPUPerc</span>&#125;&#125;</span><span class="xml">\t</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">.MemUsage</span>&#125;&#125;</span><span class="xml">&quot;</span><br></code></pre></div></td></tr></table></figure>
+<p>上面的命令中我们只输出了 Name, CPUPerc 和 Memusage 三列。下面是自定义的格式中可以使用的所有占位符：<br>.Container   根据用户指定的名称显示容器的名称或 ID。<br>.Name      容器名称。<br>.ID         容器 ID。<br>.CPUPerc    CPU 使用率。<br>.MemUsage 内存使用量。<br>.NetIO      网络 I/O。<br>.BlockIO     磁盘 I/O。<br>.MemPerc   内存使用率。<br>.PIDs       PID 号。<br>有了这些信息我们就可以完全按照自己的需求或者是偏好来控制 docker stats 命令输出的内容了。</p>
+<p>除了以 table 格式输出结果，还可以通过 format 选项输出 json 格式的结果：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lsl">$ docker stats --no-stream --format \<br>    <span class="hljs-string">&quot;&#123;<span class="hljs-subst">\&quot;</span>container<span class="hljs-subst">\&quot;</span>:<span class="hljs-subst">\&quot;</span>&#123;&#123; .Container &#125;&#125;<span class="hljs-subst">\&quot;</span>,<span class="hljs-subst">\&quot;</span>memory<span class="hljs-subst">\&quot;</span>:&#123;<span class="hljs-subst">\&quot;</span>raw<span class="hljs-subst">\&quot;</span>:<span class="hljs-subst">\&quot;</span>&#123;&#123; .MemUsage &#125;&#125;<span class="hljs-subst">\&quot;</span>,<span class="hljs-subst">\&quot;</span>percent<span class="hljs-subst">\&quot;</span>:<span class="hljs-subst">\&quot;</span>&#123;&#123; .MemPerc &#125;&#125;<span class="hljs-subst">\&quot;</span>&#125;,<span class="hljs-subst">\&quot;</span>cpu<span class="hljs-subst">\&quot;</span>:<span class="hljs-subst">\&quot;</span>&#123;&#123; .CPUPerc &#125;&#125;<span class="hljs-subst">\&quot;</span>&#125;&quot;</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="Docker启动"><a href="#Docker启动" class="headerlink" title="Docker启动"></a>Docker启动</h2><p>启动容器有两种方式，一种是基于镜像新建一个容器并启动，另外一个是将在终止状态（<code>stopped</code>）的容器重新启动。</p>
+<p>因为 Docker 的容器实在太轻量级了，很多时候用户都是随时删除和新创建容器。</p>
+<h3 id="新建并启动"><a href="#新建并启动" class="headerlink" title="新建并启动"></a><strong>新建并启动</strong></h3><p>所需要的命令主要为 <code>docker run</code>。</p>
+<p>例如，下面的命令输出一个 “Hello World”，之后终止容器。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile">$ docker <span class="hljs-keyword">run</span><span class="bash"> ubuntu:18.04 /bin/<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;Hello world&#x27;</span></span><br>Hello world<br></code></pre></div></td></tr></table></figure>
+<p>这跟在本地直接执行 <code>/bin/echo &#39;hello world&#39;</code> 几乎感觉不出任何区别。</p>
+<p>下面的命令则启动一个 bash 终端，允许用户进行交互。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>docker run -t -i <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">18.04</span> /bin/bash<br>root<span class="hljs-variable">@af8bae53bdd3</span><span class="hljs-symbol">:/</span><span class="hljs-comment">#</span><br></code></pre></div></td></tr></table></figure>
+<p>其中，<code>-t</code> 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上， <code>-i</code> 则让容器的标准输入保持打开。</p>
+<p>在交互模式下，用户可以通过所创建的终端来输入命令，例如</p>
+<figure class="highlight crystal"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crystal">root@<span class="hljs-symbol">af8bae53bdd3:</span>/<span class="hljs-comment"># pwd</span><br>/<br>root@<span class="hljs-symbol">af8bae53bdd3:</span>/<span class="hljs-comment"># ls</span><br>bin boot dev etc home <span class="hljs-class"><span class="hljs-keyword">lib</span> <span class="hljs-title">lib64</span> <span class="hljs-title">media</span> <span class="hljs-title">mnt</span> <span class="hljs-title">opt</span> <span class="hljs-title">proc</span> <span class="hljs-title">root</span> <span class="hljs-title">run</span> <span class="hljs-title">sbin</span> <span class="hljs-title">srv</span> <span class="hljs-title">sys</span> <span class="hljs-title">tmp</span> <span class="hljs-title">usr</span> <span class="hljs-title">var</span></span><br></code></pre></div></td></tr></table></figure>
+<p>当利用 <code>docker run</code> 来创建容器时，Docker 在后台运行的标准操作包括：</p>
+<ul>
+<li>检查本地是否存在指定的镜像，不存在就从公有仓库下载</li>
+<li>利用镜像创建并启动一个容器</li>
+<li>分配一个文件系统，并在只读的镜像层外面挂载一层可读写层</li>
+<li>从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去</li>
+<li>从地址池配置一个 ip 地址给容器</li>
+<li>执行用户指定的应用程序</li>
+<li>执行完毕后容器被终止</li>
+</ul>
+<h3 id="启动已终止容器"><a href="#启动已终止容器" class="headerlink" title="启动已终止容器"></a><strong>启动已终止容器</strong></h3><p>可以利用 <code>docker container start</code> 命令，直接将一个已经终止的容器启动运行。</p>
+<p>容器的核心为所执行的应用程序，所需要的资源都是应用程序运行所必需的。除此之外，并没有其它的资源。可以在伪终端中利用 <code>ps</code> 或 <code>top</code> 来查看进程信息。</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">root</span>@ba<span class="hljs-number">267838</span>cc<span class="hljs-number">1</span>b:/# ps<br>  <span class="hljs-attribute">PID</span> TTY          TIME CMD<br>    <span class="hljs-attribute">1</span> ?        <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> bash<br>   <span class="hljs-attribute">11</span> ?        <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> ps<br></code></pre></div></td></tr></table></figure>
+<p>可见，容器中仅运行了指定的 bash 应用。这种特点使得 Docker 对资源的利用率极高，是货真价实的轻量级虚拟化。</p>
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><p>在使用 <code>-d</code> 参数时，容器启动后会进入后台。</p>
+<p>某些时候需要进入容器进行操作，包括使用 <code>docker attach</code> 命令或 <code>docker exec</code> 命令，推荐大家使用 <code>docker exec</code> 命令，原因会在下面说明。</p>
+<h3 id="attach-命令"><a href="#attach-命令" class="headerlink" title="attach 命令"></a><strong><code>attach</code> 命令</strong></h3><p>下面示例如何使用 <code>docker attach</code> 命令。</p>
+<figure class="highlight llvm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs llvm">$ docker run -dit ubuntu<br><span class="hljs-number">243</span><span class="hljs-keyword">c</span><span class="hljs-number">32535</span>da<span class="hljs-number">7</span>d<span class="hljs-number">142</span>fb<span class="hljs-number">0e6</span>df<span class="hljs-number">616</span>a<span class="hljs-number">3</span><span class="hljs-keyword">c</span><span class="hljs-number">3</span>ada<span class="hljs-number">0</span>b<span class="hljs-number">8</span>ab<span class="hljs-number">417937</span><span class="hljs-keyword">c</span><span class="hljs-number">853</span>a<span class="hljs-number">9e1</span><span class="hljs-keyword">c</span><span class="hljs-number">251</span>f<span class="hljs-number">499</span>f<span class="hljs-number">550</span><br><br>$ docker container ls<br>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES<br><span class="hljs-number">243</span><span class="hljs-keyword">c</span><span class="hljs-number">32535</span>da<span class="hljs-number">7</span>        ubuntu:latest       <span class="hljs-string">&quot;/bin/bash&quot;</span>         <span class="hljs-number">18</span> seconds ago      Up <span class="hljs-number">17</span> seconds                           nostalgic_hypatia<br><br>$ docker attach <span class="hljs-number">243</span><span class="hljs-keyword">c</span><br>root<span class="hljs-title">@243</span><span class="hljs-keyword">c</span><span class="hljs-number">32535</span>da<span class="hljs-number">7</span>:/#<br></code></pre></div></td></tr></table></figure>
+<p><em>注意：</em> 如果从这个 stdin 中 exit，会导致容器的停止。</p>
+<h3 id="exec-命令"><a href="#exec-命令" class="headerlink" title="exec 命令"></a><strong><code>exec</code> 命令</strong></h3><h4 id="i-t-参数"><a href="#i-t-参数" class="headerlink" title="-i -t 参数"></a><strong>-i -t 参数</strong></h4><p><code>docker exec</code> 后边可以跟多个参数，这里主要说明 <code>-i</code> <code>-t</code> 参数。</p>
+<p>只用 <code>-i</code> 参数时，由于没有分配伪终端，界面没有我们熟悉的 Linux 命令提示符，但命令执行结果仍然可以返回。</p>
+<p>当 <code>-i</code> <code>-t</code> 参数一起使用时，则可以看到我们熟悉的 Linux 命令提示符。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>docker run -dit ubuntu<br><span class="hljs-number">69</span>d137adef7a8a689cbcb059e94da5489d3cddd240ff675c640c8d96e84fe1f6<br><br><span class="hljs-variable">$ </span>docker container ls<br>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES<br><span class="hljs-number">69</span>d137adef7a        <span class="hljs-symbol">ubuntu:</span>latest       <span class="hljs-string">&quot;/bin/bash&quot;</span>         <span class="hljs-number">18</span> seconds ago      Up <span class="hljs-number">17</span> seconds                           zealous_swirles<br><br><span class="hljs-variable">$ </span>docker exec -i <span class="hljs-number">69</span>d1 bash<br>ls<br>bin<br>boot<br>dev<br>...<br><br><span class="hljs-variable">$ </span>docker exec -it <span class="hljs-number">69</span>d1 bash<br>root<span class="hljs-variable">@69d137adef7a</span><span class="hljs-symbol">:/</span><span class="hljs-comment">#</span><br></code></pre></div></td></tr></table></figure>
+<p>如果从这个 stdin 中 exit，不会导致容器的停止。这就是为什么推荐大家使用 <code>docker exec</code> 的原因。</p>
+<p>更多参数说明请使用 <code>docker exec --help</code> 查看。</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a><strong>删除容器</strong></h3><p>可以使用 <code>docker container rm</code> 来删除一个处于终止状态的容器。例如</p>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> docker container <span class="hljs-built_in">rm</span>  trusting_newton<br>trusting_newton<br></code></pre></div></td></tr></table></figure>
+<p>如果要删除一个运行中的容器，可以添加 <code>-f</code> 参数。Docker 会发送 <code>SIGKILL</code> 信号给容器。</p>
+<h3 id="清理所有处于终止状态的容器"><a href="#清理所有处于终止状态的容器" class="headerlink" title="清理所有处于终止状态的容器"></a><strong>清理所有处于终止状态的容器</strong></h3><p>用 <code>docker container ls -a</code> 命令可以查看所有已经创建的包括终止状态的容器，如果数量太多要一个个删除可能会很麻烦，用下面的命令可以清理掉所有处于终止状态的容器。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs axapta">$ docker <span class="hljs-built_in">container</span> prune<br></code></pre></div></td></tr></table></figure>
+<h1 id="Docker中容器的备份、恢复和迁移"><a href="#Docker中容器的备份、恢复和迁移" class="headerlink" title="Docker中容器的备份、恢复和迁移"></a>Docker中容器的备份、恢复和迁移</h1><h2 id="1-备份容器"><a href="#1-备份容器" class="headerlink" title="1. 备份容器"></a>1. 备份容器</h2><p>首先，为了备份Docker中的容器，我们会想看看我们想要备份的容器列表。要达成该目的，我们需要在我们运行着Docker引擎，并已创建了容器的Linux机器中运行 docker ps 命令。</p>
+<p><code># docker ps</code></p>
+<p>在此之后，我们要选择我们想要备份的容器，然后去创建该容器的快照。我们可以使用 docker commit 命令来创建快照。</p>
+<p><code># docker commit -p 30b8f18f20b4 container-backup</code></p>
+<p>该命令会生成一个作为Docker镜像的容器快照，我们可以通过运行 docker images 命令来查看Docker镜像，如下。</p>
+<p><code># docker images</code></p>
+<p>正如我们所看见的，上面做的快照已经作为Docker镜像保存了。现在，为了备份该快照，我们有两个选择，一个是我们可以登录进Docker注册中心，并推送该镜像；另一个是我们可以将Docker镜像打包成tar包备份，以供今后使用。</p>
+<p>如果我们想要在Docker注册中心上传或备份镜像，我们只需要运行 docker login 命令来登录进Docker注册中心，然后推送所需的镜像即可。</p>
+<p><code># docker login 172.16.101.192</code></p>
+<p><code># docker tag a25ddfec4d2a arunpyasi/container-backup:test</code></p>
+<p><code># docker push arunpyasi/container-backup</code></p>
+<p>如果我们不想备份到docker注册中心，而是想要将此镜像保存在本地机器中，以供日后使用，那么我们可以将其作为tar包备份。要完成该操作，我们需要运行以下 docker save 命令。</p>
+<p><code># docker save -o ~/container-backup.tar container-backup</code></p>
+<p>要验证tar包是否已经生成，我们只需要在保存tar包的目录中运行 ls 命令即可。</p>
+<h2 id="2-恢复容器"><a href="#2-恢复容器" class="headerlink" title="2. 恢复容器"></a>2. 恢复容器</h2><p>接下来，在我们成功备份了我们的Docker容器后，我们现在来恢复这些制作了Docker镜像快照的容器。如果我们已经在注册中心推送了这些Docker镜像，那么我们仅仅需要把那个Docker镜像拖回并直接运行即可。<br><code># docker pull arunpyasi/container-backup:test</code></p>
+<p>但是，如果我们将这些Docker镜像作为tar包文件备份到了本地，那么我们只要使用 docker load 命令，后面加上tar包的备份路径，就可以加载该Docker镜像了。</p>
+<p><code># docker load -i ~/container-backup.tar</code></p>
+<p>现在，为了确保这些Docker镜像已经加载成功，我们来运行 docker images 命令。</p>
+<p><code># docker images</code></p>
+<p>在镜像被加载后，我们将用加载的镜像去运行Docker容器。</p>
+<p><code># docker run -d -p 80:80 container-backup</code></p>
+<h2 id="3-迁移Docker容器"><a href="#3-迁移Docker容器" class="headerlink" title="3. 迁移Docker容器"></a>3. 迁移Docker容器</h2><p>迁移容器同时涉及到了上面两个操作，备份和恢复。我们可以将任何一个Docker容器从一台机器迁移到另一台机器。在迁移过程中，首先我们将把容器备份为Docker镜像快照。然后，该Docker镜像或者是被推送到了Docker注册中心，或者被作为tar包文件保存到了本地。如果我们将镜像推送到了Docker注册中心，我们简单地从任何我们想要的机器上使用 docker run 命令来恢复并运行该容器。但是，如果我们将镜像打包成tar包备份到了本地，我们只需要拷贝或移动该镜像到我们想要的机器上，加载该镜像并运行需要的容器即可。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> </p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>Contact me</span></a> <i class="iconfont icon-love"></i> <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>mundi.xu@gmail.com</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
