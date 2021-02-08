@@ -286,15 +286,22 @@
 <p>实际上，可以使用<a target="_blank" rel="noopener" href="https://pypi.org/project/asymcrypt/">asymcrypt</a>。但是，我将使用直接的pycryptodome并创建每个函数来更好地说明概念。</p>
 </blockquote>
 <h2 id="主要函数"><a href="#主要函数" class="headerlink" title="主要函数"></a>主要函数</h2><ul>
-<li><code>generate32ByteKey()</code> ：生成一个随机的32字节密钥,有多种方法可以做到这一点。可以从<code>/dev/urandom</code>抓取一个字符串并对其进行sha256sum运算，但这用于linux，而我们希望软件跨平台，因此我们将使用python的secrets库，通过<code>secrets.token_hex(32)</code>完成。</li>
-<li><code>rsaEncryptSecret(string，publicKey)</code>：使用公钥非对称加密信息（因此只能使用私钥解密）。这将使我们能够使用publicKey加密每个文件的对称密钥。客户端将使用我们的privateKey解密每个文件的对称密钥，然后使用其自己的对称密钥解密每个文件。</li>
-<li><code>saDecryptSecret(secret, privateKey)</code>：使用私钥解密加密的对称密钥。</li>
-<li><code>symEncryptFile(publicKey, file)</code>：此函数是最复杂的函数，其含有具体的加密逻辑，后文将进行进一步说明。但顾名思义，它用于加密文件。</li>
-<li><code>symDecryptFile(privateKey, file)</code>：解密文件。</li>
-<li><code>symEncryptDirectory(publicKey, dir)</code>：此函数接收目录作为参数，并遍历目录以获取其中的所有文件。之后，它将使用publicKey调用symEncryptFile。</li>
-<li><code>symDecryptDirectory(privateKey, dir)</code>：与symEncryptDirectory类似，顾名思义。。。</li>
+<li><p><code>generate32ByteKey()</code> ：生成一个随机的32字节密钥,有多种方法可以做到这一点。可以从<code>/dev/urandom</code>抓取一个字符串并对其进行sha256sum运算，但这用于linux，而我们希望软件跨平台，因此我们将使用python的secrets库，通过<code>secrets.token_hex(32)</code>完成。</p>
+</li>
+<li><p><code>rsaEncryptSecret(string，publicKey)</code>：使用公钥非对称加密信息（因此只能使用私钥解密）。这将使我们能够使用publicKey加密每个文件的对称密钥。客户端将使用我们的privateKey解密每个文件的对称密钥，然后使用其自己的对称密钥解密每个文件。</p>
+</li>
+<li><p><code>saDecryptSecret(secret, privateKey)</code>：使用私钥解密加密的对称密钥。</p>
+</li>
+<li><p><code>symEncryptFile(publicKey, file)</code>：此函数是最复杂的函数，其含有具体的加密逻辑，后文将进行进一步说明。但顾名思义，它用于加密文件。</p>
+</li>
+<li><p><code>symDecryptFile(privateKey, file)</code>：解密文件。</p>
+</li>
+<li><p><code>symEncryptDirectory(publicKey, dir)</code>：此函数接收目录作为参数，并遍历目录以获取其中的所有文件。之后，它将使用publicKey调用symEncryptFile。</p>
+</li>
+<li><p><code>symDecryptDirectory(privateKey, dir)</code>：与symEncryptDirectory类似，顾名思义。。。</p>
+<h3 id="rsaEncryptSecret"><a href="#rsaEncryptSecret" class="headerlink" title="rsaEncryptSecret"></a>rsaEncryptSecret</h3></li>
 </ul>
-<h3 id="rsaEncryptSecret"><a href="#rsaEncryptSecret" class="headerlink" title="rsaEncryptSecret"></a>rsaEncryptSecret</h3><p>使用RSA加密密钥，但RSA在默认情况下不会进行任何随机加密，因此我们将使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">最佳非对称加密填充</a>（简称OAEP）。这是一种填充方案，可通过添加随机性和单向置换陷门来改进RSA。需要注意的是，当RSA与OAEP一起使用时，所得的密码大小应与模数相同。模数是密钥大小/8，我们使用的是2048位RSA，因此生成的密文应为256字节。</p>
+<p>使用RSA加密密钥，但RSA在默认情况下不会进行任何随机加密，因此我们将使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">最佳非对称加密填充</a>（简称OAEP）。这是一种填充方案，可通过添加随机性和单向置换陷门来改进RSA。需要注意的是，当RSA与OAEP一起使用时，所得的密码大小应与模数相同。模数是密钥大小/8，我们使用的是2048位RSA，因此生成的密文应为256字节。</p>
 <p>简单示例：</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rsaEncryptSecret</span>(<span class="hljs-params">string, publicKey</span>):</span><br>    public_key = get_key(publicKey, <span class="hljs-literal">None</span>)<br>    <span class="hljs-comment"># Create the cipher object</span><br>    cipher_rsa = PKCS1_OAEP.new(public_key)<br>    <span class="hljs-comment"># We need to encode the string to work with bytes instead of chars</span><br>    bytestrings = <span class="hljs-built_in">str</span>.encode(string)<br>    cipher_text = cipher_rsa.encrypt(bytestrings)<br>    <span class="hljs-comment">#At this point the cipher_text should be 256 bytes in length</span><br>    <span class="hljs-comment"># We&#x27;ll base64 encode it for convenience</span><br>    <span class="hljs-comment"># Remember that a base64 string needs to be divisible by 3, so 256 bytes will become 258 with padding </span><br>    <span class="hljs-keyword">return</span> base64.b64encode(cipher_text)<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/base64.png" srcset="/img/loading.gif" alt="base64长度计算"></p>

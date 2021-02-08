@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.1k 字
+      4.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      62
+      66
        分钟
     </span>
   
@@ -228,7 +228,7 @@
             
               <p class="note note-info">
                 
-                  Last update：a minute ago
+                  Last update：7 minutes ago
                 
               </p>
             
@@ -255,6 +255,7 @@
 <p>注：执行后需要注销退出重新登录生效。</p>
 <h2 id="六、查看是否安装成功"><a href="#六、查看是否安装成功" class="headerlink" title="六、查看是否安装成功"></a>六、查看是否安装成功</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker version<br>Client: Docker Engine - Community<br> Version:           19.03.12<br> API version:       1.40<br> Go version:        go1.13.10<br> Git commit:        48a66213fe<br> Built:             Mon Jun 22 15:46:54 2020<br> OS/Arch:           linux/amd64<br> Experimental:      false<br><br>Server: Docker Engine - Community<br> Engine:<br>  Version:          19.03.12<br>  API version:      1.40 (minimum version 1.12)<br>  Go version:       go1.13.10<br>  Git commit:       48a66213fe<br>  Built:            Mon Jun 22 15:45:28 2020<br>  OS/Arch:          linux/amd64<br>  Experimental:     false<br> containerd:<br>  Version:          1.2.13<br>  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429<br> runc:<br>  Version:          1.0.0-rc10<br>  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd<br> docker-init:<br>  Version:          0.18.0<br>  GitCommit:        fec3683<br></code></pre></div></td></tr></table></figure>
 <h2 id="七、配置阿里云镜像下载加速"><a href="#七、配置阿里云镜像下载加速" class="headerlink" title="七、配置阿里云镜像下载加速"></a>七、配置阿里云镜像下载加速</h2><p>进入阿里云官网找到容器镜像服务，找到镜像加速器，按操作文档执行即可。可体验丝滑般的镜像下载速度。</p>
+<p><code>sudo mkdir -p /etc/docker sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; &#123;  &quot;registry-mirrors&quot;: [&quot;https://yuhp1fco.mirror.aliyuncs.com&quot;] &#125; EOF sudo systemctl daemon-reload sudo systemctl restart docker</code></p>
 <h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run --name=db -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=filerun -e MYSQL_USER=filerun -e MYSQL_PASSWORD=filerun -dP mysql<br></code></pre></div></td></tr></table></figure>
 <h2 id="安装离线下载服务："><a href="#安装离线下载服务：" class="headerlink" title="安装离线下载服务："></a>安装离线下载服务：</h2><p>会自动安装 Aria2、AriaNG和Filerun非常的省心：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run --name=pan --link=db  -ti -p 8081:80 -p 6800:6800 jaegerdocker/pan<br></code></pre></div></td></tr></table></figure>
@@ -324,7 +325,7 @@
 <figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>docker run -t -i <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">18.04</span> /bin/bash<br>root<span class="hljs-variable">@af8bae53bdd3</span><span class="hljs-symbol">:/</span><span class="hljs-comment">#</span><br></code></pre></div></td></tr></table></figure>
 <p>其中，<code>-t</code> 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上， <code>-i</code> 则让容器的标准输入保持打开。</p>
 <p>在交互模式下，用户可以通过所创建的终端来输入命令，例如</p>
-<figure class="highlight crystal"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crystal">root@<span class="hljs-symbol">af8bae53bdd3:</span>/<span class="hljs-comment"># pwd</span><br>/<br>root@<span class="hljs-symbol">af8bae53bdd3:</span>/<span class="hljs-comment"># ls</span><br>bin boot dev etc home <span class="hljs-class"><span class="hljs-keyword">lib</span> <span class="hljs-title">lib64</span> <span class="hljs-title">media</span> <span class="hljs-title">mnt</span> <span class="hljs-title">opt</span> <span class="hljs-title">proc</span> <span class="hljs-title">root</span> <span class="hljs-title">run</span> <span class="hljs-title">sbin</span> <span class="hljs-title">srv</span> <span class="hljs-title">sys</span> <span class="hljs-title">tmp</span> <span class="hljs-title">usr</span> <span class="hljs-title">var</span></span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ruby">root<span class="hljs-variable">@af8bae53bdd3</span><span class="hljs-symbol">:/</span><span class="hljs-comment"># pwd</span><br>/<br>root<span class="hljs-variable">@af8bae53bdd3</span><span class="hljs-symbol">:/</span><span class="hljs-comment"># ls</span><br>bin boot dev etc home lib lib64 media mnt opt <span class="hljs-built_in">proc</span> root run sbin srv sys tmp usr var<br></code></pre></div></td></tr></table></figure>
 <p>当利用 <code>docker run</code> 来创建容器时，Docker 在后台运行的标准操作包括：</p>
 <ul>
 <li>检查本地是否存在指定的镜像，不存在就从公有仓库下载</li>
@@ -377,6 +378,15 @@
 <p>在镜像被加载后，我们将用加载的镜像去运行Docker容器。</p>
 <p><code># docker run -d -p 80:80 container-backup</code></p>
 <h2 id="3-迁移Docker容器"><a href="#3-迁移Docker容器" class="headerlink" title="3. 迁移Docker容器"></a>3. 迁移Docker容器</h2><p>迁移容器同时涉及到了上面两个操作，备份和恢复。我们可以将任何一个Docker容器从一台机器迁移到另一台机器。在迁移过程中，首先我们将把容器备份为Docker镜像快照。然后，该Docker镜像或者是被推送到了Docker注册中心，或者被作为tar包文件保存到了本地。如果我们将镜像推送到了Docker注册中心，我们简单地从任何我们想要的机器上使用 docker run 命令来恢复并运行该容器。但是，如果我们将镜像打包成tar包备份到了本地，我们只需要拷贝或移动该镜像到我们想要的机器上，加载该镜像并运行需要的容器即可。</p>
+<h1 id="pan-Docker配置"><a href="#pan-Docker配置" class="headerlink" title="pan Docker配置"></a>pan Docker配置</h1><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run -d \<br>    --name aria2 \<br>    -p 8080:8080 \<br>    -v /www/wwwroot/download/download:/aria2/data \<br>    -v /www/wwwroot/download/aria2c:/aria2/conf \<br>    -e PUID=1000 \<br>    -e PGID=1000 \<br>    -e RPC_SECRET=za9kh26 \<br>    hurlenko/aria2-ariang<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">version:</span> <span class="hljs-string">&#x27;2&#x27;</span><br><br><span class="hljs-symbol">services:</span><br><span class="hljs-symbol">  db:</span><br><span class="hljs-symbol">    image:</span> mariadb:<span class="hljs-number">10.1</span><br><span class="hljs-symbol">    environment:</span><br><span class="hljs-symbol">      MYSQL_ROOT_PASSWORD:</span> za757hg<br><span class="hljs-symbol">      MYSQL_USER:</span> filerun<br><span class="hljs-symbol">      MYSQL_PASSWORD:</span> filerundb<br><span class="hljs-symbol">      MYSQL_DATABASE:</span> filerun<br><span class="hljs-symbol">    volumes:</span><br>      - <span class="hljs-meta-keyword">/www/</span>wwwroot<span class="hljs-meta-keyword">/download/</span>db:<span class="hljs-meta-keyword">/var/</span>lib/mysql<br><br><span class="hljs-symbol">  web:</span><br><span class="hljs-symbol">    image:</span> afian/filerun<br><span class="hljs-symbol">    environment:</span><br><span class="hljs-symbol">      FR_DB_HOST:</span> db<br><span class="hljs-symbol">      FR_DB_PORT:</span> <span class="hljs-number">3306</span><br><span class="hljs-symbol">      FR_DB_NAME:</span> filerun<br><span class="hljs-symbol">      FR_DB_USER:</span> filerun<br><span class="hljs-symbol">      FR_DB_PASS:</span> filerundb<br><span class="hljs-symbol">      APACHE_RUN_USER:</span> www<br><span class="hljs-symbol">      APACHE_RUN_USER_ID:</span> <span class="hljs-number">1000</span><br><span class="hljs-symbol">      APACHE_RUN_GROUP:</span> www<br><span class="hljs-symbol">      APACHE_RUN_GROUP_ID:</span> <span class="hljs-number">1000</span><br><span class="hljs-symbol">    depends_on:</span><br>      - db<br><span class="hljs-symbol">    links:</span><br>      - db:db<br><span class="hljs-symbol">    ports:</span><br>      - <span class="hljs-string">&quot;1030:80&quot;</span><br><span class="hljs-symbol">    volumes:</span><br>      - <span class="hljs-meta-keyword">/www/</span>wwwroot<span class="hljs-meta-keyword">/download/</span>filerun/html:<span class="hljs-meta-keyword">/var/</span>www/html<br>      - <span class="hljs-meta-keyword">/www/</span>wwwroot<span class="hljs-meta-keyword">/download/</span>download:/user-files<br></code></pre></div></td></tr></table></figure>
+
+<p>docker-compose up -d</p>
+<ul>
+<li>Username: superuser</li>
+<li>Password: superuser</li>
+</ul>
 
             </div>
             <hr>
@@ -384,10 +394,34 @@
               <div class="post-metas mb-3">
                 
                 
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/nothing/">nothing</a>
+                    
+                  </div>
+                
               </div>
               
                 <p class="note note-warning">本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> </p>
               
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/10/25/hello-world/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
               
             </div>
 
