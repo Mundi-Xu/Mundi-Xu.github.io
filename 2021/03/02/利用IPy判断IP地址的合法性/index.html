@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="寒雨">
+  <meta name="keywords" content="">
+  <title>利用IPy判断IP地址的合法性 - Mundi&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mundi's Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/banner.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="利用IPy判断IP地址的合法性">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-02 23:00" pubdate>
+        March 2, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">利用IPy判断IP地址的合法性</h1>
+            
+              <p class="note note-info">
+                
+                  Last update：10 minutes ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="ip地址格式规范"><a href="#ip地址格式规范" class="headerlink" title="ip地址格式规范"></a>ip地址格式规范</h1><h2 id="ipv4"><a href="#ipv4" class="headerlink" title="ipv4"></a>ipv4</h2><p>在CIDR表示法中，前缀显示为4个八位字节，就像传统的IPv4地址一样，后跟”/“斜杠和一个0～32之间的十进制值来描述有效位数。<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="RFC 791; RFC 4632
+">[1]</span></a></sup></p>
+<blockquote>
+<p>For example, the legacy “Class B” network 172.16.0.0, with an implied network mask of 255.255.0.0, is defined as the prefix 172.16.0.0/16, the “/16” indicating that the mask to extract the network portion of the prefix is a 32-bit value where the most significant 16 bits are ones and the least significant 16 bits are zeros.<br>Similarly, the legacy “Class C” network number 192.168.99.0 is defined as the prefix 192.168.99.0/24; the most significant 24 bits are ones and the least significant 8 bits are zeros.</p>
+</blockquote>
+<h2 id="ipv6"><a href="#ipv6" class="headerlink" title="ipv6"></a>ipv6</h2><p>There are three conventional forms for representing IPv6 addresses as text strings: <sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="RFC 2373
+">[2]</span></a></sup></p>
+<ol>
+<li><p>The preferred form is <code>x:x:x:x:x:x:x:x</code>, where the ‘x’s are the hexadecimal values of the eight 16-bit pieces of the address.<br>Examples:</p>
+<p><code>FEDC:BA98:7654:3210:FEDC:BA98:7654:3210</code></p>
+<p><code>1080:0:0:0:8:800:200C:417A</code></p>
+<p> Note that it is not necessary to write the leading zeros in an individual field, but there must be at least one numeral in every field (except for the case described in 2.).</p>
+</li>
+<li><p>Due to some methods of allocating certain styles of IPv6 addresses, it will be common for addresses to contain long strings of zero bits. In order to make writing addresses containing zero bits easier a special syntax is available to compress the zeros. The use of “::” indicates multiple groups of 16-bits of zeros. The “::” can only appear once in an address.  The “::” can also be used to compress the leading and/or trailing zeros in an address.<br>For example the following addresses:</p>
+<p><code>1080:0:0:0:8:800:200C:417A</code>  a unicast address</p>
+<p><code>FF01:0:0:0:0:0:0:101</code>        a multicast address</p>
+<p><code>0:0:0:0:0:0:0:1</code>             the loopback address</p>
+<p><code>0:0:0:0:0:0:0:0</code>             the unspecified addresses</p>
+<p> may be represented as:</p>
+<p><code>1080::8:800:200C:417A</code>       a unicast address</p>
+<p><code>FF01::101</code>                   a multicast address</p>
+<p><code>::1</code>                         the loopback address</p>
+<p><code>::</code>                          the unspecified addresses</p>
+</li>
+<li><p>An alternative form that is sometimes more convenient when dealing with a mixed environment of IPv4 and IPv6 nodes is <code>x:x:x:x:x:x:d.d.d.d</code>, where the ‘x’s are the hexadecimal values of the six high-order 16-bit pieces of the address, and the ‘d’s are the decimal values of the four low-order 8-bit pieces of the address (standard IPv4 representation).  Examples:</p>
+<p><code>0:0:0:0:0:0:13.1.68.3</code></p>
+<p><code>0:0:0:0:0:FFFF:129.144.52.38</code></p>
+<p> or in compressed form:</p>
+<p><code>::13.1.68.3</code></p>
+<p><code>::FFFF:129.144.52.38</code></p>
+</li>
+</ol>
+<p>IPv6地址前缀的文本表示类似于以CIDR表示法编写IPv4地址前缀的方式: IPv6地址/有效位数</p>
+<h1 id="IPy模块的使用"><a href="#IPy模块的使用" class="headerlink" title="IPy模块的使用"></a>IPy模块的使用</h1><p>安装Ipy模块</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install IPy<br></code></pre></div></td></tr></table></figure>
+<p>IPy模块包含IP类，使用它可以处理绝大部分格式的IPv4或IPv6地址<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://pypi.org/project/IPy/#description
+">[3]</span></a></sup>。</p>
+<blockquote>
+<p>It can detect about a dozen different ways of expressing IP addresses and networks, parse them and distinguish between IPv4 and IPv6 addresses:</p>
+</blockquote>
+<p>通过version方法来区分出IPv4和IPv6</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/8&#x27;</span>).version()<br><span class="hljs-number">4</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;::1&#x27;</span>).version()<br><span class="hljs-number">6</span><br></code></pre></div></td></tr></table></figure>
+<p>通过strNormal指定不同的wantprefixlen值控制输出</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/32&#x27;</span>).strNormal()<br><span class="hljs-string">&#x27;10.0.0.0&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span>).strNormal()<br><span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span>).strNormal(<span class="hljs-number">0</span>)<br><span class="hljs-string">&#x27;10.0.0.0&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span>).strNormal(<span class="hljs-number">1</span>)<br><span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span>).strNormal(<span class="hljs-number">2</span>)<br><span class="hljs-string">&#x27;10.0.0.0/255.255.255.0&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>IP(<span class="hljs-string">&#x27;10.0.0.0/24&#x27;</span>).strNormal(<span class="hljs-number">3</span>)<br><span class="hljs-string">&#x27;10.0.0.0-10.0.0.255&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>ip = IP(<span class="hljs-string">&#x27;10.0.0.0&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>print(ip)<br><span class="hljs-number">10.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>ip.NoPrefixForSingleIp = <span class="hljs-literal">None</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>print(ip)<br><span class="hljs-number">10.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>/<span class="hljs-number">32</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>ip.WantPrefixLen = <span class="hljs-number">3</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>print(ip)<br><span class="hljs-number">10.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>-<span class="hljs-number">10.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br></code></pre></div></td></tr></table></figure>
+<h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> IPy <span class="hljs-keyword">import</span> IP<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_ip</span>(<span class="hljs-params">ip_str</span>):</span><br>	<span class="hljs-keyword">try</span>:<br>		ip = IP(ip_str)<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>	<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>		print(<span class="hljs-string">&quot;The address is illegal.&quot;</span>)<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>ip_str = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Please enter the IP address:\n &quot;</span>)<br><span class="hljs-keyword">if</span> is_ip(ip_str):<br>	ip = IP(ip_str)<br>	version = ip.version()<br>	print(<span class="hljs-string">&quot;The address is IPv&quot;</span>, version, sep=<span class="hljs-string">&#x27;&#x27;</span>)<br>	<span class="hljs-keyword">if</span> ip.<span class="hljs-built_in">len</span>() &gt; <span class="hljs-number">1</span>:<br>		print(<span class="hljs-string">&quot;Available address segment is:&quot;</span>, ip.strNormal(<span class="hljs-number">3</span>))<br>		print(<span class="hljs-string">&quot;The number of address is:&quot;</span>, ip.<span class="hljs-built_in">len</span>())<br>	<span class="hljs-keyword">else</span>:<br>		print(<span class="hljs-string">&quot;The binary address is:&quot;</span>, ip.strBin())<br><br></code></pre></div></td></tr></table></figure>
+<h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc">testcase 1<br>Please enter the IP address:<br><span class="hljs-code"> 0.0.0.0</span><br>The address is IPv4<br>The binary address is: 00000000000000000000000000000000<br>---------------------------------<br>testcase 2<br>Please enter the IP address:<br><span class="hljs-code"> 255.255.255.255</span><br>The address is IPv4<br>The binary address is: 11111111111111111111111111111111<br>---------------------------------<br>testcase 3<br>Please enter the IP address:<br><span class="hljs-code"> 256.0.1.1</span><br>The address is illegal.<br>---------------------------------<br>testcase 4<br>Please enter the IP address:<br><span class="hljs-code"> 192.168.0.0/24</span><br>The address is IPv4<br>Available address segment is: 192.168.0.0-192.168.0.255<br>The number of address is: 256<br>---------------------------------<br>testcase 5<br>Please enter the IP address:<br><span class="hljs-code"> 192.168.1.1/24</span><br>The address is illegal.<br>---------------------------------<br>testcase 6<br>Please enter the IP address:<br><span class="hljs-code"> ::1/128</span><br>The address is IPv6<br>The binary address is: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001<br>---------------------------------<br>testcase 7<br>Please enter the IP address:<br><span class="hljs-code"> FEDC:BA98:7654:3210:FEDC:BA98:7654:3210</span><br>The address is IPv6<br>The binary address is: 11111110110111001011101010011000011101100101010000110010000100001111111011011100101110101001100001110110010101000011001000010000<br>---------------------------------<br>testcase 8<br>Please enter the IP address:<br><span class="hljs-code"> 1080::8:800:200C:417A/24</span><br>The address is illegal.<br>---------------------------------<br>testcase 9<br>Please enter the IP address:<br><span class="hljs-code"> FF01::101</span><br>The address is IPv6<br>The binary address is: 11111111000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001<br>---------------------------------<br>testcase 10<br>Please enter the IP address:<br><span class="hljs-code"> ::</span><br>The address is IPv6<br>The binary address is: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000<br>---------------------------------<br>testcase 11<br>Please enter the IP address:<br><span class="hljs-code"> ::/64</span><br>The address is IPv6<br>Available address segment is: 0:0:0:0:0:0:0:0-0000:0000:0000:0000:ffff:ffff:ffff:ffff<br>The number of address is: 18446744073709551616<br>---------------------------------<br></code></pre></div></td></tr></table></figure>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>RFC 791; RFC 4632
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>RFC 2373
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://pypi.org/project/IPy/#description">https://pypi.org/project/IPy/#description</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IPy/">IPy</a>
+                    
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/lab/">lab</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ip/">ip</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/23/%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E4%B8%8E%E6%9C%80%E8%BF%91%E6%8A%80%E6%9C%AF/">
+                        <span class="hidden-mobile">【转载】带你搞懂符号执行的前世今生与最近技术</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '1331118797b631adeeb5',
+          clientSecret: '367f791b0ab3489c94cc96bf4096b64f442b6ce3',
+          repo: 'gitment-blog',
+          owner: 'Mundi-Xu',
+          admin: ["Mundi-Xu"],
+          id: '404a4068492167dc0eaeddbc9c02faaa',
+          language: 'en',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>Contact me</span></a> <i class="iconfont icon-love"></i> <a href="mailto:mundi.xu@gmail.com"target="_blank"><span>mundi.xu@gmail.com</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
