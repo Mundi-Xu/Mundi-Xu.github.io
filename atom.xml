@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mundi&#39;s Space</title>
+  <icon>https://mundi-xu.github.io/icon.png</icon>
+  <subtitle>Be wise and fool.</subtitle>
+  <link href="https://mundi-xu.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://mundi-xu.github.io/"/>
+  <updated>2021-03-03T11:36:55.053Z</updated>
+  <id>https://mundi-xu.github.io/</id>
+  
+  <author>
+    <name>寒雨</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用IPy判断IP地址的合法性</title>
+    <link href="https://mundi-xu.github.io/2021/03/02/%E5%88%A9%E7%94%A8IPy%E5%88%A4%E6%96%ADIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%90%88%E6%B3%95%E6%80%A7/"/>
+    <id>https://mundi-xu.github.io/2021/03/02/%E5%88%A9%E7%94%A8IPy%E5%88%A4%E6%96%ADIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%90%88%E6%B3%95%E6%80%A7/</id>
+    <published>2021-03-02T15:00:11.000Z</published>
+    <updated>2021-03-03T11:36:55.053Z</updated>
+    
+    
+    <summary type="html">利用IPy模块的IP类处理常见格式的IP地址，附IP地址格式规范和IPy源码简析</summary>
+    
+    
+    
+    
+    <category term="IPy" scheme="https://mundi-xu.github.io/tags/IPy/"/>
+    
+    <category term="python" scheme="https://mundi-xu.github.io/tags/python/"/>
+    
+    <category term="lab" scheme="https://mundi-xu.github.io/tags/lab/"/>
+    
+    <category term="ip" scheme="https://mundi-xu.github.io/tags/ip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【转载】带你搞懂符号执行的前世今生与最近技术</title>
+    <link href="https://mundi-xu.github.io/2021/02/23/%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E4%B8%8E%E6%9C%80%E8%BF%91%E6%8A%80%E6%9C%AF/"/>
+    <id>https://mundi-xu.github.io/2021/02/23/%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F%E4%B8%8E%E6%9C%80%E8%BF%91%E6%8A%80%E6%9C%AF/</id>
+    <published>2021-02-23T07:30:00.000Z</published>
+    <updated>2021-03-02T15:42:02.794Z</updated>
+    
+    
+    <summary type="html">iddm带你读论文——SymQEMU:Compilation-based symbolic execution for binaries</summary>
+    
+    
+    
+    
+    <category term="符号执行" scheme="https://mundi-xu.github.io/tags/%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C/"/>
+    
+    <category term="安全客" scheme="https://mundi-xu.github.io/tags/%E5%AE%89%E5%85%A8%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【转载】物联网协议——MQTT与ROS</title>
+    <link href="https://mundi-xu.github.io/2021/02/18/%E7%89%A9%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E2%80%94%E2%80%94MQTT%E4%B8%8EROS/"/>
+    <id>https://mundi-xu.github.io/2021/02/18/%E7%89%A9%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E2%80%94%E2%80%94MQTT%E4%B8%8EROS/</id>
+    <published>2021-02-18T02:00:11.000Z</published>
+    <updated>2021-03-02T15:20:14.718Z</updated>
+    
+    
+    <summary type="html">本文仅介绍MQTT与ROS两种协议的基本概念并做横向对比，不会涉及各个协议的高级特性</summary>
+    
+    
+    
+    
+    <category term="安全客" scheme="https://mundi-xu.github.io/tags/%E5%AE%89%E5%85%A8%E5%AE%A2/"/>
+    
+    <category term="物联网协议" scheme="https://mundi-xu.github.io/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计网学习笔记-Introduction</title>
+    <link href="https://mundi-xu.github.io/2021/01/17/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/"/>
+    <id>https://mundi-xu.github.io/2021/01/17/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/</id>
+    <published>2021-01-17T04:47:31.000Z</published>
+    <updated>2021-03-02T15:11:48.921Z</updated>
+    
+    
+    <summary type="html">计算机网络：自顶向下方法第8版第一章的学习笔记</summary>
+    
+    
+    
+    
+    <category term="Computer Networking" scheme="https://mundi-xu.github.io/tags/Computer-Networking/"/>
+    
+    <category term="A Top-Down Approach" scheme="https://mundi-xu.github.io/tags/A-Top-Down-Approach/"/>
+    
+    <category term="notes" scheme="https://mundi-xu.github.io/tags/notes/"/>
+    
+    <category term="Introduction" scheme="https://mundi-xu.github.io/tags/Introduction/"/>
+    
+    <category term="OSI Model" scheme="https://mundi-xu.github.io/tags/OSI-Model/"/>
+    
+    <category term="TCP/IP Model" scheme="https://mundi-xu.github.io/tags/TCP-IP-Model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSL2下AFL的安装与测试</title>
+    <link href="https://mundi-xu.github.io/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
+    <id>https://mundi-xu.github.io/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/</id>
+    <published>2021-01-09T02:05:21.000Z</published>
+    <updated>2021-01-09T10:36:31.221Z</updated>
+    
+    
+    <summary type="html">WSL2下AFL的安装教程并利用Fuzzing技术对CVE-2009-0159进行了复现和原理分析。</summary>
+    
+    
+    
+    
+    <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
+    
+    <category term="AFL" scheme="https://mundi-xu.github.io/tags/AFL/"/>
+    
+    <category term="CVE" scheme="https://mundi-xu.github.io/tags/CVE/"/>
+    
+    <category term="ntp" scheme="https://mundi-xu.github.io/tags/ntp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PayBreak防勒索系统简析</title>
+    <link href="https://mundi-xu.github.io/2021/01/01/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/"/>
+    <id>https://mundi-xu.github.io/2021/01/01/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/</id>
+    <published>2021-01-01T02:05:21.000Z</published>
+    <updated>2021-01-06T05:12:53.244Z</updated>
+    
+    
+    <summary type="html">PayBreak是一种创新开源的保护机制，可以解决大部分基于混合加密的勒索软件的威胁。</summary>
+    
+    
+    
+    
+    <category term="勒索软件" scheme="https://mundi-xu.github.io/tags/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="恶意软件" scheme="https://mundi-xu.github.io/tags/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Hybrid Cryptosystem" scheme="https://mundi-xu.github.io/tags/Hybrid-Cryptosystem/"/>
+    
+    <category term="密钥存储库" scheme="https://mundi-xu.github.io/tags/%E5%AF%86%E9%92%A5%E5%AD%98%E5%82%A8%E5%BA%93/"/>
+    
+    <category term="Windows Hooking" scheme="https://mundi-xu.github.io/tags/Windows-Hooking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>勒索软件结构与加密模式研究</title>
+    <link href="https://mundi-xu.github.io/2020/12/28/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/"/>
+    <id>https://mundi-xu.github.io/2020/12/28/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/</id>
+    <published>2020-12-28T07:14:10.000Z</published>
+    <updated>2021-01-01T14:41:17.901Z</updated>
+    
+    
+    <summary type="html">对常见勒索软件的架构与攻击模式的研究。</summary>
+    
+    
+    
+    
+    <category term="勒索软件" scheme="https://mundi-xu.github.io/tags/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="恶意软件" scheme="https://mundi-xu.github.io/tags/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Hybrid Cryptosystem" scheme="https://mundi-xu.github.io/tags/Hybrid-Cryptosystem/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>密码学初探-基于RUST的密码系统与算法简析</title>
+    <link href="https://mundi-xu.github.io/2020/12/27/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%88%9D%E6%8E%A2-%E5%9F%BA%E4%BA%8ERUST%E7%9A%84%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90/"/>
+    <id>https://mundi-xu.github.io/2020/12/27/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%88%9D%E6%8E%A2-%E5%9F%BA%E4%BA%8ERUST%E7%9A%84%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90/</id>
+    <published>2020-12-27T06:05:31.000Z</published>
+    <updated>2020-12-27T10:47:07.846Z</updated>
+    
+    
+    <summary type="html">基于 rust 开发的在线加解密系统与各类加密函数的简析。</summary>
+    
+    
+    
+    
+    <category term="crypto" scheme="https://mundi-xu.github.io/tags/crypto/"/>
+    
+    <category term="rsa" scheme="https://mundi-xu.github.io/tags/rsa/"/>
+    
+    <category term="rust" scheme="https://mundi-xu.github.io/tags/rust/"/>
+    
+    <category term="仿射密码" scheme="https://mundi-xu.github.io/tags/%E4%BB%BF%E5%B0%84%E5%AF%86%E7%A0%81/"/>
+    
+    <category term="流密码" scheme="https://mundi-xu.github.io/tags/%E6%B5%81%E5%AF%86%E7%A0%81/"/>
+    
+    <category term="分组密码" scheme="https://mundi-xu.github.io/tags/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/"/>
+    
+    <category term="密码协议" scheme="https://mundi-xu.github.io/tags/%E5%AF%86%E7%A0%81%E5%8D%8F%E8%AE%AE/"/>
+    
+    <category term="RC4" scheme="https://mundi-xu.github.io/tags/RC4/"/>
+    
+    <category term="des" scheme="https://mundi-xu.github.io/tags/des/"/>
+    
+    <category term="aes" scheme="https://mundi-xu.github.io/tags/aes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于区块链的安全日志系统</title>
+    <link href="https://mundi-xu.github.io/2020/07/01/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://mundi-xu.github.io/2020/07/01/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/</id>
+    <published>2020-07-01T11:00:00.000Z</published>
+    <updated>2020-12-27T10:06:42.754Z</updated>
+    
+    
+    <summary type="html">基于区块链技术设计并实现了安全日志系统，采用链上数据存储模式，将本地日志提取关键字段并上传至区块链中存储，同时提供可视化界面让用户能够使用日志相关的安全分析功能。</summary>
+    
+    
+    
+    
+    <category term="区块链" scheme="https://mundi-xu.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    <category term="云存储" scheme="https://mundi-xu.github.io/tags/%E4%BA%91%E5%AD%98%E5%82%A8/"/>
+    
+    <category term="日志系统" scheme="https://mundi-xu.github.io/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="智能合约" scheme="https://mundi-xu.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
+    
+    <category term="Fabric v0.6" scheme="https://mundi-xu.github.io/tags/Fabric-v0-6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>stl-list实现分析</title>
+    <link href="https://mundi-xu.github.io/2019/11/01/stl-list%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://mundi-xu.github.io/2019/11/01/stl-list%E5%AE%9E%E7%8E%B0/</id>
+    <published>2019-10-31T18:14:00.000Z</published>
+    <updated>2020-12-23T15:54:13.113Z</updated>
+    
+    
+    <summary type="html">stl_list 介绍与源码分析</summary>
+    
+    
+    
+    
+    <category term="C++" scheme="https://mundi-xu.github.io/tags/C/"/>
+    
+    <category term="list" scheme="https://mundi-xu.github.io/tags/list/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>超星学习通开启自动播放模式</title>
+    <link href="https://mundi-xu.github.io/2019/08/21/%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://mundi-xu.github.io/2019/08/21/%E5%AD%A6%E4%B9%A0%E9%80%9A%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE%E6%A8%A1%E5%BC%8F/</id>
+    <published>2019-08-21T03:11:00.000Z</published>
+    <updated>2020-12-23T15:57:57.650Z</updated>
+    
+    
+    <summary type="html">为便于观看超星学习通课程视频，提高学习效率，特推出自动播放模式，仅供交流学习。</summary>
+    
+    
+    
+    
+    <category term="something useful" scheme="https://mundi-xu.github.io/tags/something-useful/"/>
+    
+    <category term="超星学习通" scheme="https://mundi-xu.github.io/tags/%E8%B6%85%E6%98%9F%E5%AD%A6%E4%B9%A0%E9%80%9A/"/>
+    
+    <category term="JavaScript" scheme="https://mundi-xu.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性代数的本质（更新中）</title>
+    <link href="https://mundi-xu.github.io/2019/06/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/"/>
+    <id>https://mundi-xu.github.io/2019/06/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/</id>
+    <published>2019-06-30T08:21:00.000Z</published>
+    <updated>2021-01-26T13:40:23.761Z</updated>
+    
+    
+    <summary type="html">将只停留在数值运算和公式的线性代数与可视化几何结合，整理自3Blue1Brown的系列视频。</summary>
+    
+    
+    
+    
+    <category term="线性代数" scheme="https://mundi-xu.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一种神奇的rsa加密算法</title>
+    <link href="https://mundi-xu.github.io/2018/11/29/%E4%B8%80%E7%A7%8D%E7%A5%9E%E5%A5%87%E7%9A%84rsa%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    <id>https://mundi-xu.github.io/2018/11/29/%E4%B8%80%E7%A7%8D%E7%A5%9E%E5%A5%87%E7%9A%84rsa%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</id>
+    <published>2018-11-29T07:21:00.000Z</published>
+    <updated>2020-12-23T11:58:41.661Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;新的算法并没有透露 &lt;code&gt;n&lt;/code&gt;，只给定了两个大整数：&lt;code&gt;(p*q)^(p+q)&lt;/code&gt; 和 &lt;code&gt;(p*q)^(p-q)&lt;/code&gt;，其中 &lt;code&gt;^&lt;/code&gt; 是按位异或运算。&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="ctf" scheme="https://mundi-xu.github.io/tags/ctf/"/>
+    
+    <category term="crypto" scheme="https://mundi-xu.github.io/tags/crypto/"/>
+    
+    <category term="rsa" scheme="https://mundi-xu.github.io/tags/rsa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://mundi-xu.github.io/2018/10/25/hello-world/"/>
+    <id>https://mundi-xu.github.io/2018/10/25/hello-world/</id>
+    <published>2018-10-25T09:21:30.000Z</published>
+    <updated>2021-01-26T12:55:23.201Z</updated>
+    
+    
+    <summary type="html">Welcome to My Blog !</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>something useful</title>
+    <link href="https://mundi-xu.github.io/2000/10/30/something%20useful/"/>
+    <id>https://mundi-xu.github.io/2000/10/30/something%20useful/</id>
+    <published>2000-10-29T16:05:21.000Z</published>
+    <updated>2021-02-08T13:29:03.081Z</updated>
+    
+    
+    <summary type="html">杂七杂八的还没整理，没啥东西</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -8,15 +8,18 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/links/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  
+    <meta name="description" content="">
+  
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
+  
   <title>About - Mundi&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
@@ -53,11 +56,12 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mundi's Space" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -209,6 +213,17 @@
         
         
         
+        <a href="/atom.xml" class="
+           hint--bottom hint--rounded"
+           aria-label=RSS
+        >
+          <i class="iconfont icon-rss" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
         <a target="_blank" rel="noopener" href="https://space.bilibili.com/30432756/" class="
            hint--bottom hint--rounded"
            aria-label=Bilibili
@@ -234,15 +249,17 @@
   </div>
 </div>
 
-<article class="mt-5 markdown-body">
-  <img align="left" height="300px" alt="github logo" title="asshole :3" src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/通用/coding.gif" srcset="/img/loading.gif" />
+<article class="about-content mt-5">
+  <div class="markdown-body">
+    <img align="left" height="300px" alt="github logo" title="asshole :3" src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/通用/coding.gif" srcset="/img/loading.gif" />
 
 <span markdown="1" align="right">
 
 <h4 id="My-name-is-Mundi-and-this-is-my-Blog"><a href="#My-name-is-Mundi-and-this-is-my-Blog" class="headerlink" title="My name is Mundi, and this is my Blog!!!"></a>My name is Mundi, and this is my Blog!!!</h4><h4 id="Hope-you-have-fun-here"><a href="#Hope-you-have-fun-here" class="headerlink" title="Hope you have fun here~"></a>Hope you have fun here~</h4><h4 id="Then-just-enjoy-the-music-of-my-beloved-one"><a href="#Then-just-enjoy-the-music-of-my-beloved-one" class="headerlink" title="Then just enjoy the music of my beloved one."></a>Then just enjoy the music of my beloved one.</h4><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" align="right" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1475649548&auto=1&height=66"></iframe>
+  </div>
+
+  
 </article>
-
-
 
               </div>
             </div>
@@ -386,11 +403,12 @@
   <script>
     (function () {
       var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 

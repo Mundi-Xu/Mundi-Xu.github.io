@@ -326,8 +326,12 @@ body a:hover {
   text-decoration: none;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+code {
+  color: var(--text-color);
+}
 img[srcset] {
   object-fit: cover;
+  max-width: 100%;
 }
 *[align="left"] {
   text-align: left;
@@ -384,6 +388,17 @@ img[srcset] {
     background-color: rgba(62,75,94,0.35);
     transition: background-color 0.2s ease-in-out;
   }
+  :root:not([data-user-color-scheme]) .markdown-body pre,
+  :root:not([data-user-color-scheme]) .markdown-body td.gutter,
+  :root:not([data-user-color-scheme]) .markdown-body td.code > .code-wrapper {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+    transition: filter 0.2s ease-in-out;
+  }
+  :root:not([data-user-color-scheme]) .markdown-body td.gutter pre {
+    -webkit-filter: initial;
+    filter: initial;
+  }
   :root:not([data-user-color-scheme]) .markdown-body h1,
   :root:not([data-user-color-scheme]) .markdown-body h2 {
     border-bottom-color: #435266;
@@ -395,7 +410,7 @@ img[srcset] {
   :root:not([data-user-color-scheme]) .markdown-body h6,
   :root:not([data-user-color-scheme]) .markdown-body h5 {
     color: #ddd;
-    transition: color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
   :root:not([data-user-color-scheme]) .markdown-body table tr {
     background-color: var(--board-bg-color);
@@ -410,7 +425,8 @@ img[srcset] {
     border-color: #435266;
     transition: border-color 0.2s ease-in-out;
   }
-  :root:not([data-user-color-scheme]) hr {
+  :root:not([data-user-color-scheme]) hr,
+  :root:not([data-user-color-scheme]) .markdown-body hr {
     border-top-color: #435266;
     transition: border-top-color 0.2s ease-in-out;
   }
@@ -454,6 +470,17 @@ img[srcset] {
   background-color: rgba(62,75,94,0.35);
   transition: background-color 0.2s ease-in-out;
 }
+[data-user-color-scheme='dark'] .markdown-body pre,
+[data-user-color-scheme='dark'] .markdown-body td.gutter,
+[data-user-color-scheme='dark'] .markdown-body td.code > .code-wrapper {
+  -webkit-filter: brightness(0.9);
+  filter: brightness(0.9);
+  transition: filter 0.2s ease-in-out;
+}
+[data-user-color-scheme='dark'] .markdown-body td.gutter pre {
+  -webkit-filter: initial;
+  filter: initial;
+}
 [data-user-color-scheme='dark'] .markdown-body h1,
 [data-user-color-scheme='dark'] .markdown-body h2 {
   border-bottom-color: #435266;
@@ -465,7 +492,7 @@ img[srcset] {
 [data-user-color-scheme='dark'] .markdown-body h6,
 [data-user-color-scheme='dark'] .markdown-body h5 {
   color: #ddd;
-  transition: color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 [data-user-color-scheme='dark'] .markdown-body table tr {
   background-color: var(--board-bg-color);
@@ -480,7 +507,8 @@ img[srcset] {
   border-color: #435266;
   transition: border-color 0.2s ease-in-out;
 }
-[data-user-color-scheme='dark'] hr {
+[data-user-color-scheme='dark'] hr,
+[data-user-color-scheme='dark'] .markdown-body hr {
   border-top-color: #435266;
   transition: border-top-color 0.2s ease-in-out;
 }
@@ -887,6 +915,9 @@ img[srcset] {
 .markdown-body a {
   color: var(--post-link-color);
 }
+.markdown-body code {
+  color: var(--post-text-color);
+}
 .markdown-body hr {
   height: 0.2em;
   margin: 2rem 0;
@@ -942,6 +973,18 @@ img[srcset] {
 }
 .markdown-body > .code-wrapper pre[class*=language-].line-numbers {
   position: initial;
+}
+.markdown-body figure.highlight td.code > pre {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.markdown-body hr {
+  height: 0;
+  margin: 2rem 0;
+  background-color: initial;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: rgba(0,0,0,0.1);
 }
 figure.highlight {
   position: relative;
