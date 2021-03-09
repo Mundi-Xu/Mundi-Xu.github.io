@@ -125,6 +125,18 @@
           
           
             <li class="nav-item">
+              <a class="nav-link" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+                RSS
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 About
@@ -275,7 +287,7 @@
               
                 <p class="note note-warning">
                   
-                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> 
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处！
                   
                 </p>
               
@@ -330,7 +342,7 @@
           pagerDirection: 'last',
           createIssueManually: true,
           distractionFreeMode: false,
-          proxy: '&lt;your own proxy&gt;/https://github.com/login/oauth/access_token'
+          proxy: 'https://jolly-silence-2d9d.mundi-xu.workers.dev/https://github.com/login/oauth/access_token'
         });
         gitalk.render('gitalk-container');
       });
@@ -546,6 +558,13 @@
 
 
 
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
