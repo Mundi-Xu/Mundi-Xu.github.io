@@ -6,7 +6,7 @@
   <link href="https://mundi-xu.github.io/atom.xml" rel="self"/>
   
   <link href="https://mundi-xu.github.io/"/>
-  <updated>2021-03-09T09:36:55.740Z</updated>
+  <updated>2021-03-11T08:12:27.118Z</updated>
   <id>https://mundi-xu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为鲲鹏服务器下MySQL8的安装与远程连接配置</title>
+    <link href="https://mundi-xu.github.io/2021/03/10/%E5%8D%8E%E4%B8%BA%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8BMySQL8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>https://mundi-xu.github.io/2021/03/10/%E5%8D%8E%E4%B8%BA%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8BMySQL8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
+    <published>2021-03-10T15:05:21.000Z</published>
+    <updated>2021-03-11T08:12:27.118Z</updated>
+    
+    
+    <summary type="html">在华为鲲鹏学生机Ubuntu 20.04.2 LTS (GNU/Linux 4.15.0-136-generic aarch64)上配置安装MySQL8</summary>
+    
+    
+    
+    
+    <category term="鲲鹏" scheme="https://mundi-xu.github.io/tags/%E9%B2%B2%E9%B9%8F/"/>
+    
+    <category term="arm64" scheme="https://mundi-xu.github.io/tags/arm64/"/>
+    
+    <category term="Ubuntu" scheme="https://mundi-xu.github.io/tags/Ubuntu/"/>
+    
+    <category term="MySQL" scheme="https://mundi-xu.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>利用IPy判断IP地址的合法性</title>
@@ -255,7 +278,7 @@
     <link href="https://mundi-xu.github.io/2019/06/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/"/>
     <id>https://mundi-xu.github.io/2019/06/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/</id>
     <published>2019-06-30T08:21:00.000Z</published>
-    <updated>2021-01-26T13:40:23.761Z</updated>
+    <updated>2021-03-11T08:12:59.460Z</updated>
     
     
     <summary type="html">将只停留在数值运算和公式的线性代数与可视化几何结合，整理自3Blue1Brown的系列视频。</summary>

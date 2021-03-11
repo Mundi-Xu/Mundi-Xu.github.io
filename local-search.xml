@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>华为鲲鹏服务器下MySQL8的安装与远程连接配置</title>
+    <link href="/2021/03/10/%E5%8D%8E%E4%B8%BA%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8BMySQL8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <url>/2021/03/10/%E5%8D%8E%E4%B8%BA%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8BMySQL8%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1><blockquote><p>Docker Version: 20.10.5<br>Site: <a href="https://hub.docker.com/r/mysql/mysql-server">https://hub.docker.com/r/mysql/mysql-server</a><br>Ubuntu 20.04.2 LTS (GNU/Linux 4.15.0-136-generic aarch64)</p></blockquote><p>Docker的安装就跳过了，直接快进到mysql-server的安装，好消息是mysql官方Docker已经适配了arm64架构，所以直接参照官方文档安装就可以了。</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker pull mysql/mysql-server # 默认选择latest<br>docker run --name=mysql1 -d mysql/mysql-server<br>docker ps # 等待初始化完成，starting变为healthy<br>docker logs mysql1 # 监控容器输出<br>docker logs mysql1 2&gt;&amp;1 | grep GENERATED # 初始化完成后查看密码<br>GENERATED ROOT PASSWORD: Axegh3kAJyDLaRuBemecis&amp;EShOs # 生成的随机密码<br>docker exec -it mysql1 mysql -uroot -p # 输入上面生成的随机密码<br>ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27;; # 修改root密码<br></code></pre></div></td></tr></table></figure><h1 id="包管理器安装"><a href="#包管理器安装" class="headerlink" title="包管理器安装"></a>包管理器安装</h1><blockquote><p>mysql  Ver 8.0.23-0ubuntu0.20.04.1 for Linux on aarch64 ((Ubuntu))</p></blockquote><p>更新源，安装依赖</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get install mysql-server<br>sudo apt install mysql-client<br>sudo apt install libmysqlclient-dev<br>sudo mysql # 查看是否成功<br></code></pre></div></td></tr></table></figure><h1 id="MySQL配置"><a href="#MySQL配置" class="headerlink" title="MySQL配置"></a>MySQL配置</h1><p>mysql安装完成后默认是没有密码的,需要先修改密码</p><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">alter user &#39;root&#39;@&#39;localhost&#39; identified by &quot;password&quot;;<br></code></pre></div></td></tr></table></figure><p>远程连接需要单独配置</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf<br><span class="hljs-meta">#</span><span class="bash"> 注释掉bind-address= 127.0.0.1 或改为0.0.0.0</span><br>sudo service mysql restart # 重启MySQL服务<br></code></pre></div></td></tr></table></figure><p>添加远程连接的账号</p><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">create user root@&#39;%&#39; identified by &#39;password&#39;;<br>grant all privileges on *.* to root@&#39;%&#39;;<br>flush privileges;<br></code></pre></div></td></tr></table></figure><p>最后在华为ECS的安全组配置中开启3306端口就可以远程连接了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>鲲鹏</tag>
+      
+      <tag>arm64</tag>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>利用IPy判断IP地址的合法性</title>
     <link href="/2021/03/02/%E5%88%A9%E7%94%A8IPy%E5%88%A4%E6%96%ADIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%90%88%E6%B3%95%E6%80%A7/"/>
     <url>/2021/03/02/%E5%88%A9%E7%94%A8IPy%E5%88%A4%E6%96%ADIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%90%88%E6%B3%95%E6%80%A7/</url>
