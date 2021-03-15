@@ -6,7 +6,7 @@
   <link href="https://mundi-xu.github.io/atom.xml" rel="self"/>
   
   <link href="https://mundi-xu.github.io/"/>
-  <updated>2021-03-12T10:04:45.423Z</updated>
+  <updated>2021-03-15T03:06:56.490Z</updated>
   <id>https://mundi-xu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AFL++学习日志（一）开始Fuzz与crashes分析</title>
+    <link href="https://mundi-xu.github.io/2021/03/12/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/"/>
+    <id>https://mundi-xu.github.io/2021/03/12/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/</id>
+    <published>2021-03-12T08:53:57.000Z</published>
+    <updated>2021-03-15T03:06:56.490Z</updated>
+    
+    
+    <summary type="html">本文主要介绍如何使用AFL++快速开始Fuzz一个样例程序和对大量的Fuzzer-Generated Crashes进行分类以及部分工具的安装与使用</summary>
+    
+    
+    
+    
+    <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
+    
+    <category term="AFL++" scheme="https://mundi-xu.github.io/tags/AFL/"/>
+    
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为鲲鹏服务器下MySQL8的安装与远程连接配置</title>
@@ -139,6 +160,31 @@
     <category term="OSI Model" scheme="https://mundi-xu.github.io/tags/OSI-Model/"/>
     
     <category term="TCP/IP Model" scheme="https://mundi-xu.github.io/tags/TCP-IP-Model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSL2下AFL的安装与测试</title>
+    <link href="https://mundi-xu.github.io/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
+    <id>https://mundi-xu.github.io/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/</id>
+    <published>2021-01-09T02:05:21.000Z</published>
+    <updated>2021-03-15T03:06:27.903Z</updated>
+    
+    
+    <summary type="html">WSL2下AFL的安装教程并利用Fuzzing技术对CVE-2009-0159进行了复现和原理分析。</summary>
+    
+    
+    
+    
+    <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
+    
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="AFL" scheme="https://mundi-xu.github.io/tags/AFL/"/>
+    
+    <category term="CVE" scheme="https://mundi-xu.github.io/tags/CVE/"/>
+    
+    <category term="ntp" scheme="https://mundi-xu.github.io/tags/ntp/"/>
     
   </entry>
   
