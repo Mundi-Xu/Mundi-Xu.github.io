@@ -244,7 +244,7 @@
             
               <p class="note note-info">
                 
-                  Last update：3 hours ago
+                  Last update：29 minutes ago
                 
               </p>
             
@@ -383,7 +383,7 @@
 <blockquote>
 <p>Record and Replay Framework<br>Repository: <a target="_blank" rel="noopener" href="https://github.com/rr-debugger/rr">https://github.com/rr-debugger/rr</a><br>Doc: <a target="_blank" rel="noopener" href="https://rr-project.org/">https://rr-project.org/</a><br>Wiki: <a target="_blank" rel="noopener" href="https://github.com/rr-debugger/rr/wiki">https://github.com/rr-debugger/rr/wiki</a><br>Reference: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1705.05937.pdf">Engineering Record And Replay For Deployability Extended Technical Report</a></p>
 </blockquote>
-<p>需要Linux内核3.11或更高版本且<code>/proc/sys/kernel/perf_event_paranoid</code>必须小于等于1（即能够使用<code>perf</code>计数器）。详细要求请参阅<a target="_blank" rel="noopener" href="https://github.com/rr-debugger/rr/wiki/Building-And-Installing#hardwaresoftware-configuration%EF%BC%8C%E6%88%91%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8D%E7%AC%A6%E5%90%88%E8%A6%81%E6%B1%82%EF%BC%8C%E5%B0%B1%E5%9C%A8%E8%BF%99%E9%87%8C%E4%BB%85%E5%81%9A%E4%B8%AA%E4%BB%8B%E7%BB%8D%E6%8E%A8%E8%8D%90%E5%90%A7%EF%BC%8C%E6%9C%89%E7%A9%BA%E5%86%8D%E8%A1%A5%EF%BC%88%E5%92%95%E4%BA%86">https://github.com/rr-debugger/rr/wiki/Building-And-Installing#hardwaresoftware-configuration，我的服务器不符合要求，就在这里仅做个介绍推荐吧，有空再补（咕了</a></p>
+<p>需要Linux内核3.11或更高版本且<code>/proc/sys/kernel/perf_event_paranoid</code>必须小于等于1（即能够使用<code>perf</code>计数器）。详细要求请参阅<code>https://github.com/rr-debugger/rr/wiki/Building-And-Installing#hardwaresoftware-configuration</code> 。我的服务器不符合要求，就在这里仅做个介绍推荐吧，有空再补（咕了</p>
 <h1 id="对crash的简单调试"><a href="#对crash的简单调试" class="headerlink" title="对crash的简单调试"></a>对crash的简单调试</h1><p>让我们从上面分完类的crashes中随机挑一个丢到gdb里去，在<code>strcat(out, rest + len);</code>处下个断点（当然在其他地方也可以，主要是这里的溢出点太明显了。。。。）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/heap-view.png" srcset="/img/loading.gif" alt="heap-view"></p>
 <p>可以看出来在执行strcat函数之前的堆还是十分正常的</p>
@@ -392,7 +392,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/xxd.png" srcset="/img/loading.gif"></p>
 <p>显然是因为strcat造成溢出覆盖了top chunk，然后在printf调用malloc的时候触发crash。而输入我们是可以自定义的，也就是说我们现在可以控制top chunk的size了，接下来的利用过程就交给各位师傅们了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210312161833139.png" srcset="/img/loading.gif"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在本文中我们介绍了AFL++的安装和各类工具的使用以帮助我们对Fuzzer生成的crashes进行分类与分析。当然，还有很多自动化分析工具没有介绍，具体可以参阅<a target="_blank" rel="noopener" href="https://aflplus.plus/docs/sister_projects/#crash-triage-coverage-analysis-and-other-companion-tools%E3%80%82">https://aflplus.plus/docs/sister_projects/#crash-triage-coverage-analysis-and-other-companion-tools。</a> </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在本文中我们介绍了AFL++的安装和各类工具的使用以帮助我们对Fuzzer生成的crashes进行分类与分析。当然，还有很多自动化分析工具没有介绍，具体可以参阅<code>https://aflplus.plus/docs/sister_projects/#crash-triage-coverage-analysis-and-other-companion-tools</code>。 </p>
 <p>在下篇文章中我会学着如何对一些简单的库代码和真实软件编写脚本来帮助Fuzzer更好地进行Fuzzing。</p>
 
             </div>
@@ -406,9 +406,9 @@
                     
                       <a class="hover-with-bg" href="/tags/Fuzzing/">Fuzzing</a>
                     
-                      <a class="hover-with-bg" href="/tags/AFL/">AFL++</a>
-                    
                       <a class="hover-with-bg" href="/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/">模糊测试</a>
+                    
+                      <a class="hover-with-bg" href="/tags/AFL/">AFL++</a>
                     
                   </div>
                 
