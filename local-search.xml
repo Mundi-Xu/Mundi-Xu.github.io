@@ -16,9 +16,9 @@
       
       <tag>Fuzzing</tag>
       
-      <tag>模糊测试</tag>
-      
       <tag>AFL++</tag>
+      
+      <tag>模糊测试</tag>
       
     </tags>
     
@@ -177,13 +177,13 @@
       
       <tag>Fuzzing</tag>
       
+      <tag>模糊测试</tag>
+      
       <tag>AFL</tag>
       
       <tag>CVE</tag>
       
       <tag>ntp</tag>
-      
-      <tag>模糊测试</tag>
       
     </tags>
     

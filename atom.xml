@@ -31,9 +31,9 @@
     
     <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
     
-    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="AFL++" scheme="https://mundi-xu.github.io/tags/AFL/"/>
+    
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -178,13 +178,13 @@
     
     <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
     
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    
     <category term="AFL" scheme="https://mundi-xu.github.io/tags/AFL/"/>
     
     <category term="CVE" scheme="https://mundi-xu.github.io/tags/CVE/"/>
     
     <category term="ntp" scheme="https://mundi-xu.github.io/tags/ntp/"/>
-    
-    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
