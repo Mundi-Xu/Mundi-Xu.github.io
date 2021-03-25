@@ -147,7 +147,7 @@
     <link href="https://mundi-xu.github.io/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
     <id>https://mundi-xu.github.io/2021/01/09/WSL2%E4%B8%8BAFL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/</id>
     <published>2021-01-09T02:05:21.000Z</published>
-    <updated>2021-03-15T03:06:27.903Z</updated>
+    <updated>2021-03-25T02:08:36.379Z</updated>
     
     
     <summary type="html">WSL2下AFL的安装教程并利用Fuzzing技术对CVE-2009-0159进行了复现和原理分析。</summary>
@@ -372,7 +372,7 @@
     <link href="https://mundi-xu.github.io/2000/10/30/something%20useful/"/>
     <id>https://mundi-xu.github.io/2000/10/30/something%20useful/</id>
     <published>2000-10-29T16:05:21.000Z</published>
-    <updated>2021-02-08T13:29:03.081Z</updated>
+    <updated>2021-03-25T02:08:54.530Z</updated>
     
     
     <summary type="html">杂七杂八的还没整理，没啥东西</summary>
