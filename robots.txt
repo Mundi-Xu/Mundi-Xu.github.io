@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /home/
-Allow: /archives/
-Allow: /tags/
-Allow: /about/
-
-Disallow: /js/
-Disallow: /css/
-Disallow: /lib/
 
 Sitemap: https://mundi-xu.github.io/sitemap.xml
