@@ -1,12 +1,3 @@
----
-title: 利用IPy判断IP地址的合法性
-date: 2021-03-02 23:00:11
-tags: [IPy,python,lab,ip]
-toc: true
-comments: true
-excerpt: 利用IPy模块的IP类处理常见格式的IP地址，附IP地址格式规范和IPy源码简析
----
-
 # ip地址格式规范
 
 ## ipv4

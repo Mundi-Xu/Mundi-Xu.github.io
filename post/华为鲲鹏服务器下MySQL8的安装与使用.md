@@ -1,11 +1,3 @@
----
-title: 华为鲲鹏服务器下MySQL8的安装与远程连接配置
-date: 2021-03-10 23:05:21
-tags: [arm64, Ubuntu, MySQL]
-toc: true
-excerpt: 在华为鲲鹏学生机Ubuntu 20.04.2 LTS (GNU/Linux 4.15.0-136-generic aarch64)上配置安装MySQL8
----
-
 # Docker安装
 
 > Docker Version: 20.10.5

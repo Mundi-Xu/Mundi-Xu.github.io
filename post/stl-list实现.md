@@ -1,12 +1,3 @@
----
-title: stl-list实现分析
-date: 2019-11-01 2:14
-tags: [C++,list]
-toc: true
-# comments: true
-excerpt: stl_list 介绍与源码分析
----
-
 # stl_list 介绍
 
 今天我们来总结一下stl_List, 与单链表比较而言，stl_list无非就是链表结构不一样，至于其中的增删改查的细节实现本质是一样的，都是处理指针偏移。**相比于vector，stl_List在插入和删除的时候可以达到O(1)的时间复杂度**。

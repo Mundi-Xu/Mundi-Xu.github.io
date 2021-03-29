@@ -1,13 +1,3 @@
----
-title: 【转载】物联网协议——MQTT与ROS
-date: 2021-02-18 10:00:11
-tags: [物联网协议,MQTT,ROS]
-toc: true
-comments: false
-hide: true
-excerpt: 本文仅介绍MQTT与ROS两种协议的基本概念并做横向对比，不会涉及各个协议的高级特性
----
-
 >本文由ERROR404原创发布
 >https://www.anquanke.com/post/id/231329
 

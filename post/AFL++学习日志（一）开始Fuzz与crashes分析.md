@@ -1,11 +1,3 @@
----
-title: AFL++学习日志（一）开始Fuzz与crashes分析
-date: 2021-03-12 16:53:57
-tags: [Fuzzing, AFL++, 模糊测试]
-toc: true
-excerpt: 本文主要介绍如何使用AFL++快速开始Fuzz一个样例程序和对大量的Fuzzer-Generated Crashes进行分类以及部分工具的安装与使用
----
-
 # 前言
 
 `American Fuzzy Lop plus plus (afl++)`是一个由社区驱动的开源工具，它结合了最新的模糊研究，使研究具有可比性，可重复性，可组合性，并且-最重要的是-**可用的** 。它提供了多种新功能，例如，`Custom Mutator API` （传统的突变API）能够**增加模糊测试处理策略**，**特定目标的变异**也可以由经验丰富的安全测试人员编写。具体细节可以参阅[AFL++ : Combining Incremental Steps of Fuzzing Research](https://www.usenix.org/conference/woot20/presentation/fioraldi)。

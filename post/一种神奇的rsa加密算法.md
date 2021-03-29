@@ -1,15 +1,7 @@
----
-title: 一种神奇的rsa加密算法
-date: 2018-11-29 15:21
-tags: [ctf,crypto,rsa]
-math: true
-toc: false
----
 * * *
 
 **新的算法并没有透露 `n`，只给定了两个大整数：`(p*q)^(p+q)` 和 `(p*q)^(p-q)`，其中 `^` 是按位异或运算。**
 
-<!-- more-->
 
 ```python
 import sympy

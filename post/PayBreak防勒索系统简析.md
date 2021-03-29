@@ -1,12 +1,3 @@
----
-title: PayBreak防勒索系统简析
-date: 2021-01-01 10:05:21
-tags: [勒索软件, 恶意软件, 密钥存储库, Hybrid Cryptosystem, Windows Hooking]
-toc: true
-excerpt: PayBreak是一种创新开源的保护机制，可以解决大部分基于混合加密的勒索软件的威胁。
-banner_img: https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak防勒索系统简析/banner.png
----
-
 > 本文整理翻译自[PayBreak : Defense Against Cryptographic Ransomware](https://dl.acm.org/doi/10.1145/3052973.3053035)
 
 # 简介

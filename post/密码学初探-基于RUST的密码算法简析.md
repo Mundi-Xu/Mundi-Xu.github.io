@@ -1,13 +1,3 @@
----
-title: 密码学初探-基于RUST的密码系统与算法简析
-date: 2020-12-27 14:05:31
-tags: [crypto,rust,仿射密码,流密码,分组密码,密码协议,rsa,RC4,des,aes]
-toc: true
-math: true
-banner_img: https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/基于RUST的密码学系统/banner.jpg
-excerpt: 基于 rust 开发的在线加解密系统与各类加密函数的简析。
----
-
 # Introduction
 
 密码学（Cryptography）一般可分为古典密码学和现代密码学。

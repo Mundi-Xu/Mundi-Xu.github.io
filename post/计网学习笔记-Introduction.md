@@ -1,13 +1,3 @@
----
-title: 计网学习笔记-Introduction
-date: 2021-01-17 12:47:31
-tags: [Computer Networking,A Top-Down Approach,notes,Introduction,OSI Model,TCP/IP Model]
-toc: true
-math: true
-banner_img: https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/banner.png
-excerpt: 计算机网络：自顶向下方法第8版第一章的学习笔记
----
-
 # **Computer Networks and the Internet**
 
 > 本文所有资料均来自 *Computer Networking: A Top-Down Approach* *(8th ed.)* [^1]  J.F. Kurose, K.W. Ross
