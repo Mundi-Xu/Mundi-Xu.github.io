@@ -202,7 +202,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4k 字
+      3.9k 字
     </span>
   
 
@@ -246,15 +246,12 @@
             
               <p class="note note-info">
                 
-                  Last update：4 days ago
+                  Last update：3 minutes ago
                 
               </p>
             
             <div class="markdown-body">
-              <blockquote>
-<p>本文首发于安全客</p>
-</blockquote>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AFL号称是当前最高级的Fuzzing测试工具之一，由lcamtuf所开发。在众多安全会议白帽演讲中都介绍过这款工具，以及2016年defcon大会的CGC(Cyber Grand Challenge，形式为机器自动挖掘并修补漏洞)大赛中多支队伍利用AFL fuzzing技术与符号执行(Symbolic Execution)来实现漏洞挖掘，其中参赛队伍shellphish便是采用AFL(Fuzzing) + angr(Symbolic Execution)技术。</p>
+              <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>AFL号称是当前最高级的Fuzzing测试工具之一，由lcamtuf所开发。在众多安全会议白帽演讲中都介绍过这款工具，以及2016年defcon大会的CGC(Cyber Grand Challenge，形式为机器自动挖掘并修补漏洞)大赛中多支队伍利用AFL fuzzing技术与符号执行(Symbolic Execution)来实现漏洞挖掘，其中参赛队伍shellphish便是采用AFL(Fuzzing) + angr(Symbolic Execution)技术。</p>
 <p>本文首先简单介绍一下AFL的安装步骤和基本使用方法，随后以ntpq为例记录一下使用AFL来fuzz的过程并对CVE-2009-0159进行了复现和原理分析。</p>
 <h1 id="AFL下载与安装"><a href="#AFL下载与安装" class="headerlink" title="AFL下载与安装"></a>AFL下载与安装</h1><p>AFL可以对有源码和无源码的程序进行fuzz。对有源码的程序Fuzz的原理简单来说就是在程序编译时，向汇编代码中插入自己的指令，从而在程序运行时，计算覆盖率。当把样本喂给程序来Fuzz时，如果AFL发现程序执行了新的路径，就把当前的样本保存在Queue中，基于这个新的样本来继续Fuzz。<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://lcamtuf.coredump.cx/afl/QuickStartGuide.txt
 ">[1]</span></a></sup></p>
