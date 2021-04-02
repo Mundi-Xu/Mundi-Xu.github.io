@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="WSL2下AFL的安装教程并利用Fuzzing技术对CVE-2009-0159进行了复现和原理分析。">
-  
+  <meta name="description" content="WSL2下AFL的安装教程并利用Fuzzing技术对CVE-2009-0159进行了复现和原理分析。">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -271,7 +269,7 @@
 
 <p>启动afl-fuzz中可能会报错，表示某些环境变量没有配置或者配置错误，根据提示修改或配置afl-fuzz options以及系统环境变量即可。</p>
 <p>结果大概如下：</p>
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/fuzz_test.png" srcset="/img/loading.gif" alt="fuzz_test" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/fuzz_test.png" srcset="/img/loading.gif" lazyload alt="fuzz_test" style="zoom:80%;" />
 
 <h3 id="工作状态"><a href="#工作状态" class="headerlink" title="工作状态"></a>工作状态</h3><p>afl-fuzz永远不会停止，所以何时停止测试很多时候就是依靠afl-fuzz提供的状态来决定的。具体的几种方式如下所示:</p>
 <ul>
@@ -346,7 +344,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">CC=afl-clang-fast ./configure &amp;&amp; AFL_HARDEN=1 make -C ntpq<br>cd ..<br>afl-fuzz -i in -o out ntp-4.2.2/ntpq/ntpq<br></code></pre></div></td></tr></table></figure>
 
 <p>你可以在几分钟内找到CVE-2009-0159而无需进一步的工作，尤其是在使用persistent mode时。但当你不够欧时（比如说我），就可能跑到自闭。。。还会多出很多无用的输出文件。（虽然我运行时间确实不长）</p>
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq.png" srcset="/img/loading.gif" alt="ntpq测试" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq.png" srcset="/img/loading.gif" lazyload alt="ntpq测试" style="zoom:80%;" />
 
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="多核并行"><a href="#多核并行" class="headerlink" title="多核并行"></a>多核并行</h3><p>查看系统核心数</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq<br></code></pre></div></td></tr></table></figure>
@@ -377,16 +375,16 @@
 
 <p>借助该字典，我们能找到的路径数量会大大增加。</p>
 <h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><p>重新编译后再次运行fuzz：</p>
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_m1.png" srcset="/img/loading.gif" alt="修改后ntpq测试1" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_m1.png" srcset="/img/loading.gif" lazyload alt="修改后ntpq测试1" style="zoom:80%;" />
 
 <p>可以发现搜寻效率与之前相比有了巨大的提升，继续运行：</p>
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_m3.png" srcset="/img/loading.gif" alt="修改后ntpq测试2" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_m3.png" srcset="/img/loading.gif" lazyload alt="修改后ntpq测试2" style="zoom:80%;" />
 
 <h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p>到了这里，我们已经跑出了一大堆的crashes，那么接下来自然是确定造成这些crashes的bug是否可以利用以及怎么利用。后者可能会要困难得多，这需要对常见的二进制漏洞类型、操作系统的安全机制、代码审计和调试等内容都有一定深度的了解。但如果只是对crash做简单的分析和分类，那么下面介绍的几种方法都可以提供一些帮助。</p>
 <h3 id="crash-exploration-mode"><a href="#crash-exploration-mode" class="headerlink" title="crash exploration mode"></a>crash exploration mode</h3><p>这是afl-fuzz的一种运行模式，也称为<strong>peruvian rabbit mode</strong>，用于确定bug的可利用性，具体细节可以参考<a target="_blank" rel="noopener" href="https://lcamtuf.blogspot.com/2014/11/afl-fuzz-crash-exploration-mode.html">lcamtuf</a>的博客。</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">afl-fuzz -m none -C -i ./out/crashes -o out_crashes -x ntpq.dict -- ntp-4.2.2/ntpq/ntpq_modified<br></code></pre></div></td></tr></table></figure>
 
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_mC.png" srcset="/img/loading.gif" alt="crash exploration mode测试" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_mC.png" srcset="/img/loading.gif" lazyload alt="crash exploration mode测试" style="zoom:80%;" />
 
 <p>举个例子，当你发现目标程序尝试写入\跳转到一个明显来自输入文件的内存地址，那么就可以猜测这个bug应该是可以利用的；然而遇到例如NULL pointer dereferences这样的漏洞就没那么容易判断了。</p>
 <p>将一个导致crash测试用例作为afl-fuzz的输入，使用-C选项开启crash exploration模式后，可以快速地产生很多和输入crash相关、但稍有些不同的crashes，从而判断能够控制某块内存地址的长度。该<a target="_blank" rel="noopener" href="https://countuponsecurity.com/tag/peruvian-were-rabbit/">文章</a>中有一个很不错的例子——tcpdump栈溢出漏洞，crash exploration模式从一个crash产生了42个新的crash，并读取不同大小的相邻内存。</p>
@@ -402,7 +400,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">afl-collect -j 8 -d crashes.db -e gdb_script ./out ./in -- ntp-4.2.2/ntpq/ntpq_modified --target-opts<br></code></pre></div></td></tr></table></figure>
 
 <p>但是结果就像下面这样非常直观：</p>
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_m_collect.png" srcset="/img/loading.gif" alt="afl-collect" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/WSL2下AFL的安装与测试/ntpq_m_collect.png" srcset="/img/loading.gif" lazyload alt="afl-collect" style="zoom:80%;" />
 
 <h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">* Format values</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> OC 12	<span class="hljs-comment">/* integer, print in octal */</span></span><br><br><span class="hljs-comment">/* skip */</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * cookedprint - output variables in cooked mode</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span><br>cookedprint(<br>	<span class="hljs-keyword">int</span> datatype,<br>	<span class="hljs-keyword">int</span> length,<br>	<span class="hljs-keyword">char</span> *data,<br>	<span class="hljs-keyword">int</span> status,<br>	FILE *fp)<br>&#123;<br>	<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> varid;<br>	<span class="hljs-keyword">char</span> *name;<br>	<span class="hljs-keyword">char</span> *value;<br>	<span class="hljs-keyword">int</span> fmt;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ctl_var</span> *<span class="hljs-title">varlist</span>;</span><br>	u_long uval;<br><br><span class="hljs-comment">/* skip */</span><br><br>	<span class="hljs-keyword">while</span> (nextvar(&amp;length, &amp;data, &amp;name, &amp;value))<br>	&#123;<br>		varid = findvar(name, varlist, <span class="hljs-number">0</span>);<br>		<span class="hljs-keyword">if</span> (varid == <span class="hljs-number">0</span>)<br>		&#123;<br>            <span class="hljs-comment">/* skip */</span><br>         &#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			output_raw = <span class="hljs-number">0</span>;<br>			fmt = varlist[varid].fmt;<br>			<span class="hljs-keyword">switch</span> (fmt)<br>			&#123;<br>                    <span class="hljs-comment">/* skip */</span><br>                    <span class="hljs-keyword">case</span> OC:<br>				<span class="hljs-keyword">if</span> (!decodeuint(value, &amp;uval))<br>					output_raw = <span class="hljs-string">&#x27;?&#x27;</span>;<br>				<span class="hljs-keyword">else</span><br>				&#123;<br>					<span class="hljs-keyword">char</span> b[<span class="hljs-number">10</span>];<br><br>					(<span class="hljs-keyword">void</span>)<span class="hljs-built_in">sprintf</span>(b, <span class="hljs-string">&quot;%03lo&quot;</span>, uval);<br>					output(fp, name, b);<br>				&#125;<br>				<span class="hljs-keyword">break</span>;<br>                    <span class="hljs-comment">/* skip */</span><br>            &#125;<br>        &#125;<br>	&#125;<br>    <span class="hljs-comment">/* not vital */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
@@ -481,7 +479,7 @@
                 
   <div id="gitalk-container"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
+    Fluid.utils.lazyComments('gitalk-container', function() {
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
         var gitalk = new Gitalk({
@@ -597,8 +595,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -622,7 +621,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -741,7 +740,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

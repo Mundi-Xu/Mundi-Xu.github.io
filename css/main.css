@@ -327,11 +327,10 @@ body a:hover {
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 code {
-  color: var(--text-color);
+  color: inherit;
 }
-img[srcset] {
+img[lazyload] {
   object-fit: cover;
-  max-width: 100%;
 }
 *[align="left"] {
   text-align: left;
@@ -915,9 +914,6 @@ img[srcset] {
 .markdown-body a {
   color: var(--post-link-color);
 }
-.markdown-body code {
-  color: var(--post-text-color);
-}
 .markdown-body hr {
   height: 0.2em;
   margin: 2rem 0;
@@ -1312,10 +1308,11 @@ mjx-container svg:focus,
   color: var(--text-color);
   font-size: 1.5rem;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 0.25rem;
 }
 .index-header .index-pin {
   color: var(--text-color);
@@ -1332,7 +1329,7 @@ mjx-container svg:focus,
   color: var(--sec-text-color);
   margin: 0.5rem 0 0.5rem 0;
   max-height: calc(1.4rem * 3);
-  line-height: 1.4rem;
+  line-height: 1.4;
   overflow: hidden;
 }
 .index-excerpt > div {
@@ -1401,6 +1398,11 @@ post-custom {
 .page-content > *:first-child,
 .post-content > *:first-child {
   margin-top: 0;
+}
+.page-content img,
+.post-content img {
+  object-fit: cover;
+  max-width: 100%;
 }
 .post-metas {
   display: flex;
@@ -1547,7 +1549,7 @@ post-custom {
   color: var(--post-text-color);
   opacity: 0.65;
   line-height: 1;
-  margin: -0.85rem auto 2rem;
+  margin: -0.75rem auto 2rem;
   text-align: center;
 }
 .custom,

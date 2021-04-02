@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="计算机网络：自顶向下方法第8版第一章的学习笔记">
-  
+  <meta name="description" content="计算机网络：自顶向下方法第8版第一章的学习笔记">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -284,14 +282,14 @@
 </blockquote>
 <p align="center">
     <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iDbyYGrswtg">
-        <img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/the-internet.gif" srcset="/img/loading.gif" alt="the-internet"/> 
+        <img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/the-internet.gif" srcset="/img/loading.gif" lazyload alt="the-internet"/> 
     </a>
 </p>
 
 
 <p>它是网络中的网络。 <strong>“network of networks”</strong></p>
 <p>There are several ways to answer this question. First, we can describe the basic hardware and software components that make up the Internet. Secondly, we can define the internet as a network infrastructure that provides services to distributed applications. </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/a-nuts-and-bolts-view.png" srcset="/img/loading.gif" alt="nuts-and-bolts-view"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/a-nuts-and-bolts-view.png" srcset="/img/loading.gif" lazyload alt="nuts-and-bolts-view"></p>
 <p>Let’s start with the basic building blocks of the internet.</p>
 <h2 id="Basic-building-blocks-of-the-Internet"><a href="#Basic-building-blocks-of-the-Internet" class="headerlink" title="Basic building blocks of the Internet"></a>Basic building blocks of the Internet</h2><blockquote>
 <p>The internet: a “nuts and bolts” view</p>
@@ -327,9 +325,9 @@
 <h2 id="What-is-the-protocol"><a href="#What-is-the-protocol" class="headerlink" title="What is the protocol?"></a>What is the protocol?</h2><h3 id="a-Human-protocols"><a href="#a-Human-protocols" class="headerlink" title="a) Human protocols:"></a>a) Human protocols:</h3><p>If we start from a protocol that we apply in daily life without realizing it; <strong><code>Asking time protocol</code>!</strong></p>
 <ul>
 <li><code>A:</code> Hello</li>
-<li><strong>B:</strong> <strong><em>Hello</em></strong></li>
+<li><strong>B:</strong> <em><strong>Hello</strong></em></li>
 <li><code>A:</code> What time is it?</li>
-<li><strong>B:</strong> <strong><em>It’s 17:21</em></strong></li>
+<li><strong>B:</strong> <em><strong>It’s 17:21</strong></em></li>
 <li><code>A:</code> Thank you</li>
 </ul>
 <p>This is an example of a normal double talk (dialog).</p>
@@ -340,7 +338,7 @@
 <p>The only difference compared to the above example is that people are replaced by computers.</p>
 </blockquote>
 <p>All communication activities on the Internet are managed by protocols.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/humans-and-computer-protocols.png" srcset="/img/loading.gif" alt="humans-and-computer-protocols"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/humans-and-computer-protocols.png" srcset="/img/loading.gif" lazyload alt="humans-and-computer-protocols"></p>
 <blockquote>
 <p>A <strong>protocol</strong> defines the <strong>format</strong> and the <strong>order</strong> of messages exchanged between two or more communicating entities, as well as the <strong>actions taken</strong> on the transmission and/or receipt of a message or other event.</p>
 </blockquote>
@@ -355,41 +353,41 @@
 <li><p>servers often in data centers</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Network-edge.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Network-edge.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="b-Access-networks-Intermediate-devices-physical-media"><a href="#b-Access-networks-Intermediate-devices-physical-media" class="headerlink" title="b. Access networks (Intermediate devices), physical media"></a>b. Access networks (Intermediate devices), physical media</h2><p>They are intermediate devices that connect the units carrying these packages. These can be wired or wireless.</p>
 <ul>
 <li>wired, wireless communication links </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/access-networks.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/access-networks.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="c-Network-Core-ISP"><a href="#c-Network-Core-ISP" class="headerlink" title="c. Network Core ISP"></a>c. Network Core ISP</h2><p>The units that logically or physically combine these above mentioned units are also called ISP.</p>
 <ul>
 <li>Interconnected routers</li>
 <li>Network of networks</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/the-network-core.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/the-network-core.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Q-How-to-connect-end-systems-to-edge-router"><a href="#Q-How-to-connect-end-systems-to-edge-router" class="headerlink" title="Q: How to connect end systems to edge router?"></a>Q: How to connect end systems to edge router?</h2><ul>
-<li>In the first <strong><em>home scenario</em></strong> that comes to mind, the device you use is connected to an access point. Access point connects to ISP. The ISP may also be connecting to the server. <strong>“residential access net”</strong></li>
-<li>Or you may be connecting through a <strong>public network</strong> at a <strong><em>coffee shop</em></strong>. <strong>“institutional access networks (school, company)”</strong></li>
-<li>Apart from these, you can connect <strong><em>directly</em></strong> with the phone’s <strong>4G / 5G</strong> or <strong>wifi</strong>. <strong>“mobile access networks (WiFi, 4G/5G)”</strong></li>
+<li>In the first <em><strong>home scenario</strong></em> that comes to mind, the device you use is connected to an access point. Access point connects to ISP. The ISP may also be connecting to the server. <strong>“residential access net”</strong></li>
+<li>Or you may be connecting through a <strong>public network</strong> at a <em><strong>coffee shop</strong></em>. <strong>“institutional access networks (school, company)”</strong></li>
+<li>Apart from these, you can connect <em><strong>directly</strong></em> with the phone’s <strong>4G / 5G</strong> or <strong>wifi</strong>. <strong>“mobile access networks (WiFi, 4G/5G)”</strong></li>
 </ul>
 <h2 id="Access-networks-cable-based-access"><a href="#Access-networks-cable-based-access" class="headerlink" title="Access networks: cable-based access"></a>Access networks: cable-based access</h2><p>The first problem we encounter while accessing networks is to be able to send the data of many devices connected to the network without corruption.</p>
-<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/cable-based-access.png" srcset="/img/loading.gif" align="center" style="zoom: 80%;" />
+<img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/cable-based-access.png" srcset="/img/loading.gif" lazyload align="center" style="zoom: 80%;" />
 
 <p>We can use two different approaches to achieve this. These are <strong>FDM</strong> (Frequency Division Multiplexing) and <strong>TDM</strong>.</p>
 <h3 id="FDM-Frequency-Division-Multiplexing"><a href="#FDM-Frequency-Division-Multiplexing" class="headerlink" title="FDM (Frequency Division Multiplexing)"></a>FDM (Frequency Division Multiplexing)</h3><blockquote>
 <p>frequency-dependent partitioning</p>
 </blockquote>
 <p>In this approach, we carry the data in a single cable at different frenx intervals. <strong>Pink Floyd</strong> ‘s <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HW-lXjOyUWo&list=PL3PhWT10BW3Urh8ZXXpuU9h526ChwgWKy&index=1"><strong>the dark side of the moon</strong></a> colors stored in different frequency ranges within the album cover -Light prizması- in white light is a good example.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/pink-floyd.png" srcset="/img/loading.gif" style="zoom: 25%;" /> </p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/pink-floyd.png" srcset="/img/loading.gif" lazyload style="zoom: 25%;" /> </p>
 
 <h3 id="TDM-Time-Division-Multiplexing"><a href="#TDM-Time-Division-Multiplexing" class="headerlink" title="TDM (Time Division Multiplexing)"></a>TDM (Time Division Multiplexing)</h3><blockquote>
 <p>time partitioning</p>
 </blockquote>
 <p>In this approach, the data is sent in a sequence, not divided into frequency ranges.</p>
 <p>First the data of <strong>device A</strong> is sent, then data of <strong>device B,</strong> and then <strong>device C</strong> …</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/TDM-and-FDM-example.png" srcset="/img/loading.gif" alt="TDM-and-FDM-example" style="zoom:80%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/TDM-and-FDM-example.png" srcset="/img/loading.gif" lazyload alt="TDM-and-FDM-example" style="zoom:80%;" /></p>
 
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/TDM-and-FDM-example-2.png" srcset="/img/loading.gif" alt="TDM-and-FDM-example-2" style="zoom:80%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/TDM-and-FDM-example-2.png" srcset="/img/loading.gif" lazyload alt="TDM-and-FDM-example-2" style="zoom:80%;" /></p>
 
 <blockquote>
 <p><strong>What is Topology?</strong></p>
@@ -398,7 +396,7 @@
 <p><strong>[<a target="_blank" rel="noopener" href="https://mail.ecomputernotes.com/computernetworkingnotes/computer-network/what-is-lan-topologies-explain-each-topology">Network topologies]</a> -</strong> <em>Bus, star etc …</em></p>
 </blockquote>
 <p>There are certain devices that are used to prevent confusion of data sent from these different places.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/shared-access-network.png" srcset="/img/loading.gif" alt="shared access network"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/shared-access-network.png" srcset="/img/loading.gif" lazyload alt="shared access network"></p>
 <p>The houses shown in the example use a shared network and access the Internet in this way. <strong>(shared access network)</strong></p>
 <ul>
 <li>HFC: hybrid fiber coax<ul>
@@ -414,7 +412,7 @@
 <blockquote>
 <p>While there is a <strong>shared</strong> network in the previous example, there is a cable <strong>assigned</strong> to the houses in the DSL example.</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/dsl.png" srcset="/img/loading.gif" alt="digital subscriber line "></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/dsl.png" srcset="/img/loading.gif" lazyload alt="digital subscriber line "></p>
 <ul>
 <li>use <strong>existing</strong> telephone line to central office DSLAM<ul>
 <li>data over DSL phone line goes to Internet</li>
@@ -424,7 +422,7 @@
 <li>24-52 Mbps dedicated downstream transmission rate </li>
 <li>3.5-16 Mbps dedicated upstream transmission rate</li>
 </ul>
-<h2 id="Access-networks-home-networks"><a href="#Access-networks-home-networks" class="headerlink" title="Access networks: home networks"></a>Access networks: home networks</h2><p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/home-networks.png" srcset="/img/loading.gif" alt="Access networks: home networks" style="zoom:80%;" /></p>
+<h2 id="Access-networks-home-networks"><a href="#Access-networks-home-networks" class="headerlink" title="Access networks: home networks"></a>Access networks: home networks</h2><p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/home-networks.png" srcset="/img/loading.gif" lazyload alt="Access networks: home networks" style="zoom:80%;" /></p>
 
 <h2 id="Wireless-access-networks"><a href="#Wireless-access-networks" class="headerlink" title="Wireless access networks"></a>Wireless access networks</h2><p>Shared <em>wireless</em> access network connects end system to router</p>
 <ul>
@@ -434,14 +432,14 @@
 <li>typically within or around building (~100 ft)</li>
 <li>802.11b/g/n (WiFi): 11, 54, 450 Mbps transmission rate</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/wlans.png" srcset="/img/loading.gif" alt="WLANs"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/wlans.png" srcset="/img/loading.gif" lazyload alt="WLANs"></p>
 <h3 id="Wide-area-cellular-access-networks"><a href="#Wide-area-cellular-access-networks" class="headerlink" title="Wide-area cellular access networks"></a>Wide-area cellular access networks</h3><ul>
 <li>provided by mobile, cellular network operator (10’s km)</li>
 <li>10’s Mbps </li>
 <li>4G cellular networks (5G coming)</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/cellular.png" srcset="/img/loading.gif" alt="cellular"></p>
-<h2 id="Access-networks-enterprise-networks"><a href="#Access-networks-enterprise-networks" class="headerlink" title="Access networks: enterprise networks"></a>Access networks: enterprise networks</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/enterprise-networks.png" srcset="/img/loading.gif" alt="enterprise networks"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/cellular.png" srcset="/img/loading.gif" lazyload alt="cellular"></p>
+<h2 id="Access-networks-enterprise-networks"><a href="#Access-networks-enterprise-networks" class="headerlink" title="Access networks: enterprise networks"></a>Access networks: enterprise networks</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/enterprise-networks.png" srcset="/img/loading.gif" lazyload alt="enterprise networks"></p>
 <ul>
 <li>companies, universities, etc.</li>
 <li>mix of wired, wireless link technologies, connecting a mix of switches and routers (we’ll cover differences shortly)<ul>
@@ -453,7 +451,7 @@
 <h2 id="Access-networks-data-center-networks"><a href="#Access-networks-data-center-networks" class="headerlink" title="Access networks: data center networks"></a>Access networks: data center networks</h2><ul>
 <li>high-bandwidth links (10s to 100s Gbps) connect hundreds to thousands of servers together, and to Internet</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Computing-Center.png" srcset="/img/loading.gif" alt="Courtesy: Massachusetts Green High Performance Computing Center "></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Computing-Center.png" srcset="/img/loading.gif" lazyload alt="Courtesy: Massachusetts Green High Performance Computing Center "></p>
 <h2 id="Host-sends-packets-of-data"><a href="#Host-sends-packets-of-data" class="headerlink" title="Host: sends packets of data"></a>Host: sends <em>packets</em> of data</h2><p>host sending function:</p>
 <ul>
 <li>takes application message</li>
@@ -463,14 +461,14 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Host.png" srcset="/img/loading.gif" alt="Host"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Host.png" srcset="/img/loading.gif" lazyload alt="Host"></p>
 <p>We talked about how data was sent from a host. This time, we’re going to tackle an engineering problem.<strong>Data Delay</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/packets.png" srcset="/img/loading.gif" alt="packet-delay"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/packets.png" srcset="/img/loading.gif" lazyload alt="packet-delay"></p>
 <h2 id="Data-delay"><a href="#Data-delay" class="headerlink" title="Data delay"></a>Data delay</h2><p>Data lag is the most common problem we will face in data transfer. Our connection may slow down (lag) while playing games, packets may be delayed while watching live broadcast …</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/delay-packge.png" srcset="/img/loading.gif" style="zoom: 33%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/delay-packge.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" /></p>
 
 <p>Or, if data comes from different sources, we need to list it at its destination. We need to adjust these delays for service quality.</p>
-<p><strong><em>So why are these delays caused?</em></strong></p>
+<p><em><strong>So why are these delays caused?</strong></em></p>
 <p>Simply put, you have L bits of data to transmit, but you can only transmit R bits of data per second.</p>
 <p>$$\text {packet transmission delay} = \frac{L \text { (bits)}}{R \text { (bits/sec)}} $$</p>
 <p><strong>L</strong> = package size</p>
@@ -493,7 +491,7 @@
 <li><strong>Category 5</strong>: 100 Mbps, 1 Gbps Ethernet</li>
 <li><strong>Category 6</strong>: 10Gbps Ethernet</li>
 </ul>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Twisted-pair.png" srcset="/img/loading.gif" style="zoom: 67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Twisted-pair.png" srcset="/img/loading.gif" lazyload style="zoom: 67%;" /></p>
 
 <h3 id="Coaxial-cable"><a href="#Coaxial-cable" class="headerlink" title="Coaxial cable:"></a>Coaxial cable:</h3><ul>
 <li>two concentric copper conductors</li>
@@ -504,7 +502,7 @@
 </ul>
 </li>
 </ul>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Coaxial-cable.png" srcset="/img/loading.gif" style="zoom: 33%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Coaxial-cable.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" /></p>
 
 <h2 id="Fiber-optic-cable"><a href="#Fiber-optic-cable" class="headerlink" title="Fiber optic cable"></a>Fiber optic cable</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0MwMkBET_5I"><em>How do fiber optic cables work?</em></a></p>
 <ul>
@@ -519,7 +517,7 @@
 </ul>
 </li>
 </ul>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Fiber-optic-cable.png" srcset="/img/loading.gif" style="zoom: 33%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Fiber-optic-cable.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" /></p>
 
 <h3 id="Wireless-radio"><a href="#Wireless-radio" class="headerlink" title="Wireless radio"></a>Wireless radio</h3><ul>
 <li>signal carried in various “bands” in electromagnetic spectrum</li>
@@ -561,33 +559,33 @@
 <p>Network of interconnected routers.</p>
 <p>There are devices that we call <strong>routers</strong> and <strong>switches</strong> that support end devices . These devices carry out an event called packet switch. They pick up the package from one place, key it and forward it to another location.</p>
 <p>We have two basic functions in Network Core: <strong>Forwarding</strong> and <strong>Routing.</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/key_network_core.png" srcset="/img/loading.gif" alt="Two key network-core functions"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/key_network_core.png" srcset="/img/loading.gif" lazyload alt="Two key network-core functions"></p>
 <h2 id="Forwarding"><a href="#Forwarding" class="headerlink" title="Forwarding"></a><strong>Forwarding</strong></h2><p><strong>Forwarding</strong> the package never occurs without a transfer destination of a packet can be explained as the transmission source point. Also known as <strong>switching</strong> .(<strong>Local action</strong>)</p>
 <blockquote>
 <p>move arriving packets from router’s input link to appropriate router output link</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Forwarding.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Forwarding.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a><strong>Routing</strong></h2><p><strong>Routing</strong> , on the other hand, takes a package from the source point and transports it to the destination point, while this package changes hands between other carriers.(<strong>Global action</strong>) Determine the direction.</p>
 <blockquote>
 <p>determine source-destination paths taken by packets</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Routing.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Routing.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Packet-switching-store-and-forward"><a href="#Packet-switching-store-and-forward" class="headerlink" title="Packet-switching: store-and-forward"></a>Packet-switching: store-and-forward</h2><p><strong>Why are packages stored? (Delays in packet transmission)</strong></p>
 <ul>
 <li>It may be unknown where the package will go.</li>
 <li>Other packages may be expected.</li>
 <li>There are packages that have to be sent before.</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/store-and-forward.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/store-and-forward.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Packet-switching-queueing"><a href="#Packet-switching-queueing" class="headerlink" title="Packet-switching: queueing"></a>Packet-switching: queueing</h2><p>Occurs when demand exceeds the queue service capacity.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/tea-queueing.jpg" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/tea-queueing.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></p>
 
 <p>Should the <strong>packet loss</strong> be considered first in the packet forwarding queue? Here comes the problem.</p>
 <ul>
 <li>What should be done in case of package loss?</li>
 <li>How do we make the tail efficient?</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/queueing.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/queueing.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Packet queuing and loss:</strong> if arrival rate (in bps) to link exceeds transmission rate (bps) of link for some period of time:</p>
 <ul>
 <li>packets will queue, waiting to be transmitted on output link </li>
@@ -623,33 +621,33 @@
 </ul>
 <p>Packet Switching requires a lot of management and planning, as well as overcoming packet loss problems caused by queue overflows in excessive packet transfer.We will examine problems such as transmission problems and congestion studies during the period and look at how to solve these problems.</p>
 <h2 id="Internet-structure-a-“network-of-networks”"><a href="#Internet-structure-a-“network-of-networks”" class="headerlink" title="Internet structure: a “network of networks”"></a>Internet structure: a “network of networks”</h2><p><strong><em>Question:</em> given millions of access ISPs, how to connect them together?</strong></p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network1.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network1.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>Trying to connect all ISPs together is not a connection that can scale: O($N^2$) connections. So how do we go about it?</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network2.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network2.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>Instead of connecting these many ISPs to one, we can connect to a global ISP and obtain a scalable connection.</p>
 <p><em>Customer</em> <em>and</em> <em>provider</em> <em>ISPs have economic agreement.</em></p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network3.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network3.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>Of course, since this universal ISP business would be a reasonable business type, there will be other Universal ISPs providing this service.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network4.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network4.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>We use intercontinental high-speed routers that we call IXP (Internet eXchange Point) when connecting these universal ISPs.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network5.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network5.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>Although not as large as Universal ISPs, there are also Regional ISPs that work with the same logic.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network6.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network6.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>Also content provider networks. They can use their private networks - like Google, Microsoft - to bring services and content closer to end users. In this way, they get rid of the density in ISPs.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network7.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network7.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <p>At “center”: small # of well-connected large networks</p>
 <ul>
 <li>“tier-1” commercial ISPs (e.g., Level 3, Sprint, AT&amp;T, NTT), national &amp; international coverage</li>
 <li>content provider networks (e.g., Google, Facebook): private network that connects its data centers to Internet, often bypassing tier-1, regional ISPs</li>
 </ul>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network8.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/network8.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <h1 id="1-4-Performance"><a href="#1-4-Performance" class="headerlink" title="1.4 Performance"></a>1.4 Performance</h1><blockquote>
 <p>Performance: loss, delay, throughput</p>
@@ -660,7 +658,7 @@
 <li>How do we measure the performance of a network?</li>
 </ul>
 <p>We will look for answers to questions like.</p>
-<h2 id="Packet-delay-four-sources"><a href="#Packet-delay-four-sources" class="headerlink" title="Packet delay: four sources"></a>Packet delay: four sources</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Packet-delay.png" srcset="/img/loading.gif"></p>
+<h2 id="Packet-delay-four-sources"><a href="#Packet-delay-four-sources" class="headerlink" title="Packet delay: four sources"></a>Packet delay: four sources</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Packet-delay.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li><strong>Processing Delay</strong>: The time required to examine the packet header and determine where the packet will be forwarded. Processing Delay can also be caused by other factors such as <strong>checking for bit-level errors</strong>. This processing delay is in microseconds or less on high-end routers. After this nodal processing, the package is queued to go to the other router. In chapter 4 we will go into details on how routers work.</li>
 <li><strong>Queuing Delay</strong> : The delay in which a package that is in the last row of the queue goes through its turn. The length of this queue delay varies depending on the number of packets queued and waiting to be transmitted.</li>
@@ -670,8 +668,8 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://media.pearsoncmg.com/aw/ecs_kurose_compnetwork_7/cw/content/interactiveanimations/transmission-vs-propogation-delay/transmission-propagation-delay-ch1/index.html">Transmission versus Propagation Delay simulation</a></p>
 </blockquote>
-<h2 id="Caravan-analogy"><a href="#Caravan-analogy" class="headerlink" title="Caravan analogy"></a>Caravan analogy</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Caravan-analogy-1.png" srcset="/img/loading.gif"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Caravan-analogy-2.png" srcset="/img/loading.gif"></p>
+<h2 id="Caravan-analogy"><a href="#Caravan-analogy" class="headerlink" title="Caravan analogy"></a>Caravan analogy</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Caravan-analogy-1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Caravan-analogy-2.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Packet-queueing-delay"><a href="#Packet-queueing-delay" class="headerlink" title="Packet queueing delay"></a>Packet queueing delay</h2><p>a: average packet arrival rate - (average packet arrival rate)<br>L: packet length (bits) - (packet size)<br>R: link bandwidth (bit transmission rate) - link bandwidth (bit transfer rate)</p>
 <p>$\text {“traffic intensity”} = \frac{L \cdot a}{R} : \frac{ \text{arrival rate of bits}}{\text{service rate of bits}}  $</p>
 <ul>
@@ -679,28 +677,25 @@
 <li><em>La/R</em> -&gt; 1: avg. queueing delay large</li>
 <li><em>La/R</em> &gt; 1: more “work” arriving is more than can be serviced - average delay infinite!</li>
 </ul>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/La-R.png" srcset="/img/loading.gif" alt="Dependence of average queuing delay on traffic intensity" style="zoom:80%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/La-R.png" srcset="/img/loading.gif" lazyload alt="Dependence of average queuing delay on traffic intensity" style="zoom:80%;" /></p>
 
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/queueing-delay.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/queueing-delay.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
 <h2 id="“Real”-Internet-delays-and-routes"><a href="#“Real”-Internet-delays-and-routes" class="headerlink" title="“Real” Internet delays and routes"></a>“Real” Internet delays and routes</h2><ul>
 <li><p>what do “real” Internet delay &amp; loss look like? </p>
 </li>
 <li><p><strong>traceroute</strong> program: provides delay measurement from source to router along end-end Internet path towards destination. For all <em>i</em>:</p>
 <ul>
-<li><p>sends three packets that will reach router i on path towards destination (with time-to-live field value of i)</p>
+<li>sends three packets that will reach router i on path towards destination (with time-to-live field value of i)</li>
+<li>router i will return packets to sender</li>
+<li>sender measures time interval between transmission and reply</li>
+</ul>
 </li>
-<li><p>router i will return packets to sender</p>
-</li>
-<li><p>sender measures time interval between transmission and reply</p>
+</ul>
 <blockquote>
 <p>tracert in Windows</p>
 </blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/traceroute.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/traceroute.png" srcset="/img/loading.gif" lazyload></p>
 <p>We can draw some conclusions from these outputs:</p>
 <ul>
 <li>We can determine the distance to the delay times. We can see the increasing delay, especially in continental jumps.</li>
@@ -713,7 +708,7 @@
 <li>packet arriving to full queue dropped (aka lost)</li>
 <li>lost packet may be retransmitted by previous node, by source end system, or not at all</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Packet-loss.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Packet-loss.png" srcset="/img/loading.gif" lazyload></p>
 <p>You can access this animation that simulates packet loss <a target="_blank" rel="noopener" href="https://media.pearsoncmg.com/aw/ecs_kurose_compnetwork_7/cw/content/interactiveanimations/queuing-loss-applet/index.html"><strong>here</strong></a> .</p>
 <h2 id="Throughput-and-bandwith"><a href="#Throughput-and-bandwith" class="headerlink" title="Throughput and bandwith"></a>Throughput and bandwith</h2><p>To explain the bandwidth on a highway example; The number of vehicles the highway can carry per unit time is called a <strong>bandwidth</strong>. When measuring the Badwith according to their size; We use units such as kilobits per second (kbps), megabits bits per second (Mbps), and gigabits per second (Gbps).<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.differencebetween.com/difference-between-throughput-and-vs-bandwidth/
 ">[3]</span></a></sup></p>
@@ -729,7 +724,7 @@
 <p>Yes, we call thorugput the internet connection value showing the same value unchanged. If we go through the Throughtput highway example, the number of vehicles supported can be expressed in instant time. This is why anyone who will pass in instant time on the highway will pass at the same speed, even if there is a flood that will pass at the same speed, even if it is an earthquake, 1000 cars will pass at the same speed. This speed will be somehow achieved.</p>
 <p>So if you get an internet based on throughtput value from ISP. As I mentioned above, you will get a stable connection free of all possibilities. In addition, throughput is measured with units such as kilobits per second (kbps), megabits bits per second (Mbps), again like bandwith.</p>
 <p>Of course, in such a case, you will naturally have a much higher bandwidht value. Because these concepts are related concepts. They are not concepts that disappear while there is one.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/speedtest.png" srcset="/img/loading.gif" alt="speedtest"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/speedtest.png" srcset="/img/loading.gif" lazyload alt="speedtest"></p>
 <p>For this example, my internet connection values that I use in my home. I currently have 78.8 Mbps instant usage from my 100Mbps bandwidth internet connection from my ISP.<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://speed.cloudflare.com/
 ">[5]</span></a></sup></p>
 <h1 id="1-5-Protocol-layers-and-Service-Models"><a href="#1-5-Protocol-layers-and-Service-Models" class="headerlink" title="1.5 Protocol layers and Service Models"></a>1.5 Protocol layers and Service Models</h1><blockquote>
@@ -771,7 +766,7 @@
 <li><strong>Data link layer:</strong> Handles communications between devices on the same network. If layer 3 is like the address on a piece of mail, then layer 2 is like indicating the office number or apartment number at that address. Ethernet is the protocol most used here.</li>
 <li><strong>Physical layer:</strong> Packets are converted into electrical, radio, or optical pulses and transmitted as bits (the smallest possible units of information) over wires, radio waves, or cables.</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/computer-network-osi-model-layers.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/computer-network-osi-model-layers.png" srcset="/img/loading.gif" lazyload></p>
 <p>It is important to keep in mind that the OSI model is an abstract conceptualization of the processes that make the Internet work, and interpreting and applying the model to the real-world Internet is sometimes a subjective exercise.</p>
 <p>The OSI model is useful for helping people talk about networking equipment and protocols, determining which protocols are used by which software and hardware, and showing roughly how the Internet works. But it is not a rigid step-by-step definition of how Internet connections always function.</p>
 <p><strong>Characteristics :</strong></p>
@@ -868,7 +863,7 @@
 </blockquote>
 <p>SCENARIO:</p>
 <p>Let’s consider a scenario where a user wants to send a message through some Messenger application running in his browser. The “Messenger” here acts as the application layer which provides the user with an interface to create the data. This message or so-called Data is compressed, encrypted (if any secure data) and converted into bits (0’s and 1’s) so that it can be transmitted.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/computer-network-osi-model-layers-session.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/computer-network-osi-model-layers-session.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></p>
 
 <h3 id="6-Presentation-Layer"><a href="#6-Presentation-Layer" class="headerlink" title="6. Presentation Layer"></a>6. Presentation Layer</h3><p>Presentation layer is also called the <strong>Translation layer</strong>. The data from the application layer is extracted here and manipulated as per the required format to transmit over the network.<br>The functions of the presentation layer are :</p>
 <ol>
@@ -897,7 +892,7 @@
 <li>Network Access/Link Layer</li>
 </ol>
 <p>The diagrammatic comparison of the TCP/IP and OSI model is as follows :</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/tcpAndOSI.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/tcpAndOSI.png" srcset="/img/loading.gif" lazyload></p>
 <p>Difference between TCP/IP and OSI Model:</p>
 <table>
 <thead>
@@ -970,7 +965,7 @@
 <p>Layered Internet protocol stack</p>
 </blockquote>
 <p>In the real world, we use a mix of both the OSI model and the TCP/IP model, called the Hybrid model. In the Hybrid model, the Application layer is a combination of layer 7, layer 6 and layer 5 of OSI model (similar to TCP/IP model). The remaining layers (layer 1, 2, 3 and 4) are the same as the OSI model.</p>
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Hybrid-model.jpg" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/Hybrid-model.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></p>
 
 <p><strong>application</strong>: supporting network applications</p>
 <ul>
@@ -990,7 +985,7 @@
 </ul>
 <p><strong>physical</strong>: bits “on the wire”</p>
 <h2 id="Services-Layering-and-Encapsulation"><a href="#Services-Layering-and-Encapsulation" class="headerlink" title="Services, Layering and Encapsulation"></a>Services, Layering and Encapsulation</h2><p>Watch the <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/kurose_ross/videos/1/5/1.5_video_slides_posted.pptx">courseware</a> and <a target="_blank" rel="noopener" href="https://youtu.be/IZ_PnVXtMeY">instructional videos</a> for more details.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Encapsulation-end-end-view.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/Encapsulation-end-end-view.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="1-6-Basic-Network-Attacks-in-Computer-Network"><a href="#1-6-Basic-Network-Attacks-in-Computer-Network" class="headerlink" title="1.6 Basic Network Attacks in Computer Network"></a>1.6 Basic Network Attacks in Computer Network</h1><blockquote>
 <p>Networks Under Attack</p>
 </blockquote>
@@ -1012,7 +1007,7 @@
 <p><strong>Compromised-Key Attack</strong> – A key is a secret code or number necessary to interpret secured information. Although obtaining a key is a difficult and resource-intensive process for an attacker, it is possible. After an attacker obtains a key, that key is referred to as a compromised key. An attacker uses the compromised key to gain access to a secured communication without the sender or receiver being aware of the attack.</p>
 <p><strong>Phishing</strong> – The fraudulent practice of sending emails purporting to be from reputable companies in order to induce individuals to reveal personal information, such as passwords and credit card numbers.</p>
 <p><strong>DNS spoofing</strong> – Also referred to as DNS cache poisoning, is a form of computer security hacking in which corrupt Domain Name System data is introduced into the DNS resolver’s cache, causing the name server to return an incorrect IP address.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/defense.png" srcset="/img/loading.gif" alt="network defense"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Introduction/defense.png" srcset="/img/loading.gif" lazyload alt="network defense"></p>
 <hr>
 <p>第一次用英文做笔记，有语法错误的话见谅，毕竟只是一个低分飘过六级的小废物罢了。。。</p>
 <p>Ps. 求第八版的PDF啊！不是中文searchable的也行啊！现在只能第七版的和slides混着看。。。。</p>
@@ -1090,7 +1085,7 @@
                 
   <div id="gitalk-container"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
+    Fluid.utils.lazyComments('gitalk-container', function() {
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
         var gitalk = new Gitalk({
@@ -1206,8 +1201,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -1231,7 +1227,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -1350,7 +1346,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

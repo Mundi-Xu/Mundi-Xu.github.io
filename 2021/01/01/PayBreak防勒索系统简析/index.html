@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="PayBreak是一种创新开源的保护机制，可以解决大部分基于混合加密的勒索软件的威胁。">
-  
+  <meta name="description" content="PayBreak是一种创新开源的保护机制，可以解决大部分基于混合加密的勒索软件的威胁。">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -283,7 +281,7 @@
 <p>我们承认，更复杂的壳和混淆技术可能会破坏我们提出的系统。尽管此类技术已广为人知，但这些技术在整个恶意软件社区中并未受到广泛应用，而且至少我们提出的方法大大提高了恶意软件作者绕过保护的门槛（即攻击者必须克服这些难题）。</p>
 <p>最后，我们假设用户可以创建一个非对称密钥对来使用我们的系统，并且在感染勒索软件之前就完成了系统设置（即勒索软件的加密操作发生在系统构建完成之后）。</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>PayBreak系统由三个不同的组件构成，该系统能够恢复由混合密码系统勒索软件加密的文件。 在本节中，我们将简单介绍这些组件及其在系统中的作用。 下图概述了PayBreak的工作方案。 用户使用非对称密钥对（pku，sku）的公钥（pku）配置PayBreak，而私钥（sku）存储在可信设备上。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/overview.png" srcset="/img/loading.gif" alt="Overview of PayBreak"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/overview.png" srcset="/img/loading.gif" lazyload alt="Overview of PayBreak"></p>
 <p>系统将计算机上使用的所有加密会话密钥连续存储在安全密钥库中，当用户的计算机不幸感染勒索软件时，则可以使用私钥sku访问系统的密钥库，然后使用存储在密钥库中的数据解密文件。</p>
 <p>该系统利用了以下事实：在混合密码系统中，攻击者必须在对称加密期间使用会话密钥。 在实际的勒索软件攻击中，这种加密必须在用户的计算机上进行。 基于这一特征，我们可以绕过对现代勒索软件所采用的强大加密技术的破解。</p>
 <h2 id="Crypto-Function-Hooking"><a href="#Crypto-Function-Hooking" class="headerlink" title="Crypto Function Hooking"></a>Crypto Function Hooking</h2><p>勒索软件的作者需要安全可靠的现代加密技术，因此，当今的恶意软件作者可以选择动态链接（系统提供的）密码库，也可以将外部库静态链接到他们的代码中。</p>
@@ -329,14 +327,14 @@
 <p>需要注意的是，libmagic已经成功标识了原始状态下honey files的真实内容，因此，如果类型更改为数据，则样本必须已对其进行了修改。</p>
 <p>为了确定勒索软件的家族，我们对AV标签进行了多数表决（即采用与Kharraz等人相同的方法<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label=" A. Kharraz, W. Robertson, D. Balzarotti, L. Bilge, and E. Kirda. Cutting the Gordian Knot: A Look Under the Hood of Ransomware Attacks. In Proceedings of the International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment (DIMVA), volume 9148 of Lecture Notes in Computer Science, Milan, Italy, July 2015. Springer International Publishing.
 ">[5]</span></a></sup>）。我们让RADDAR运行了4个月，以收集和生成有关1,691个恶意软件样本的报告，其中713个与AV公司使用的勒索软件标签匹配。 下图给出了该分析的详细分类。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/sample_summary.png" srcset="/img/loading.gif" alt=" Summary of analysis results. Sample count for each category is in parentheses"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/sample_summary.png" srcset="/img/loading.gif" lazyload alt=" Summary of analysis results. Sample count for each category is in parentheses"></p>
 <p>与之前的恶意软件研究一致，我们数据集中的许多样本由于各种原因没有显示任何恶意功能（即，它们处于非活动状态）。因此，我们进行了以下两步分析。首先，识别活动样本，然后尝试推断非活动样本未显示任何恶意行为的原因。如前所述，安全使用混合加密的勒索软件必须从命令和控制结构（C&amp;C）检索公钥pk。因此，如果恶意软件不产生任何网络流量，就无法安全地应用混合加密。如果所有观察到的TCP和UDP流量都专门针对Windows附属的域（例如用于计时和更新的域），则我们将样本分类为“无网络”。</p>
 <p>此外，如果所有DNS查询（针对Microsoft域的查询除外）都返回否，或者所有HTTP请求均生成404状态代码，则将样本分类为“已禁用C＆C”。在分析的非活动样本中，那些报告为具有禁用的C＆C的样本都是由于DNS查询返回错误。但是，我们没有对由恶意软件生成的受HTTPS保护的网络流量进行分析。最后，即使C＆C可操作且可访问，但如果检测到环境敏感型恶意软件在沙盒环境中运行，它也将避免执行。 “Environment”表示恶意软件可能正在分析其环境以检测其是否在虚拟环境（例如KVM或VirtualBox）中运行。 如果Cuckoo的内置检测程序将样本标识为“Environment”，则该样本将被标记为“Environment”。</p>
 <p>至于无法确定其余样品没有运行的原因，以前的经验表明，这可能是由于更高级的环境指纹识别，对用户活动的依赖性或逻辑（定时）炸弹的使用而导致执行延迟超过我们的20分钟评估阈值。最后，我们针对20个活跃的勒索软件系列评估了我们的系统，这是我们所知道的最大的勒索软件研究。</p>
 <h2 id="PayBreak-Effectiveness"><a href="#PayBreak-Effectiveness" class="headerlink" title="PayBreak Effectiveness"></a>PayBreak Effectiveness</h2><p>在本部分中，我们回答RQ1，PayBreak可以还原真实勒索软件执行的加密吗？和RQ2一样，是否需要对恶意软件家族进行特定的修改才能还原不同勒索软件家族采用的加密？</p>
 <p>PayBreak能够从具有已知加密签名的所有勒索软件系列中恢复被勒索的文件。我们的结果证实，我们能够成功融入现实勒索软件样本的加密功能并提取会话密钥以及用于文件恢复的所有必要材料。更具体地说，PayBreak击败了20个活跃勒索软件家族中的12个，据我们所知，其中9个以前从未被击败。如果存在可以完全恢复被勒索文件的方法或技术，那么这个勒索软件就是失败的。PayBreak成功恢复了由CryptoWall和Locky加密的文件，Locky是2016年在经济上最成功的三个勒索软件系列中的两个，而仅CryptoWall便获得了超过3.25亿美元的收入。</p>
 <p>下表中显示了活跃勒索软件系列的摘要。给定系列的活跃勒索软件数量在Samples列中指定。对于以前被勒索的勒索软件样本，该列中包含相应的参考。我们不认为泄漏的加密密钥（例如从攻击者的服务器获得）是失败的，因为这是针对勒索软件的活动，并不意味着勒索软件系列的实施不力。PayBreak展示了使用多种加密库（包括Microsoft CryptoAPI和Crypto++）击败勒索软件的能力。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/Active_Ransomware_Samples.png" srcset="/img/loading.gif" alt="Active Ransomware Samples"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/PayBreak%E9%98%B2%E5%8B%92%E7%B4%A2%E7%B3%BB%E7%BB%9F%E7%AE%80%E6%9E%90/Active_Ransomware_Samples.png" srcset="/img/loading.gif" lazyload alt="Active Ransomware Samples"></p>
 <p>PayBreak在运行时为PayBreak成功的样本提取了用于加密的加密算法，并在“算法”列中列出。对于未成功的样本，该列包含其他研究人员研究的信息，这些信息是我们尽可能收集的，并提供了相应的参考。此外，“击败”列还标识了通过先前技术或PayBreak被击败的所有软件。</p>
 <p>在我们的样本库中的20个活跃家庭中，PayBreak失败了8个。其中的三个DXXD，PokemonGo和VirLock先前被击败，其使用琐碎的常量密钥进行加密，即它们未使用混合加密。另外两个家庭，MarsJokes和Troldesh，也先前被击败。与流行的方式相反，这些系列使用了自己的伪随机数生成器，而不是使用经过了实战测试的CryptGenRandom API。其余没有成功的软件家族，Androm，Razy和TeslaCrypt使用一个密码库，而我们的原型实现并未设置为可hook的。 PayBreak可以扩展，以通过hooking它们各自的静态链接的加密功能，然后将其恒定密钥（对于琐碎的家族）导出，或将其会话密钥导出到密钥库中，从而击败其余八个家族。 接下来，我们讨论系统所使用签名的鲁棒性。</p>
 <h3 id="Signature-Robustness"><a href="#Signature-Robustness" class="headerlink" title="Signature Robustness"></a>Signature Robustness</h3><p>为了识别静态链接的加密库，PayBreak依赖于签名。因此，一个明显的问题是这些签名对混淆的鲁棒性。与所有实用的在线反恶意软件免杀方案一样，足够级别的混淆和欺骗可以规避PayBreak提供的保护。但是，请注意，运行时脱壳的二进制文件不会对PayBreak造成问题。为了评估签名的鲁棒性，我们根据不同编译器和优化级别引入的语法更改来评估它们，因为攻击者可以轻松更改这些特征。为此，我们编译了12个程序，这些程序使用具有不同编译器和优化设置的Crypto++加密库。更准确地说，我们的示例程序静态链接了Crypto++版本5.6.3、5.6.2和5.6.1，包含了这个流行的Windows加密库开发的五年时间。此外，我们使用tdm-gcc和mingw32-gcc编译器编译了程序，每个编译器都具有禁用的优化功能和最大优化级别。要识别加密功能的所有12个变体，我们必须开发两个签名。原因是，使用不同的编译器时，工件之间的差异很大，但对于不同的优化级别，差异就较小。本质上，我们必须为每个编译器创建一个签名，并且每个签名在所有经过测试的优化级别和库版本中都是可靠的。</p>
@@ -434,7 +432,7 @@
                 
   <div id="gitalk-container"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
+    Fluid.utils.lazyComments('gitalk-container', function() {
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
         var gitalk = new Gitalk({
@@ -550,8 +548,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -575,7 +574,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -694,7 +693,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

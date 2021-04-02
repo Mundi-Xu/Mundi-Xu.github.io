@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="记录一个关于入坑fuzzing的学习历程">
-  
+  <meta name="description" content="记录一个关于入坑fuzzing的学习历程">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -269,10 +267,10 @@
 </blockquote>
 <p>就Fuzzing来说，模糊测试主要有两个重要的模块组成<strong>Fuzzer</strong>和<strong>Runner</strong></p>
 <p>下面是其类图：</p>
-<p><img src="https://p0.ssl.qhimg.com/t0128fff338f3ae637f.jpg" srcset="/img/loading.gif"></p>
+<p><img src="https://p0.ssl.qhimg.com/t0128fff338f3ae637f.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>一个很简单的调用关系来进行简单的包装，Runner类主要负责将数据输入程序，以及监控程序的运行状态，这次我们先重点介绍Fuzzer</p>
 <h2 id="Fuzzer"><a href="#Fuzzer" class="headerlink" title="Fuzzer"></a>Fuzzer</h2><p>对于模糊测试来说，很重要的一点就是对数据进行模糊处理，所以一般在实现上都会单独把<strong>Fuzzer</strong>模块抽离出来</p>
-<p><img src="https://p4.ssl.qhimg.com/t019d9027629986b2bd.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p4.ssl.qhimg.com/t019d9027629986b2bd.png" srcset="/img/loading.gif" lazyload></p>
 <p>如上图所示，对于数据变异常用的三种基础的方式是<strong>随机删除</strong>，<strong>随机添加</strong>，**随机反转(filp)**，下面是简单的实现代码，我们后续的工作也是基于其来进行的构建</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">del_random_chr</span>(<span class="hljs-params">s</span>):</span><br>        <span class="hljs-keyword">if</span> s <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> self.insert_random_chr(s)<br>        pos = random.randint(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s))<br>        <span class="hljs-keyword">return</span> s[:pos]+s[pos+<span class="hljs-number">1</span>:]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert_random_chr</span>(<span class="hljs-params">s</span>):</span><br>        pos = random.randint(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s))<br>        new_s = <span class="hljs-built_in">chr</span>(random.randrange(<span class="hljs-number">32</span>, <span class="hljs-number">127</span>))<br>        <span class="hljs-keyword">return</span> s[:pos]+new_s+s[pos:]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">flip_random_chr</span>(<span class="hljs-params">s</span>):</span><br>        <span class="hljs-keyword">if</span> s <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> self.insert_random_chr(s)<br><br>        pos = random.randint(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>)<br>        bit = <span class="hljs-number">1</span>&lt;&lt;random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">6</span>)<br>        <span class="hljs-keyword">return</span> s[:pos]+<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(s[pos])^bit)+s[pos+<span class="hljs-number">1</span>:]<br></code></pre></div></td></tr></table></figure>
 
@@ -310,7 +308,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$&gt; gcc cgi_decode.c --coverage -o cgi_decode<br>$&gt; ./cgi_decode <span class="hljs-string">&#x27;Send+mail+to+me%40fuzzingbook.org&#x27;</span><br>$&gt; gcov cgi_decode.c<br>File <span class="hljs-string">&#x27;cgi_decode.c&#x27;</span><br>Lines executed:92.86% of 42<br>cgi_decode.c:creating <span class="hljs-string">&#x27;cgi_decode.c.gcov&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>然后在生成的.c.gcov文件中如图所示</p>
-<p><img src="https://p0.ssl.qhimg.com/t013f070ef352e573b7.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p0.ssl.qhimg.com/t013f070ef352e573b7.png" srcset="/img/loading.gif" lazyload></p>
 <p>最左边就是每一行代码执行到的次数</p>
 <p>对于python代码，作者构建了一个<strong>Coverage类</strong>来记录代码覆盖率:</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coverage</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">traceit</span>(<span class="hljs-params">self, frame, event, arg</span>):</span><br>        <span class="hljs-keyword">if</span> self.original_trace_function <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>            self.original_trace_function(frame, event, arg)<br><br>        <span class="hljs-keyword">if</span> event == <span class="hljs-string">&quot;line&quot;</span>:<br>            function_name = frame.f_code.co_name<br>            lineno = frame.f_lineno<br>            self._trace.append((function_name, lineno))<br><br>        <span class="hljs-keyword">return</span> self.traceit<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        self._trace = []<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__enter__</span>(<span class="hljs-params">self</span>):</span><br>        self.original_trace_function = sys.gettrace()<br>        sys.settrace(self.traceit)<br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__exit__</span>(<span class="hljs-params">self, exc_type, exc_value, tb</span>):</span><br>        sys.settrace(self.original_trace_function)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">trace</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> self._trace<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">coverage</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">set</span>(self.trace())<br></code></pre></div></td></tr></table></figure>
@@ -343,7 +341,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$&gt; python3 greyboxFuzzer.py<br>1.7056656000000001<br>&#123;(<span class="hljs-string">&#x27;crashme&#x27;</span>, 3), (<span class="hljs-string">&#x27;crashme&#x27;</span>, 6), (<span class="hljs-string">&#x27;crashme&#x27;</span>, 2), (<span class="hljs-string">&#x27;crashme&#x27;</span>, 5), (<span class="hljs-string">&#x27;crashme&#x27;</span>, 4), (<span class="hljs-string">&#x27;__exit__&#x27;</span>, 38)&#125;<br>6<br>[good, bEgd, bar<span class="hljs-variable">$Egdi</span>, badEdi, bad!Egi]<br></code></pre></div></td></tr></table></figure>
 
 <p>下面是FuzzingBook所给出的一张对比图，可以直观的发现，没有代码覆盖率引导的普通数据变异很难覆盖完程序的路径，而通过代码覆盖率的引导，Fuzzer生成的数据能逐渐的覆盖程序的路径。</p>
-<p><img src="https://p0.ssl.qhimg.com/t018eea479c2b9ddee8.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p0.ssl.qhimg.com/t018eea479c2b9ddee8.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="AFLFastSchedule"><a href="#AFLFastSchedule" class="headerlink" title="AFLFastSchedule:"></a>AFLFastSchedule:</h2><p>在我们Fuzz crashme这个例子中，通过上节的实验我们可以发现使用代码覆盖率来引导我们的Fuzzer，可以使其变得更有目的性的去生成变异数据，但其耗时还是相对较长，且fuzzing出来的的数据也相对较多，那么有没有优化的方案呢？</p>
 <p>在FuzzingBook中，作者使用如下公式来计算种子数据的权重</p>
 <p>e(s) =\frac{1}{f(p(s))^e}</p>
@@ -377,7 +375,7 @@
 
 <p>可以发现，通过一定调整exponent常量，我们可以接近一个更有效率的测试次数值</p>
 <p>下图是三个不同的Fuzzer的效率对比</p>
-<p><img src="https://p4.ssl.qhimg.com/t01e24519ac809adda7.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p4.ssl.qhimg.com/t01e24519ac809adda7.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们可以发现，使用<strong>AFLFastSchedule</strong>优化过的Fuzzer在三者之中覆盖crashme的效率确实是要更快的多。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过该部分的学习，我们基本了解了什么是Fuzzing，以及如何编写基于python程序的Fuzzer，同时根据相关理论指导来优化我们的Fuzzer。</p>
 
@@ -518,8 +516,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -543,7 +542,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -662,7 +661,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="本文主要介绍如何使用AFL++快速开始Fuzz一个样例程序和对大量的Fuzzer-Generated Crashes进行分类以及部分工具的安装与使用">
-  
+  <meta name="description" content="本文主要介绍如何使用AFL++快速开始Fuzz一个样例程序和对大量的Fuzzer-Generated Crashes进行分类以及部分工具的安装与使用">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -318,22 +316,22 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">mkdir inputs<br>mkdir out<br>echo 1 &gt; inputs/1<br>echo &quot;u 4 capsme&quot; &gt; inputs/2<br>afl-fuzz -i inputs -o out ./vulnerable<br></code></pre></div></td></tr></table></figure>
 
 <p>如果一切正常的话，睡个午觉之后你就能看见类似于如下的图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/quickstart.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/quickstart.png" srcset="/img/loading.gif" lazyload></p>
 <p>每个独特的crash和命令参数都将存放在输出文件夹的crashes文件夹下，接下来就是对这些crash进行调试分析了。</p>
 <h1 id="crashes分类与自动化分析"><a href="#crashes分类与自动化分析" class="headerlink" title="crashes分类与自动化分析"></a>crashes分类与自动化分析</h1><p>在开始分析前请确保已安装gdb等常用二进制调试工具，我使用的是GDB的<a target="_blank" rel="noopener" href="https://github.com/hugsy/gef">gef插件</a>。</p>
 <p>对crashes的分类包括调试分析Fuzz程序发现的每个crash以确定碰撞是否值得进一步分析（对安全研究人员而言，这通常意味着确定crash是否可能是由漏洞造成的），如果是，则确定crash的根本原因。详细地人工分析每一个crash都非常耗时耗力，尤其当Fuzzer已经识别出几十次或上百次crash时。</p>
 <p>幸运的是现在已有许多可用于帮助分类或分析crash的技术和工具。虽然crashes的分类仍然可能是一个痛苦的过程，但下述的工具可以帮助减轻一些乏味的工作，至少也能大概确定最有可能触发安全相关问题的crash优先级。</p>
 <h2 id="crash复现与初步分析"><a href="#crash复现与初步分析" class="headerlink" title="crash复现与初步分析"></a>crash复现与初步分析</h2><p>首先我们来看看刚才得到的九个crash（这里只有八个的原因是我服务器崩了导致我重跑了一遍，但第九个crash怎么也出不来。。。。。。。。）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310160024060.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310160024060.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们先用gdb简单调试下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310161229664.png" srcset="/img/loading.gif"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310161327761.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310161229664.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310161327761.png" srcset="/img/loading.gif" lazyload></p>
 <p>显然，我们能知道错误类型（在这种情况下为SIGSEV），发生错误的代码行（因为二进制文件是带调试信息编译的），造成崩溃的指令（<code>movdqu xmm2, XMMWORD PTR [r13+rdi*1+0x11]</code>，大概率是因为非法访问内存），backtrace以及其他诸如stack内容等信息。但逐个这样分析crash是一件很费时费力的工作，所以我们需要一些自动化工具来帮助我们进行分析。</p>
 <h2 id="自动化工具的介绍和使用"><a href="#自动化工具的介绍和使用" class="headerlink" title="自动化工具的介绍和使用"></a>自动化工具的介绍和使用</h2><blockquote>
 <p>GDB ‘exploitable’ plugin<br>Repository: <a target="_blank" rel="noopener" href="https://github.com/jfoote/exploitable">https://github.com/jfoote/exploitable</a></p>
 </blockquote>
 <p>exploitable是一个gdb插件，安装请参见安装文档，它试图确定某个特定的crash是否可能可以被利用。该插件为各类程序状态提供了一系列的分类标准，如果程序处于可以被插件识别的状态，它将为该状态分配可利用性的分类。使用如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310163220227.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310163220227.png" srcset="/img/loading.gif" lazyload></p>
 <p>此工具可以帮助用户优先分析那些最有可能被利用的crash，不太可能被利用的（或者插件无法分析的）可能仍然值得分析，但这是在调试了那些更有希望发现漏洞的crash之后。</p>
 <hr>
 <blockquote>
@@ -343,11 +341,11 @@
 <p>使用方法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">export CW_EXPLOITABLE=/path/to/exploitable.py<br>./cwtriage -root ./out/default/crashes/ -match id -- ./vulnerable<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310164846659.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310164846659.png" srcset="/img/loading.gif" lazyload></p>
 <p>使用cwdump获取摘要：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">./cwdump ./crashwalk.db<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310165705086.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310165705086.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
 <blockquote>
 <p>afl-utils<br>Repository: <a target="_blank" rel="noopener" href="https://gitlab.com/rc0r/afl-utils">https://gitlab.com/rc0r/afl-utils</a><br>Docs: <a target="_blank" rel="noopener" href="https://gitlab.com/rc0r/afl-utils/-/tree/master/docs">https://gitlab.com/rc0r/afl-utils/-/tree/master/docs</a></p>
@@ -362,8 +360,8 @@
 <li>自主实用程序执行（<code>afl-cron</code>）</li>
 </ul>
 <p>其中afl-collect与crashwalk类似，也可调用exploitable进行简单分析并生成库，具体上篇文章已经介绍过了，不再赘述，直接上图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310180108989.png" srcset="/img/loading.gif"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310180131008.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310180108989.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310180131008.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以看出afl-collect很快就统计了脚本数据并将crashes整合后复制到了输出文件夹，对比crashwalk的结果而言简明了很多。但需要注意的是，exploitable并没有考虑在现有防御机制下漏洞的利用难度，所以我们还需要使用下述工具来辅助我们进行分析。</p>
 <hr>
 <blockquote>
@@ -375,22 +373,22 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">afl-fuzz -C -i out/default/crashes/ -o crash_exploration/ ./vulnerable<br></code></pre></div></td></tr></table></figure>
 
 <p>当AFL开始以这种模式运行时，它将检查测试用例以确保它们导致crash，如下所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310172512489.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310172512489.png" srcset="/img/loading.gif" lazyload></p>
 <p>在AFL的正常模式中，此步骤的目的是对测试用例进行检查以确保它们<strong>不会</strong>导致崩溃。AFL希望使用正常的测试文件来使程序按预期方式运行，以便可以对它们进行迭代以触发异常行为。相反，崩溃探索模式确保这些测试用例已经导致crash，因为它将尝试识别将导致相同状态的其他代码路径。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310172616236.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210310172616236.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
 <blockquote>
 <p>Record and Replay Framework<br>Repository: <a target="_blank" rel="noopener" href="https://github.com/rr-debugger/rr">https://github.com/rr-debugger/rr</a><br>Doc: <a target="_blank" rel="noopener" href="https://rr-project.org/">https://rr-project.org/</a><br>Wiki: <a target="_blank" rel="noopener" href="https://github.com/rr-debugger/rr/wiki">https://github.com/rr-debugger/rr/wiki</a><br>Reference: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1705.05937.pdf">Engineering Record And Replay For Deployability Extended Technical Report</a></p>
 </blockquote>
 <p>需要Linux内核3.11或更高版本且<code>/proc/sys/kernel/perf_event_paranoid</code>必须小于等于1（即能够使用<code>perf</code>计数器）。详细要求请参阅<code>https://github.com/rr-debugger/rr/wiki/Building-And-Installing#hardwaresoftware-configuration</code> 。我的服务器不符合要求，就在这里仅做个介绍推荐吧，有空再补（咕了</p>
 <h1 id="对crash的简单调试"><a href="#对crash的简单调试" class="headerlink" title="对crash的简单调试"></a>对crash的简单调试</h1><p>让我们从上面分完类的crashes中随机挑一个丢到gdb里去，在<code>strcat(out, rest + len);</code>处下个断点（当然在其他地方也可以，主要是这里的溢出点太明显了。。。。）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/heap-view.png" srcset="/img/loading.gif" alt="heap-view"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/heap-view.png" srcset="/img/loading.gif" lazyload alt="heap-view"></p>
 <p>可以看出来在执行strcat函数之前的堆还是十分正常的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/heap-chunks.png" srcset="/img/loading.gif" alt="heap-chunks"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/heap-chunks.png" srcset="/img/loading.gif" lazyload alt="heap-chunks"></p>
 <p>oops,溢出啦，让我们来看一下输入文件的内容</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/xxd.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/xxd.png" srcset="/img/loading.gif" lazyload></p>
 <p>显然是因为strcat造成溢出覆盖了top chunk，然后在printf调用malloc的时候触发crash。而输入我们是可以自定义的，也就是说我们现在可以控制top chunk的size了，接下来的利用过程就交给各位师傅们了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210312161833139.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/AFL++%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89%E5%BC%80%E5%A7%8BFuzz%E4%B8%8Ecrashes%E5%88%86%E6%9E%90/image-20210312161833139.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在本文中我们介绍了AFL++的安装和各类工具的使用以帮助我们对Fuzzer生成的crashes进行分类与分析。当然，还有很多自动化分析工具没有介绍，具体可以参阅<code>https://aflplus.plus/docs/sister_projects/#crash-triage-coverage-analysis-and-other-companion-tools</code>。 </p>
 <p>在下篇文章中我会学着如何对一些简单的库代码和真实软件编写脚本来帮助Fuzzer更好地进行Fuzzing。</p>
 
@@ -448,7 +446,7 @@
                 
   <div id="gitalk-container"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
+    Fluid.utils.lazyComments('gitalk-container', function() {
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
         var gitalk = new Gitalk({
@@ -564,8 +562,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -589,7 +588,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -708,7 +707,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

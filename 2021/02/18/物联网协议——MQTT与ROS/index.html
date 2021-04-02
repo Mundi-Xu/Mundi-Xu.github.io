@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="本文仅介绍MQTT与ROS两种协议的基本概念并做横向对比，不会涉及各个协议的高级特性">
-  
+  <meta name="description" content="本文仅介绍MQTT与ROS两种协议的基本概念并做横向对比，不会涉及各个协议的高级特性">
   <meta name="author" content="寒雨">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"mundi-xu.github.io","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":"UA-146906922-1","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -257,9 +255,9 @@
 <h2 id="0x00-写在前面"><a href="#0x00-写在前面" class="headerlink" title="0x00 写在前面"></a>0x00 写在前面</h2><p>本文仅介绍MQTT与ROS两种协议的基本概念并做横向对比，不会涉及各个协议的高级特性，两种协议的本地搭建方式也会在下一篇文章中予以阐述，以下高级特性若读者有兴趣可以自行收集资料了解。（也不排除我后面会发相关文章，老鸽子了）</p>
 <p>MQTT高级特性：保留消息(<code>Retained Messages</code>)、遗嘱消息(<code>Last Will and Testament</code>)、会话保持(<code>Keep Alive</code>)、客户端托管(<code>Client Take-over</code>)、链路保密(<code>TLS</code>)、访问控制(<code>ACL</code>)。</p>
 <p>ROS高级特性：参数服务器(<code>Parameter Server</code>)、服务端-客户端方式。</p>
-<h2 id="0x01-概述"><a href="#0x01-概述" class="headerlink" title="0x01 概述"></a>0x01 概述</h2><p><img src="https://p0.ssl.qhimg.com/t0147ed803bc27a3e33.png" srcset="/img/loading.gif"></p>
+<h2 id="0x01-概述"><a href="#0x01-概述" class="headerlink" title="0x01 概述"></a>0x01 概述</h2><p><img src="https://p0.ssl.qhimg.com/t0147ed803bc27a3e33.png" srcset="/img/loading.gif" lazyload></p>
 <p>MQTT是基于发布-订阅模式的C/S架构消息传输协议，它轻量、开放、简单且易于实施。这些特性使其非常适合在特殊的受限情况下使用，例如用于机器对机器(M2M)和物联网(IoT)中的通信，这些环境中由于存储空间和网络带宽非常宝贵因此需要代码体积尽量小，网络协议尽量简单，MQTT正好满足这两点要求。</p>
-<p><img src="https://p4.ssl.qhimg.com/t0117232d74ebbc5a5d.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p4.ssl.qhimg.com/t0117232d74ebbc5a5d.png" srcset="/img/loading.gif" lazyload></p>
 <p>ROS是用于编写机器人软件的灵活框架，它是工具、库和约定的集合，旨在简化跨各种机器人平台创建复杂而强大的机器人行为的任务。</p>
 <h2 id="0x02-关于订阅者-发布者模式"><a href="#0x02-关于订阅者-发布者模式" class="headerlink" title="0x02 关于订阅者-发布者模式"></a>0x02 关于订阅者-发布者模式</h2><h3 id="观察者模式-Observer-Pattern"><a href="#观察者模式-Observer-Pattern" class="headerlink" title="观察者模式(Observer Pattern)"></a>观察者模式(Observer Pattern)</h3><p>在继续说订阅者-发布者模式之前，有必要提出观察者模式的概念，观察者模式定义了对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知，并自动更新。观察者模式属于行为型模式，行为型模式关注的是对象之间的通讯，观察者模式就是观察者和被观察者之间的通讯。</p>
 <p><strong>观察者模式有一个别名叫“发布-订阅模式”，或者说是“订阅-发布模式”</strong>，订阅者和订阅目标是联系在一起的，当订阅目标发生改变时，逐个通知订阅者。我们可以用报纸期刊的订阅来形象的说明，当你订阅了一份报纸，每天都会有一份最新的报纸送到你手上，有多少人订阅报纸，报社就会发多少份报纸，报社和订报纸的客户就是上面文章开头所说的“一对多”的依赖关系。</p>
@@ -284,7 +282,7 @@
 </ul>
 <p>PS：当客户端与消息代理连接时，可以额外指定持久化会话标识，消息代理接收到后会与此客户端建立持久化会话而非临时会话，与临时会话的区别只要在于，在持久化会话中，消息代理会帮客户端保存特定的信息。</p>
 <h3 id="话题-Topic"><a href="#话题-Topic" class="headerlink" title="话题-Topic"></a>话题-Topic</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>根据上面的描述，我们可以很轻易地画出在MQTT中消息传递的拓扑图：</p>
-<p><img src="https://p5.ssl.qhimg.com/t018aa17e18b16252fb.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p5.ssl.qhimg.com/t018aa17e18b16252fb.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到，我们在拓扑中引入了话题(<code>Topic</code>)的概念，对于MQTT系统，其通常采用基于话题的消息过滤机制，即消息代理会依据话题名来进行消息的分发。</p>
 <h4 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h4><p>在MQTT中，话题名是由一串<code>UTF-8</code>编码的字符串组成的，例如：</p>
 <p><code>kingdom/phylum/class/order/family/genus/species</code>（界门纲目科属种）</p>
@@ -309,9 +307,7 @@
 <li><p>非必要不要订阅<code>#</code>。这将导致本地的消息负载过大进而导致宕机，如确有需要记录所有消息(例如实现了一个<code>logger</code>)，可以考虑基于MQTT做功能扩展实现负载均衡。</p>
 </li>
 <li><p>不要操作<code>$</code>开头的主题。这部分主题由消息代理保留，一般用于消息代理保存相关统计信息。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">SYS/broker/clients/connected</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/clients/disconnected</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/clients/total</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/messages/sent</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/uptime</span><br></code></pre></div></td></tr></table></figure>
-
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">SYS/broker/clients/connected</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/clients/disconnected</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/clients/total</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/messages/sent</span><br><span class="hljs-meta">$</span><span class="bash">SYS/broker/uptime</span><br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><p>订阅者在订阅话题时，除了可以使用完整的话题名之外，还可以使用通配符进行话题的订阅。</p>
 <p>通配符分为两种，分别是单层通配符(<code>+</code>)和多层通配符(<code>#</code>)：</p>
@@ -330,19 +326,19 @@
 <li>队列是命名的，必须首先显式创建后才能对其写入以及读取，而MQTT拥有隐式创建Topic的能力，即，当我们向MQTT的某个Topic发布消息时，若此时Topic不存在，消息代理会自动的创建此Topic。</li>
 </ul>
 <h3 id="服务质量-QoS"><a href="#服务质量-QoS" class="headerlink" title="服务质量-QoS"></a>服务质量-QoS</h3><p>MQTT中有三个服务质量级别，服务质量将直接影响消息传递的可靠性以及资源开销。</p>
-<h4 id="QoS-0-–-尽最大努力交付"><a href="#QoS-0-–-尽最大努力交付" class="headerlink" title="QoS 0 – 尽最大努力交付"></a>QoS 0 – 尽最大努力交付</h4><p><img src="https://p1.ssl.qhimg.com/t0165ea25a694789223.png" srcset="/img/loading.gif"></p>
+<h4 id="QoS-0-–-尽最大努力交付"><a href="#QoS-0-–-尽最大努力交付" class="headerlink" title="QoS 0 – 尽最大努力交付"></a>QoS 0 – 尽最大努力交付</h4><p><img src="https://p1.ssl.qhimg.com/t0165ea25a694789223.png" srcset="/img/loading.gif" lazyload></p>
 <p>这个级别是最低的服务质量级别，只保证尽最大努力，此消息在发送方端不做存储，且不要求接收方发送确认，不会进行任何重发操作，可靠性与TCP协议相同，资源开销最低。</p>
-<h4 id="QoS-1-–-确保交付"><a href="#QoS-1-–-确保交付" class="headerlink" title="QoS 1 – 确保交付"></a>QoS 1 – 确保交付</h4><p><img src="https://p2.ssl.qhimg.com/t018f2e5b1a598d500d.png" srcset="/img/loading.gif">]</p>
+<h4 id="QoS-1-–-确保交付"><a href="#QoS-1-–-确保交付" class="headerlink" title="QoS 1 – 确保交付"></a>QoS 1 – 确保交付</h4><p><img src="https://p2.ssl.qhimg.com/t018f2e5b1a598d500d.png" srcset="/img/loading.gif" lazyload>]</p>
 <p>这个级别是中等的服务质量级别，只保证消息能被接收方能接收到消息而不管接收方接收到几次消息，资源开销中等，发送方应当保存一份消息至本地，直到接收到接收方发送来的<code>PUBACK</code>消息，当等待时间超过阈值，即重发消息。一般来说，若消息接受方是客户端(例如，订阅者)，它应当立即处理此消息并回复<code>PUBACK</code>消息；若消息接收方是消息代理，它应当立即依据话题名或其他消息过滤机制进行下一步分发并回复<code>PUBACK</code>消息。</p>
-<p><img src="https://p1.ssl.qhimg.com/t011d3394d1c222fdad.png" srcset="/img/loading.gif">]</p>
+<p><img src="https://p1.ssl.qhimg.com/t011d3394d1c222fdad.png" srcset="/img/loading.gif" lazyload>]</p>
 <p>此外，发送方发送的消息包中有<code>DUP</code>标志位，当这个消息包是重发的消息包时将会把这个标志位置位，但是，无论此标志位是否置位，接收方在收到后都会发起确认，此标志位只用于内部的目的，对于消息代理和客户端都是透明的。</p>
 <h4 id="QoS-2-–-仅一次交付"><a href="#QoS-2-–-仅一次交付" class="headerlink" title="QoS 2 – 仅一次交付"></a>QoS 2 – 仅一次交付</h4><p>这个服务级别是最高服务级别，这是最安全的级别但同时也是最慢的服务级别，在此种模式下可以确保接受方接收且仅接受一次目标消息。发送方和接收方之间至少有两个请求/响应流(四部分握手)来提供保证，发送者和接收者使用原始发布消息的数据包标识符来协调消息的传递。</p>
-<p><img src="https://p4.ssl.qhimg.com/t0168945162bd4e013d.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p4.ssl.qhimg.com/t0168945162bd4e013d.png" srcset="/img/loading.gif" lazyload></p>
 <p>当接收方从发送方获得<code>QoS 2</code>级别的数据包时，它会相应地处理发布消息，并向发送方回复<a target="_blank" rel="noopener" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718048">PUBREC</a>数据包，如果发送方直到阈值时间结束也没有从接收方收到<code>PUBREC</code>数据包，它将再次发送带有<code>DUP</code>标志的数据包，直到收到确认为止。</p>
-<p><img src="https://p0.ssl.qhimg.com/t0106a792e303bec7d1.png" srcset="/img/loading.gif"><br>一旦发送方从接收方接收到<code>PUBREC</code>数据包，发送方就可以安全地丢弃初始的数据包。发送方存储来自接收方的<code>PUBREC</code>数据包，并以<a target="_blank" rel="noopener" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718053">PUBREL</a>数据包作为响应 。</p>
-<p><img src="https://p1.ssl.qhimg.com/t01287f9d430fc43b3d.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p0.ssl.qhimg.com/t0106a792e303bec7d1.png" srcset="/img/loading.gif" lazyload><br>一旦发送方从接收方接收到<code>PUBREC</code>数据包，发送方就可以安全地丢弃初始的数据包。发送方存储来自接收方的<code>PUBREC</code>数据包，并以<a target="_blank" rel="noopener" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718053">PUBREL</a>数据包作为响应 。</p>
+<p><img src="https://p1.ssl.qhimg.com/t01287f9d430fc43b3d.png" srcset="/img/loading.gif" lazyload></p>
 <p>接收者获得<code>PUBREL</code>数据包后，它可以丢弃所有存储的数据包并用<a target="_blank" rel="noopener" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718058">PUBCOMP</a>数据包应答(发送者接收到<code>PUBCOMP</code>时也是如此)。在接收方完成处理并将<code>PUBCOMP</code>数据包发送回发送方之前，接收方将存储对原始数据包的标识符并将其锁死。此步骤很重要，可以避免再次处理该消息。发送方收到<code>PUBCOMP</code>数据包后，将对之前锁死的数据包进行解锁操作，此时已发布消息的数据包标识符将变为可用。</p>
-<p><img src="https://p5.ssl.qhimg.com/t01b60867a58b0ac780.png" srcset="/img/loading.gif"></p>
+<p><img src="https://p5.ssl.qhimg.com/t01b60867a58b0ac780.png" srcset="/img/loading.gif" lazyload></p>
 <p>此时，QoS 2级别的消息交付流程结束，如果任何一个数据包在途中丢失，则发件人有责任在合理的阈值时间内进行消息的重传。</p>
 <h4 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h4><h5 id="降级攻击"><a href="#降级攻击" class="headerlink" title="降级攻击"></a>降级攻击</h5><p>对于MQTT系统中最重要的发布者和订阅者而言，实际在进行订阅动作与发布动作时的<strong>QoS级别可能是不同的</strong>。例如，客户端A是消息的发布者，客户端B是消息的订阅者，如果客户端B以<code>QoS 1</code>订阅<code>Topic</code>，而客户端A以<code>QoS 2</code>发布信息到<code>Topic</code>，那么代理最终会以<code>QoS 1</code>的服务质量将消息传送到客户端B处，而且客户端B将有可能会收到多次消息。</p>
 <h5 id="数据标识符并不唯一"><a href="#数据标识符并不唯一" class="headerlink" title="数据标识符并不唯一"></a>数据标识符并不唯一</h5><p>正像上文所提到的，数据传输时的数据标识符并不是唯一的，它只会在数据传输时被消息代理临时锁死(<code>QoS 0</code>级别时除外)，一旦整个流程结束此标识符将会被释放，因此官方给定的数据标识符范围是<code>0~65535</code>，官方认为在不进行客户端的交互时，发送超过<code>65535</code>条消息是不现实的。</p>
@@ -485,8 +481,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -510,7 +507,7 @@
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
@@ -629,7 +626,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>
