@@ -31,9 +31,9 @@
     
     <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
     
-    <category term="AFL++" scheme="https://mundi-xu.github.io/tags/AFL/"/>
-    
     <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="AFL++" scheme="https://mundi-xu.github.io/tags/AFL/"/>
     
   </entry>
   
@@ -157,13 +157,13 @@
     
     <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
     
-    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="AFL" scheme="https://mundi-xu.github.io/tags/AFL/"/>
     
     <category term="CVE" scheme="https://mundi-xu.github.io/tags/CVE/"/>
     
     <category term="ntp" scheme="https://mundi-xu.github.io/tags/ntp/"/>
+    
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -357,7 +357,7 @@
     <link href="https://mundi-xu.github.io/2018/10/25/hello-world/"/>
     <id>https://mundi-xu.github.io/2018/10/25/hello-world/</id>
     <published>2018-10-25T09:21:30.000Z</published>
-    <updated>2021-01-26T12:55:23.201Z</updated>
+    <updated>2021-04-02T08:51:50.192Z</updated>
     
     
     <summary type="html">Welcome to My Blog !</summary>
