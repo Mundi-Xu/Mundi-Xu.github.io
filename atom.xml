@@ -6,7 +6,7 @@
   <link href="https://mundi-xu.github.io/atom.xml" rel="self"/>
   
   <link href="https://mundi-xu.github.io/"/>
-  <updated>2021-03-18T10:42:16.849Z</updated>
+  <updated>2021-07-03T04:05:52.226Z</updated>
   <id>https://mundi-xu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用AFL fuzz pdfium</title>
+    <link href="https://mundi-xu.github.io/2021/07/03/%E5%88%A9%E7%94%A8AFL%20fuzz%20pdfium/"/>
+    <id>https://mundi-xu.github.io/2021/07/03/%E5%88%A9%E7%94%A8AFL%20fuzz%20pdfium/</id>
+    <published>2021-07-03T04:05:21.000Z</published>
+    <updated>2021-07-03T04:05:52.226Z</updated>
+    
+    
+    <summary type="html">简单介绍PDF渲染引擎PDFium的下载编译与如何利用AFL开始模糊测试。</summary>
+    
+    
+    
+    
+    <category term="Fuzzing" scheme="https://mundi-xu.github.io/tags/Fuzzing/"/>
+    
+    <category term="AFL" scheme="https://mundi-xu.github.io/tags/AFL/"/>
+    
+    <category term="pdfium" scheme="https://mundi-xu.github.io/tags/pdfium/"/>
+    
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>AFL++学习日志（一）开始Fuzz与crashes分析</title>
@@ -159,11 +182,11 @@
     
     <category term="AFL" scheme="https://mundi-xu.github.io/tags/AFL/"/>
     
+    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    
     <category term="CVE" scheme="https://mundi-xu.github.io/tags/CVE/"/>
     
     <category term="ntp" scheme="https://mundi-xu.github.io/tags/ntp/"/>
-    
-    <category term="模糊测试" scheme="https://mundi-xu.github.io/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   

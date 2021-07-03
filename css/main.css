@@ -269,7 +269,7 @@ sup > a::before,
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 #scroll-top-button i {
-  font-size: 1.75rem;
+  font-size: 32px;
   margin: auto;
   color: var(--sec-text-color);
 }
@@ -299,9 +299,11 @@ sup > a::before,
 #local-search-result .search-word {
   color: #ff4500;
 }
+html {
+  font-size: 16px;
+}
 html,
 body {
-  font-size: 16px;
   font-family: var(--font-family-sans-serif);
 }
 html,
@@ -328,6 +330,9 @@ body a:hover {
 }
 code {
   color: inherit;
+}
+table {
+  font-size: inherit;
 }
 img[lazyload] {
   object-fit: cover;
@@ -1329,7 +1334,7 @@ mjx-container svg:focus,
   color: var(--sec-text-color);
   margin: 0.5rem 0 0.5rem 0;
   max-height: calc(1.4rem * 3);
-  line-height: 1.4;
+  line-height: 1.4rem;
   overflow: hidden;
 }
 .index-excerpt > div {
@@ -1555,6 +1560,11 @@ post-custom {
 .custom,
 .comments {
   margin-top: 2rem;
+}
+.comments noscript {
+  display: block;
+  text-align: center;
+  padding: 2rem 0;
 }
 .visitors {
   font-size: 0.8em;
