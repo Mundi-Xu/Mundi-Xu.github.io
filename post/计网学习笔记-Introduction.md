@@ -540,7 +540,6 @@ $\text {“traffic intensity”} = \frac{L \cdot a}{R} : \frac{ \text{arrival ra
     + sends three packets that will reach router i on path towards destination (with time-to-live field value of i)
     + router i will return packets to sender
     + sender measures time interval between transmission and reply
-    
 > tracert in Windows
 
 ![](https://cdn.jsdelivr.net/gh/Mundi-Xu/picture_resource@master/picture/计网学习笔记-Introduction/traceroute.png)
@@ -549,7 +548,6 @@ We can draw some conclusions from these outputs:
 
 + We can determine the distance to the delay times. We can see the increasing delay, especially in continental jumps.
 + When we start to get three stars, we can understand that our package will get an answer.
-  
 
 For more information [www.traceroute.org](http://www.traceroute.org/). 
 You can view the demo [here](http://tool.chinaz.com/Tracert/).    
@@ -899,8 +897,6 @@ Given the frequency and variety of existing attacks as well as the threat of new
 ---
 
 第一次用英文做笔记，有语法错误的话见谅，毕竟只是一个低分飘过六级的小废物罢了。。。
-
-Ps. 求第八版的PDF啊！不是中文searchable的也行啊！现在只能第七版的和slides混着看。。。。
 
 ---
 
